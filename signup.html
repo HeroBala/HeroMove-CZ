@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join HeroMove CZ Fleet</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+<div class="nav-brand">
+<h2><a href="index.html" style="color:#22c55e;text-decoration:none;">🚀 HeroMove CZ</a></h2>
+</div>
+
+<div class="nav-links">
+<a href="index.html#transport">🚗 Transport</a>
+<a href="tourist-travel.html">✈️ Tourist Travel</a>
+<a href="index.html#fleet">Bolt Fleet</a>
+<a href="business-guide.html">📋 License Guide</a>
+<a href="other-services.html">💼 Services</a>
+<a href="index.html#faq">FAQ</a>
+<a href="signup.html" class="nav-btn">Join Now</a>
+</div>
+
+<div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
+</nav>
+
+<section class="section">
+
+<div class="signup-container">
+
+<div class="signup-header">
+<h1>🚀 Join HeroMove CZ Fleet</h1>
+<p>Become a courier and start earning today. Fill in your details below.</p>
+</div>
+
+<!-- ✅ IMPORTANT FIX HERE -->
+<form action="https://formsubmit.co/herobala1997@gmail.com"
+method="POST"
+enctype="multipart/form-data"
+class="signup-form master-form"
+id="signupForm">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New Courier Signup">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="thank-you.html">
+
+<!-- PERSONAL INFORMATION -->
+<fieldset class="form-section">
+<legend>Personal Information</legend>
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="fullName" required>
+</div>
+
+<div class="form-group">
+<label>Email *</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="form-group">
+<label>Phone *</label>
+<input type="tel" name="phone" required>
+</div>
+
+<div class="form-group">
+<label>Age *</label>
+<input type="number" name="age" min="18" required>
+</div>
+
+<div class="form-group">
+<label>City *</label>
+<select name="city" required>
+<option value="">Select</option>
+<option>Prague</option>
+<option>Brno</option>
+<option>Plzen</option>
+<option>Ostrava</option>
+<option>Other</option>
+</select>
+</div>
+
+</fieldset>
+
+<!-- DOCUMENTS -->
+<fieldset class="form-section">
+<legend>Document Verification</legend>
+
+<div class="form-group">
+<label>ID Type *</label>
+<select name="idType" required>
+<option value="">Select</option>
+<option>Passport</option>
+<option>Visa</option>
+<option>National ID</option>
+<option>Driver License</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>ID Number *</label>
+<input type="text" name="idNumber" required>
+</div>
+
+<div class="form-group">
+<label>Upload Passport/ID *</label>
+<input type="file" name="passportFile" accept="image/*,application/pdf" required>
+</div>
+
+<div class="form-group">
+<label>Upload Visa (optional)</label>
+<input type="file" name="visaFile" accept="image/*,application/pdf">
+</div>
+
+<div class="form-group">
+<label>Upload Selfie with ID *</label>
+<input type="file" name="photoFile" accept="image/*" required>
+</div>
+
+</fieldset>
+
+<!-- TERMS -->
+<fieldset class="form-section">
+<legend>Terms</legend>
+
+<label class="checkbox-large">
+<input type="checkbox" name="terms" required>
+I agree to terms and confirm info is correct
+</label>
+
+</fieldset>
+
+<div class="form-buttons">
+<button type="submit" class="btn-main">📧 Submit Application</button>
+<button type="button" class="btn-outline" onclick="sendViaWhatsApp()">💬 Send via WhatsApp</button>
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+<script>
+function sendViaWhatsApp(){
+const form=document.getElementById('signupForm');
+if(!form.checkValidity()){
+alert('Please fill required fields');
+return;
+}
+
+const data=new FormData(form);
+
+let msg=`🚀 HeroMove Application
+
+Name: ${data.get('fullName')}
+Email: ${data.get('email')}
+Phone: ${data.get('phone')}
+City: ${data.get('city')}`;
+
+window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Growth Support - HeroMove CZ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+<div class="nav-brand">
+<h2><a href="index.html" style="color:#22c55e;text-decoration:none;">🚀 HeroMove CZ</a></h2>
+</div>
+
+<div class="nav-links">
+<a href="index.html#transport">🚗 Transport</a>
+<a href="tourist-travel.html">✈️ Tourist Travel</a>
+<a href="index.html#fleet">Bolt Fleet</a>
+<a href="business-guide.html">📋 License Guide</a>
+<a href="other-services.html">💼 Services</a>
+<a href="index.html#faq">FAQ</a>
+<a href="signup.html" class="nav-btn">Join Now</a>
+</div>
+
+<div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
+</nav>
+
+<!-- SERVICE HEADER -->
+<header class="service-hero" style="background:linear-gradient(135deg, #059669 0%, #047857 100%);">
+<div class="service-container">
+<h1>📈 Online Growth Support</h1>
+<p>Scale your business and maximize earnings with expert guidance</p>
+</div>
+</header>
+
+<!-- CONTACT FORM SECTION -->
+<section id="contact" class="section dark">
+<h2>📞 Get Online Growth Support</h2>
+<p class="section-subtitle">Let's discuss how to grow your income and business</p>
+
+<div class="contact-form-wrapper">
+
+<form action="https://formsubmit.co/herobala1997@gmail.com"
+      method="POST"
+      enctype="multipart/form-data"
+      class="service-contact-form master-form"
+      id="serviceForm">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="📈  New Online Growth Support Request">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="thank-you.html">
+
+<div class="form-group">
+<label for="clientName">Full Name *</label>
+<input type="text" id="clientName" name="clientName" placeholder="Your name" required>
+</div>
+
+<div class="form-group">
+<label for="clientEmail">Email Address *</label>
+<input type="email" id="clientEmail" name="clientEmail" placeholder="your.email@example.com" required>
+</div>
+
+<div class="form-group">
+<label for="clientPhone">Phone/WhatsApp *</label>
+<input type="tel" id="clientPhone" name="clientPhone" placeholder="+420 608 147 604" required>
+</div>
+
+<div class="form-group">
+<label for="currentRole">Your Current Role *</label>
+<select id="currentRole" name="currentRole" required>
+<option value="">Select your role</option>
+<option value="Courier Driver">Courier Driver</option>
+<option value="Transport Driver">Transport Driver</option>
+<option value="Bolt Driver">Bolt Driver</option>
+<option value="Freelancer">Freelancer</option>
+<option value="Entrepreneur">Entrepreneur/Business Owner</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="currentIncome">Current Monthly Income *</label>
+<select id="currentIncome" name="currentIncome" required>
+<option value="">Select range</option>
+<option value="Under 20,000">Under 20,000 Kč</option>
+<option value="20,000 - 30,000">20,000 - 30,000 Kč</option>
+<option value="30,000 - 50,000">30,000 - 50,000 Kč</option>
+<option value="Over 50,000">Over 50,000 Kč</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="growthGoal">Your Growth Goal *</label>
+<input type="text" id="growthGoal" name="growthGoal" placeholder="e.g., Increase income to 50,000 Kč/month" required>
+</div>
+
+<div class="form-group">
+<label for="growthMessage">What specific challenges are you facing? *</label>
+<textarea id="growthMessage" name="growthMessage" placeholder="Describe your current challenges..." rows="5" required></textarea>
+</div>
+
+<!-- ✅ NEW DOCUMENT UPLOAD FIELD -->
+<div class="form-group">
+<label for="documents">📎 Upload Documents (Optional)</label>
+<input type="file"
+       id="documents"
+       name="attachment"
+       multiple
+       accept=".pdf,.jpg,.png,.doc,.docx,.zip">
+</div>
+
+<div class="form-group">
+<label class="checkbox-large">
+<input type="checkbox" id="serviceTerms" name="serviceTerms" required>
+I'm interested in growth strategies and ready to take action
+</label>
+</div>
+
+<button type="submit" class="btn-main" style="width:100%;padding:14px;background:#059669;">
+📧 Send Request
+</button>
+
+<button type="button" class="btn-outline"
+onclick="sendViaServiceWhatsApp()"
+style="width:100%;padding:14px;margin-top:10px;border-color:#059669;color:#059669;">
+💬 Send via WhatsApp
+</button>
+
+</form>
+</div>
+</section>
+
+<script>
+function sendViaServiceWhatsApp(){
+const form = document.getElementById('serviceForm');
+if(!form.checkValidity()){
+alert('Please fill in all required fields first');
+return;
+}
+
+const formData = new FormData(form);
+
+let message = `📈 Online Growth Support Request
+
+Name: ${formData.get('clientName')}
+Email: ${formData.get('clientEmail')}
+Phone: ${formData.get('clientPhone')}
+Role: ${formData.get('currentRole')}
+Income: ${formData.get('currentIncome')}
+Goal: ${formData.get('growthGoal')}
+
+Message:
+${formData.get('growthMessage')}`;
+
+window.open(`https://wa.me/420608147604?text=${encodeURIComponent(message)}`, '_blank');
+}
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

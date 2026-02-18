@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online & Offline Help - HeroMove CZ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+<div class="nav-brand">
+<h2><a href="index.html" style="color:#22c55e;text-decoration:none;">🚀 HeroMove CZ</a></h2>
+</div>
+
+<div class="nav-links">
+<a href="index.html#transport">🚗 Transport</a>
+<a href="tourist-travel.html">✈️ Tourist Travel</a>
+<a href="index.html#fleet">Bolt Fleet</a>
+<a href="business-guide.html">📋 License Guide</a>
+<a href="other-services.html">💼 Services</a>
+<a href="index.html#faq">FAQ</a>
+<a href="signup.html" class="nav-btn">Join Now</a>
+</div>
+
+<div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
+</nav>
+
+<!-- SERVICE HEADER -->
+<header class="service-hero" style="background:linear-gradient(135deg, #0891b2 0%, #0e7490 100%);">
+<div class="service-container">
+<h1>🤝 Online & Offline Help</h1>
+<p>Support through multiple channels - online, phone, in-person meetings, and more</p>
+</div>
+</header>
+
+<!-- CONTACT FORM SECTION -->
+<section id="contact" class="section dark">
+<h2>📞 Schedule Support or Get Help</h2>
+<p class="section-subtitle">Choose your preferred support method and we'll get in touch</p>
+
+<div class="contact-form-wrapper">
+
+<!-- ✅ FORM SUBMIT SAFE VERSION -->
+<form action="https://formsubmit.co/herobala1997@gmail.com"
+method="POST"
+class="service-contact-form master-form"
+id="serviceForm">
+
+<!-- FORM SUBMIT SETTINGS -->
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="🤝 HeroMove Support Request">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="thank-you.html">
+<input type="hidden" name="_autoresponse"
+value="Thank you for contacting HeroMove CZ. We received your request and will reply soon.">
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="Full Name" required>
+</div>
+
+<div class="form-group">
+<label>Email *</label>
+<input type="email" name="Email" required>
+</div>
+
+<div class="form-group">
+<label>Phone / WhatsApp *</label>
+<input type="tel" name="Phone" required>
+</div>
+
+<div class="form-group">
+<label>Preferred Support Channel *</label>
+<select name="Support Channel" required>
+<option value="">Select channel</option>
+<option>WhatsApp</option>
+<option>Phone Call</option>
+<option>Email</option>
+<option>Video Call</option>
+<option>In-Person Meeting</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Urgency *</label>
+<select name="Urgency" required>
+<option value="">Select urgency</option>
+<option>Emergency - Immediate</option>
+<option>Urgent - Today/Tomorrow</option>
+<option>Normal - Within 48 hours</option>
+<option>Can schedule later</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Support Category *</label>
+<select name="Support Category" required>
+<option value="">Select category</option>
+<option>Business Support</option>
+<option>Personal Support</option>
+<option>Legal / Immigration</option>
+<option>Transport / Booking</option>
+<option>Financial</option>
+<option>Consultation</option>
+<option>Emergency</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Message *</label>
+<textarea name="Message" rows="5" required></textarea>
+</div>
+
+<div class="form-group">
+<label>Preferred Contact Time</label>
+<input type="text" name="Preferred Time">
+</div>
+
+<div class="form-group">
+<label class="checkbox-large">
+<input type="checkbox" required>
+I agree to be contacted via my preferred channel
+</label>
+</div>
+
+<button type="submit" class="btn-main" style="width:100%;padding:14px;background:#0891b2;">
+📧 Send Request
+</button>
+
+<button type="button" class="btn-outline"
+onclick="sendViaServiceWhatsApp()"
+style="width:100%;padding:14px;margin-top:10px;border-color:#0891b2;color:#0891b2;">
+💬 Send via WhatsApp
+</button>
+
+<p style="font-size:13px;color:#94a3b8;text-align:center;margin-top:12px;">
+🔒 Your information is confidential and used only for support communication.
+</p>
+
+</form>
+
+</div>
+</section>
+
+<!-- FLOAT BUTTONS -->
+<div class="contact-buttons">
+<a href="https://wa.me/420608147604" class="whatsapp-btn">💬</a>
+<a href="mailto:herobala1997@gmail.com" class="email-btn">✉️</a>
+</div>
+
+<footer>
+<p>© HeroMove CZ — Independent Partner Fleet</p>
+</footer>
+
+<script>
+function sendViaServiceWhatsApp(){
+const form=document.getElementById('serviceForm');
+if(!form.checkValidity()){
+alert('Please fill in all required fields first');
+return;
+}
+
+const data=new FormData(form);
+
+let msg=`🤝 HeroMove Support Request
+
+Name: ${data.get('Full Name')}
+Email: ${data.get('Email')}
+Phone: ${data.get('Phone')}
+Channel: ${data.get('Support Channel')}
+Urgency: ${data.get('Urgency')}
+Category: ${data.get('Support Category')}
+
+Message:
+${data.get('Message')}`;
+
+window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
+}
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
