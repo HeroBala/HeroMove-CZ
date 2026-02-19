@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>City Transport - HeroMove</title>
+<title>City Transport Booking | HeroMove CZ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,157 +12,226 @@
 <!-- NAVBAR -->
 <nav class="nav">
 <div class="nav-brand">
-  <h2 class="logo-text">
-    <a href="index.html">
-      <span class="logo-rocket">🚀</span>
-      HeroMove
-    </a>
-  </h2>
-
-</div>
+<h2 class="logo-text">
+<a href="index.html">
+<span class="logo-rocket">🚀</span>
+<span class="hero-word">Hero</span><span class="move-word">Move</span>
+</a>
+</h2>
 </div>
 
 <div class="nav-links">
 
-  <a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
+<a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
 
-  <a href="tourist-travel.html">
-    <span class="nav-icon">✈️</span> Tourist Travel
-  </a>
+<a href="tourist-travel.html">
+<span class="nav-icon">✈️</span> Tourist Travel
+</a>
 
-  <a href="business-guide.html">
-    <span class="nav-icon">📋</span> License Guide
-  </a>
+<a href="business-guide.html">
+<span class="nav-icon">📋</span> License Guide
+</a>
 
-  <a href="other-services.html">
-    <span class="nav-icon">💼</span> Services
-  </a>
+<a href="other-services.html">
+<span class="nav-icon">💼</span> Services
+</a>
 
-  <!-- NEW Careers Link -->
-  <a href="careers.html">
-    <span class="nav-icon">🧑‍💼</span> Careers
-  </a>
+<a href="careers.html">
+<span class="nav-icon">🧑‍💼</span> Careers
+</a>
 
-  <!-- Careers & Courier FAQ with icon added -->
-    <a href="index.html#careers-faq-container">
-    <span class="nav-icon">❓</span> Careers & Courier FAQ
-  </a>
+<a href="index.html#careers-faq-container">
+<span class="nav-icon">❓</span> Careers & Courier FAQ
+</a>
 
-  <a href="signup.html" class="nav-btn">
-    🚀 Join Now
-  </a>
+<a href="signup.html" class="nav-btn">
+🚀 Join Now
+</a>
 
 </div>
 
-
 <div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
 </nav>
-<!-- SERVICE HEADER -->
+
+
+<!-- BOOKING FORM -->
+<section class="section">
+
+<div class="signup-container">
+
+<div class="signup-header">
+<h1>🚗 City Transport Booking</h1>
+<p>Fast and reliable city rides across Czechia.</p>
+</div>
+
+<form action="https://formsubmit.co/herobala1997@gmail.com"
+method="POST"
+class="signup-form master-form"
+id="cityTransportForm">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New City Transport Booking">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="thank-you.html">
+
+<!-- PASSENGER -->
+<fieldset class="form-section">
+<legend>Passenger Details</legend>
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="fullName" required>
+</div>
+
+<div class="form-group">
+<label>Phone / WhatsApp *</label>
+<input type="tel" name="phone" required>
+</div>
+
+<div class="form-group">
+<label>City *</label>
+<select name="city" required>
+<option value="">Select</option>
+<option>Prague</option>
+<option>Brno</option>
+<option>Plzen</option>
+<option>Ostrava</option>
+<option>Other</option>
+</select>
+</div>
+
+</fieldset>
+
+<!-- RIDE DETAILS -->
+<fieldset class="form-section">
+<legend>Ride Details</legend>
+
+<div class="form-group">
+<label>Pickup Location *</label>
+<input type="text" name="pickup" required>
+</div>
+
+<div class="form-group">
+<label>Destination *</label>
+<input type="text" name="destination" required>
+</div>
+
+<div class="form-group">
+<label>Pickup Date *</label>
+<input type="date" name="pickupDate" required>
+</div>
+
+<div class="form-group">
+<label>Pickup Time *</label>
+<input type="time" name="pickupTime" required>
+</div>
+
+<div class="form-group">
+<label>Passengers *</label>
+<input type="number" name="passengers" min="1" required>
+</div>
+
+<div class="form-group">
+<label>Vehicle Type *</label>
+<select name="vehicle" required>
+<option value="">Select</option>
+<option>🚗 Economy</option>
+<option>🚙 Comfort</option>
+<option>🚐 XL</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Notes</label>
+<textarea name="notes" rows="3" placeholder="Child seat, multiple stops, etc."></textarea>
+</div>
+
+</fieldset>
+
+<!-- TERMS -->
+<fieldset class="form-section">
+<legend>Confirmation</legend>
+
+<label class="checkbox-large">
+<input type="checkbox" name="terms" required>
+I confirm the ride details are correct
+</label>
+
+</fieldset>
+
+<div class="form-buttons">
+<button type="submit" class="btn-main">📧 Book City Ride</button>
+<button type="button" class="btn-outline" onclick="sendCityWhatsApp()">💬 Send via WhatsApp</button>
+</div>
+
+</form>
+
+</div>
+
+</section>
+
 
 <!-- SERVICE DETAILS -->
 <section class="section">
 <div class="service-content">
+
 <h2>Premium City Transportation</h2>
 
 <div class="service-features">
+
 <div class="feature-card">
 <h3>🚀 Fast & Efficient</h3>
-<p>Quick pickups and optimized routes to get you to your destination on time. Real-time traffic updates ensure fastest travel.</p>
+<p>Optimized routes and quick pickups across the city.</p>
 </div>
 
 <div class="feature-card">
 <h3>💵 Affordable Rates</h3>
-<p>Competitive pricing per kilometer. No surge pricing during peak hours. Transparent rates before booking.</p>
+<p>No surge pricing. Transparent fares before booking.</p>
 </div>
 
 <div class="feature-card">
 <h3>🎯 Professional Drivers</h3>
-<p>Vetted, experienced drivers who know the city well. Clean, well-maintained vehicles for your comfort.</p>
+<p>Experienced drivers with clean, comfortable vehicles.</p>
 </div>
 
 <div class="feature-card">
 <h3>👥 Group Transport</h3>
-<p>Travel with friends or colleagues. Larger vehicles available for group city tours and events.</p>
+<p>Larger vehicles available for group travel and events.</p>
 </div>
 
-<div class="feature-card">
-<h3>📱 Easy Booking</h3>
-<p>Book instantly through app or phone. No advance booking required for same-day transport.</p>
-</div>
-
-<div class="feature-card">
-<h3>🛡️ Safe & Secure</h3>
-<p>All rides are insured. Safety is our priority. Track your ride in real-time.</p>
-</div>
-</div>
-
-<h2 style="margin-top:60px;">Popular Routes</h2>
-<div class="routes">
-<div class="route-box">
-<h4>Prague City Routes</h4>
-<p>Staroměstské náměstí • Václavské náměstí • Prague Castle • Petřín Tower</p>
-</div>
-<div class="route-box">
-<h4>Business Transport</h4>
-<p>Downtown to airport • Office to client meetings • Business district tours</p>
-</div>
-<div class="route-box">
-<h4>Evening & Nightlife</h4>
-<p>Restaurants • Clubs • Pubs • Safe ride home service</p>
-</div>
-<div class="route-box">
-<h4>Shopping Districts</h4>
-<p>Na Příkopě • Pařížská • Shopping malls • Weekend errands</p>
-</div>
-</div>
-
-<h2 style="margin-top:60px;">How to Book</h2>
-<div class="steps">
-<div class="step">
-<div class="step-number">1</div>
-<h4>Set Pickup Location</h4>
-<p>Use GPS or enter your exact location in the app</p>
-</div>
-<div class="step">
-<div class="step-number">2</div>
-<h4>Select Destination</h4>
-<p>Enter where you want to go and choose vehicle type</p>
-</div>
-<div class="step">
-<div class="step-number">3</div>
-<h4>Confirm & Pay</h4>
-<p>See fare estimate and book instantly with card or cash</p>
-</div>
-<div class="step">
-<div class="step-number">4</div>
-<h4>Track & Enjoy</h4>
-<p>Track driver location and enjoy comfortable ride</p>
-</div>
 </div>
 
 <h2 style="margin-top:60px;">Available Vehicle Types</h2>
+
 <div class="vehicles">
+
 <div class="vehicle">
 <h4>🚗 Economy</h4>
-<p>Budget-friendly option for solo travelers and couples</p>
+<p>Budget-friendly rides for everyday travel.</p>
 </div>
+
 <div class="vehicle">
 <h4>🚙 Comfort</h4>
-<p>Spacious vehicle with premium interior for business travelers</p>
+<p>Premium interior for business or longer rides.</p>
 </div>
+
 <div class="vehicle">
 <h4>🚐 XL</h4>
-<p>Large vehicle for families and small groups up to 6 passengers</p>
-</div>
-</div>
+<p>Perfect for families and small groups.</p>
 </div>
 
+</div>
+
+</div>
+</section>
+
+
+<!-- CTA -->
 <div class="cta-section">
 <h2>Need a Ride Around the City?</h2>
-<a href="signup.html" class="btn-main">Book City Transport</a>
+<a href="https://wa.me/420608147604" class="btn-main">💬 Chat on WhatsApp</a>
 </div>
 
-</section>
 
 <!-- FLOAT BUTTONS -->
 <div class="contact-buttons">
@@ -171,9 +240,37 @@
 </div>
 
 <footer>
-<p>© HeroMove — Independent Partner Fleet</p>
+<p>© HeroMove CZ — City Transport Service</p>
 </footer>
 
+
+<script>
+function sendCityWhatsApp(){
+const form=document.getElementById('cityTransportForm');
+if(!form.checkValidity()){
+alert('Please fill required fields');
+return;
+}
+
+const data=new FormData(form);
+
+let msg=`🚗 City Transport Booking
+
+Name: ${data.get('fullName')}
+Phone: ${data.get('phone')}
+City: ${data.get('city')}
+Pickup: ${data.get('pickup')}
+Destination: ${data.get('destination')}
+Date: ${data.get('pickupDate')}
+Time: ${data.get('pickupTime')}
+Vehicle: ${data.get('vehicle')}
+Passengers: ${data.get('passengers')}`;
+
+window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
+}
+</script>
+
 <script src="script.js"></script>
+
 </body>
 </html>

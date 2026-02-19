@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tourist Travel & Vienna-Brno Transfer - HeroMove</title>
+<title>Tourist Travel Booking | HeroMove CZ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,7 +15,8 @@
 <div class="nav-brand">
 <h2 class="logo-text">
 <a href="index.html">
-</span> HeroMove
+<span class="logo-rocket">🚀</span>
+<span class="hero-word">Hero</span><span class="move-word">Move</span>
 </a>
 </h2>
 </div>
@@ -37,15 +38,131 @@
 
 </nav>
 
-<!-- ================= HERO HEADER ================= -->
-<header class="service-hero service-tourist-hero">
-<div class="service-container">
-<h1>✈️ Tourist Travel & Vienna-Brno Transfer</h1>
-<p>Experience luxury travel with professional drivers across Central Europe</p>
-</div>
-</header>
 
-<!-- ================= SERVICE CONTENT ================= -->
+<!-- ================= BOOKING FORM ================= -->
+<section class="section">
+
+<div class="signup-container">
+
+<div class="signup-header">
+<h1>✈️ Tourist Travel Booking</h1>
+<p>Book Vienna–Brno transfers, private tours, and luxury travel across Central Europe.</p>
+</div>
+
+<form action="https://formsubmit.co/herobala1997@gmail.com"
+method="POST"
+class="signup-form master-form"
+id="touristForm">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New Tourist Travel Booking">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="thank-you.html">
+
+<!-- CONTACT -->
+<fieldset class="form-section">
+<legend>Traveler Details</legend>
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="fullName" required>
+</div>
+
+<div class="form-group">
+<label>Email *</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="form-group">
+<label>Phone / WhatsApp *</label>
+<input type="tel" name="phone" required>
+</div>
+
+</fieldset>
+
+<!-- TRIP DETAILS -->
+<fieldset class="form-section">
+<legend>Trip Details</legend>
+
+<div class="form-group">
+<label>Select Route *</label>
+<select name="route" required>
+<option value="">Select</option>
+<option>🇦🇹 Vienna ↔ Brno Transfer</option>
+<option>🏰 Czech Castle Tour</option>
+<option>🍷 Wine Region Tour</option>
+<option>🇩🇪 Austria-Germany Loop</option>
+<option>Custom Tourist Trip</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Pickup Location *</label>
+<input type="text" name="pickup" required>
+</div>
+
+<div class="form-group">
+<label>Destination *</label>
+<input type="text" name="destination" required>
+</div>
+
+<div class="form-group">
+<label>Travel Date *</label>
+<input type="date" name="travelDate" required>
+</div>
+
+<div class="form-group">
+<label>Travel Time *</label>
+<input type="time" name="travelTime" required>
+</div>
+
+<div class="form-group">
+<label>Passengers *</label>
+<input type="number" name="passengers" min="1" required>
+</div>
+
+<div class="form-group">
+<label>Vehicle Type *</label>
+<select name="vehicle" required>
+<option value="">Select</option>
+<option>🚗 Premium Sedan</option>
+<option>🚙 Comfort SUV</option>
+<option>🚐 Deluxe Van</option>
+<option>🚌 Luxury Coach</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Notes</label>
+<textarea name="notes" rows="3" placeholder="Stops, luggage, hotel pickup, custom requests..."></textarea>
+</div>
+
+</fieldset>
+
+<!-- TERMS -->
+<fieldset class="form-section">
+<legend>Confirmation</legend>
+
+<label class="checkbox-large">
+<input type="checkbox" name="terms" required>
+I confirm the travel details are correct
+</label>
+
+</fieldset>
+
+<div class="form-buttons">
+<button type="submit" class="btn-main">📧 Book Tourist Travel</button>
+<button type="button" class="btn-outline" onclick="sendTouristWhatsApp()">💬 Send via WhatsApp</button>
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- ================= SERVICE CONTENT (Your Original Sections) ================= -->
 <section class="section">
 
 <div class="service-content">
@@ -56,156 +173,51 @@
 
 <div class="feature-card">
 <h3>🚗 Professional Drivers</h3>
-<p>Experienced multilingual drivers with deep local knowledge and premium vehicles.</p>
+<p>Experienced multilingual drivers with premium vehicles.</p>
 </div>
 
 <div class="feature-card">
 <h3>🗺️ International Routes</h3>
-<p>Vienna ↔ Brno, Austria tours, Germany trips, and custom itineraries.</p>
+<p>Vienna ↔ Brno, Austria tours, Germany trips and custom itineraries.</p>
 </div>
 
 <div class="feature-card">
 <h3>💰 Transparent Pricing</h3>
-<p>Fixed rates with no hidden charges and flexible packages.</p>
+<p>Fixed rates with no hidden charges.</p>
 </div>
 
 <div class="feature-card">
 <h3>🎯 Flexible Itineraries</h3>
-<p>Stop at castles, vineyards, historic sites and customize your route.</p>
-</div>
-
-<div class="feature-card">
-<h3>🛡️ Safe & Comfortable</h3>
-<p>Luxury vehicles, GPS navigation and fully insured rides.</p>
-</div>
-
-<div class="feature-card">
-<h3>📱 Easy Booking</h3>
-<p>Book online, WhatsApp or phone with multilingual support.</p>
+<p>Customize your route with stops at historic sites and vineyards.</p>
 </div>
 
 </div>
 
-<!-- ROUTES -->
-<h2 class="section-title">Popular Tourist Routes</h2>
-
-<div class="routes">
-
-<div class="route-box">
-<h4>🇦🇹 Vienna → Brno Transfer</h4>
-<p><strong>250 km • 2.5 hours</strong><br>Direct airport transfer.</p>
-<p><strong>Price:</strong> From 2,500 Kč</p>
-</div>
-
-<div class="route-box">
-<h4>🏰 Czech Castle Tours</h4>
-<p><strong>Full Day Experience</strong><br>Karlštejn • Český Krumlov • Konopiště.</p>
-<p><strong>Price:</strong> From 3,500 Kč</p>
-</div>
-
-<div class="route-box">
-<h4>🍷 Wine Region Tour</h4>
-<p><strong>Moravian Wine Country</strong></p>
-<p><strong>Price:</strong> From 4,000 Kč</p>
-</div>
-
-<div class="route-box">
-<h4>🇩🇪 Austria-Germany Loop</h4>
-<p><strong>Multi-Day Package</strong></p>
-<p><strong>Price:</strong> Custom Quote</p>
-</div>
-
-</div>
-
-<!-- VEHICLES -->
 <h2 class="section-title">Vehicle Options for Groups</h2>
 
 <div class="vehicles">
-
-<div class="vehicle">
-<h4>🚗 Premium Sedan</h4>
-<p>2-3 passengers. Mercedes class vehicles.</p>
-</div>
-
-<div class="vehicle">
-<h4>🚙 Comfort SUV</h4>
-<p>4-5 passengers. Spacious and comfortable.</p>
-</div>
-
-<div class="vehicle">
-<h4>🚐 Deluxe Van</h4>
-<p>6-8 passengers. Premium interiors.</p>
-</div>
-
-<div class="vehicle">
-<h4>🚌 Luxury Coach</h4>
-<p>Up to 50 passengers.</p>
-</div>
-
-</div>
-
-<!-- INCLUDED SERVICES -->
-<h2 class="section-title">Services Included</h2>
-
-<div class="service-box-grid">
-
-<div class="service-box">✓ Professional chauffeur service</div>
-<div class="service-box">✓ Insurance & tolls included</div>
-<div class="service-box">✓ GPS navigation</div>
-<div class="service-box">✓ Free WiFi & charging</div>
-<div class="service-box">✓ Drinks & snacks</div>
-<div class="service-box">✓ Multi-language support</div>
-<div class="service-box">✓ Hotel transfers</div>
-<div class="service-box">✓ Flexible itineraries</div>
-
-</div>
-
-<!-- BOOKING STEPS -->
-<h2 class="section-title">How to Book Your Tourist Journey</h2>
-
-<div class="steps">
-
-<div class="step">
-<div class="step-number">1</div>
-<h4>Select Your Route</h4>
-<p>Choose or customize your itinerary.</p>
-</div>
-
-<div class="step">
-<div class="step-number">2</div>
-<h4>Pick Your Dates</h4>
-<p>Flexible booking options.</p>
-</div>
-
-<div class="step">
-<div class="step-number">3</div>
-<h4>Select Vehicle</h4>
-<p>Choose comfort level and size.</p>
-</div>
-
-<div class="step">
-<div class="step-number">4</div>
-<h4>Confirm & Enjoy</h4>
-<p>Meet your professional driver.</p>
-</div>
-
+<div class="vehicle"><h4>🚗 Premium Sedan</h4></div>
+<div class="vehicle"><h4>🚙 Comfort SUV</h4></div>
+<div class="vehicle"><h4>🚐 Deluxe Van</h4></div>
+<div class="vehicle"><h4>🚌 Luxury Coach</h4></div>
 </div>
 
 </div>
 </section>
+
 
 <!-- ================= CTA ================= -->
 <section class="section">
 <div class="cta-section">
 
 <h2>Ready for Your European Adventure?</h2>
-<p>Contact us to book your exclusive tourist journey</p>
+<p>Chat with us directly for custom itineraries.</p>
 
-<a href="other-services.html" class="btn-main">📞 Contact Us</a>
-<a href="https://wa.me/420608147604" class="btn-outline">💬 WhatsApp</a>
+<a href="https://wa.me/420608147604" class="btn-main">💬 WhatsApp</a>
 
 </div>
 </section>
+
 
 <!-- FLOAT BUTTONS -->
 <div class="contact-buttons">
@@ -214,9 +226,37 @@
 </div>
 
 <footer>
-<p>© HeroMove — Independent Partner Fleet</p>
+<p>© HeroMove CZ — Tourist Travel Service</p>
 </footer>
 
+
+<script>
+function sendTouristWhatsApp(){
+const form=document.getElementById('touristForm');
+if(!form.checkValidity()){
+alert('Please fill required fields');
+return;
+}
+
+const data=new FormData(form);
+
+let msg=`✈️ Tourist Travel Booking
+
+Name: ${data.get('fullName')}
+Phone: ${data.get('phone')}
+Route: ${data.get('route')}
+Pickup: ${data.get('pickup')}
+Destination: ${data.get('destination')}
+Date: ${data.get('travelDate')}
+Time: ${data.get('travelTime')}
+Passengers: ${data.get('passengers')}
+Vehicle: ${data.get('vehicle')}`;
+
+window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
+}
+</script>
+
 <script src="script.js"></script>
+
 </body>
 </html>

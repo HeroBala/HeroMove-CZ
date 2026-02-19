@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Courier Logistics - HeroMove</title>
+<title>Courier Delivery Booking | HeroMove CZ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,192 +12,229 @@
 <!-- NAVBAR -->
 <nav class="nav">
 <div class="nav-brand">
-  <h2 class="logo-text">
-    <a href="index.html">
-      <span class="logo-rocket">🚀</span>
-      HeroMove
-    </a>
-  </h2>
-
-</div>
+<h2 class="logo-text">
+<a href="index.html">
+<span class="logo-rocket">🚀</span>
+<span class="hero-word">Hero</span><span class="move-word">Move</span>
+</a>
+</h2>
 </div>
 
 <div class="nav-links">
 
-  <a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
+<a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
 
-  <a href="tourist-travel.html">
-    <span class="nav-icon">✈️</span> Tourist Travel
-  </a>
+<a href="tourist-travel.html">
+<span class="nav-icon">✈️</span> Tourist Travel
+</a>
 
-  <a href="business-guide.html">
-    <span class="nav-icon">📋</span> License Guide
-  </a>
+<a href="business-guide.html">
+<span class="nav-icon">📋</span> License Guide
+</a>
 
-  <a href="other-services.html">
-    <span class="nav-icon">💼</span> Services
-  </a>
+<a href="other-services.html">
+<span class="nav-icon">💼</span> Services
+</a>
 
-  <!-- NEW Careers Link -->
-  <a href="careers.html">
-    <span class="nav-icon">🧑‍💼</span> Careers
-  </a>
+<a href="careers.html">
+<span class="nav-icon">🧑‍💼</span> Careers
+</a>
 
-  <!-- Careers & Courier FAQ with icon added -->
-    <a href="index.html#careers-faq-container">
-    <span class="nav-icon">❓</span> Careers & Courier FAQ
-  </a>
+<a href="index.html#careers-faq-container">
+<span class="nav-icon">❓</span> Careers & Courier FAQ
+</a>
 
-  <a href="signup.html" class="nav-btn">
-    🚀 Join Now
-  </a>
+<a href="signup.html" class="nav-btn">
+🚀 Join Now
+</a>
 
 </div>
-
 
 <div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
 </nav>
 
-<!-- SERVICE HEADER -->
-<header class="service-hero">
-<div class="service-container">
-<h1>📦 Courier & Logistics Services</h1>
-<p>Fast, reliable delivery for packages, documents, and goods across Czechia</p>
-</div>
-</header>
 
-<!-- SERVICE DETAILS -->
+<!-- BOOKING FORM -->
+<section class="section">
+
+<div class="signup-container">
+
+<div class="signup-header">
+<h1>📦 Courier Delivery Booking</h1>
+<p>Fast and reliable delivery for packages, documents, and goods.</p>
+</div>
+
+<form action="https://formsubmit.co/herobala1997@gmail.com"
+method="POST"
+class="signup-form master-form"
+id="courierForm">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New Courier Delivery Booking">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="thank-you.html">
+
+<!-- CONTACT -->
+<fieldset class="form-section">
+<legend>Sender Details</legend>
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="fullName" required>
+</div>
+
+<div class="form-group">
+<label>Phone / WhatsApp *</label>
+<input type="tel" name="phone" required>
+</div>
+
+<div class="form-group">
+<label>City *</label>
+<select name="city" required>
+<option value="">Select</option>
+<option>Prague</option>
+<option>Brno</option>
+<option>Plzen</option>
+<option>Ostrava</option>
+<option>Other</option>
+</select>
+</div>
+
+</fieldset>
+
+<!-- DELIVERY DETAILS -->
+<fieldset class="form-section">
+<legend>Delivery Details</legend>
+
+<div class="form-group">
+<label>Pickup Address *</label>
+<input type="text" name="pickup" required>
+</div>
+
+<div class="form-group">
+<label>Delivery Address *</label>
+<input type="text" name="destination" required>
+</div>
+
+<div class="form-group">
+<label>Pickup Date *</label>
+<input type="date" name="pickupDate" required>
+</div>
+
+<div class="form-group">
+<label>Pickup Time *</label>
+<input type="time" name="pickupTime" required>
+</div>
+
+<div class="form-group">
+<label>Package Type *</label>
+<select name="packageType" required>
+<option value="">Select</option>
+<option>📄 Documents / Small Item</option>
+<option>📦 Standard Package</option>
+<option>🏪 Retail / Food Delivery</option>
+<option>💼 Business Logistics</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Vehicle Needed *</label>
+<select name="vehicle" required>
+<option value="">Select</option>
+<option>🚴 Bike Courier</option>
+<option>🛴 Scooter</option>
+<option>🚗 Car Delivery</option>
+<option>🚐 Van Service</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Notes</label>
+<textarea name="notes" rows="3" placeholder="Fragile item, contact person, delivery instructions..."></textarea>
+</div>
+
+</fieldset>
+
+<!-- TERMS -->
+<fieldset class="form-section">
+<legend>Confirmation</legend>
+
+<label class="checkbox-large">
+<input type="checkbox" name="terms" required>
+I confirm the delivery details are correct
+</label>
+
+</fieldset>
+
+<div class="form-buttons">
+<button type="submit" class="btn-main">📧 Book Courier Delivery</button>
+<button type="button" class="btn-outline" onclick="sendCourierWhatsApp()">💬 Send via WhatsApp</button>
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- SERVICE DETAILS (your original content kept) -->
 <section class="section">
 <div class="service-content">
+
 <h2>Professional Delivery Solutions</h2>
 
 <div class="service-features">
+
 <div class="feature-card">
 <h3>⚡ Same-Day Delivery</h3>
-<p>Order before 12 PM, get delivered same day. Express options available for urgent shipments.</p>
+<p>Express options available for urgent shipments.</p>
 </div>
 
 <div class="feature-card">
 <h3>📊 Track Everything</h3>
-<p>Real-time GPS tracking. Real-time notifications when package is picked up and delivered.</p>
+<p>Real-time tracking and delivery notifications.</p>
 </div>
 
 <div class="feature-card">
 <h3>🛡️ Safe Handling</h3>
-<p>Insured deliveries. Signature confirmation available. Special handling for fragile items.</p>
+<p>Insured deliveries with secure handling.</p>
 </div>
 
 <div class="feature-card">
 <h3>💰 Competitive Rates</h3>
-<p>Low base rates starting from 99 Kč per delivery. Volume discounts for businesses.</p>
+<p>Affordable pricing for individuals and businesses.</p>
 </div>
 
-<div class="feature-card">
-<h3>🚗 Multiple Vehicle Options</h3>
-<p>Bikes, scooters, cars, and vans. Choose the best option for your package size and urgency.</p>
-</div>
-
-<div class="feature-card">
-<h3>🌍 Wide Coverage</h3>
-<p>Delivery across Czech Republic. Special rates for frequent routes and B2B partnerships.</p>
-</div>
-</div>
-
-<h2 style="margin-top:60px;">Delivery Types We Handle</h2>
-<div class="delivery-types">
-<div class="type-box">
-<h4>📄 Documents & Small Items</h4>
-<p>Letters, envelopes, small packages up to 2kg. Bike delivery for city areas.</p>
-</div>
-<div class="type-box">
-<h4>📦 Standard Packages</h4>
-<p>Boxes up to 15kg. E-commerce fulfillment, returns, local deliveries.</p>
-</div>
-<div class="type-box">
-<h4>🏪 Retail & Restaurant</h4>
-<p>Food delivery from restaurants and cafes. Retail parcel delivery to customers.</p>
-</div>
-<div class="type-box">
-<h4>💼 Business Logistics</h4>
-<p>B2B shipments, multi-drop deliveries, scheduled pickups for businesses.</p>
-</div>
 </div>
 
 <h2 style="margin-top:60px;">Delivery Methods & Vehicles</h2>
+
 <div class="vehicles">
 <div class="vehicle">
 <h4>🚴 Bike Courier</h4>
-<p>Small documents and items in Prague. Fastest in heavy traffic areas. From 50 Kč.</p>
 </div>
 <div class="vehicle">
-<h4>🛴 Scooter/Motorcycle</h4>
-<p>Lightweight packages up to 10kg. Fast urban delivery. From 75 Kč.</p>
+<h4>🛴 Scooter</h4>
 </div>
 <div class="vehicle">
 <h4>🚗 Car Delivery</h4>
-<p>Standard packages up to 20kg. Wide coverage across Czech Republic. From 99 Kč.</p>
 </div>
 <div class="vehicle">
-<h4>🚐 Van Services</h4>
-<p>Large items and multiple boxes. Perfect for business shipments. Custom pricing.</p>
+<h4>🚐 Van Service</h4>
 </div>
 </div>
 
-<h2 style="margin-top:60π;">How Courier Delivery Works</h2>
-<div class="steps">
-<div class="step">
-<div class="step-number">1</div>
-<h4>Book Delivery</h4>
-<p>Enter pickup and delivery address through app or call us</p>
 </div>
-<div class="step">
-<div class="step-number">2</div>
-<h4>Courier Arrives</h4>
-<p>Courier picks up package and confirms on app with photo</p>
-</div>
-<div class="step">
-<div class="step-number">3</div>
-<h4>Real-Time Tracking</h4>
-<p>Monitor delivery progress live on map with ETA updates</p>
-</div>
-<div class="step">
-<div class="step-number">4</div>
-<h4>Safe Delivery</h4>
-<p>Recipient confirms delivery and rates courier experience</p>
-</div>
-</div>
-
-<h2 style="margin-top:60px;">Why Partner With Us?</h2>
-<div class="benefits">
-<div class="benefit">
-<h4>✅ Fast Courier Network</h4>
-<p>100+ active couriers across major Czech cities ready to deliver</p>
-</div>
-<div class="benefit">
-<h4>✅ Flexible Payment</h4>
-<p>Pay per delivery or monthly accounts for businesses</p>
-</div>
-<div class="benefit">
-<h4>✅ Professional Service</h4>
-<p>All couriers are vetted and trained for excellent customer service</p>
-</div>
-<div class="benefit">
-<h4>✅ API Integration</h4>
-<p>E-commerce platforms can integrate with our delivery system</p>
-</div>
-</div>
-
-<h2 style="margin-top:60px;">Service Areas</h2>
-<p style="text-align:center;margin-bottom:30px;"><strong>Czech Republic Coverage:</strong><br>Prague • Brno • Plzen • Ostrava • Ceske Budejovice • Olomouc • Liberec • Ústí nad Labem</p>
-</div>
-
-<div class="cta-section">
-<h2>Start Using Our Courier Service Today</h2>
-<a href="signup.html" class="btn-main">Book Delivery</a>
-<a href="https://wa.me/420608147604" class="btn-outline" style="margin-left:10px;">Ask About B2B</a>
-</div>
-
 </section>
+
+
+<!-- CTA -->
+<div class="cta-section">
+<h2>Need Regular Deliveries?</h2>
+<a href="https://wa.me/420608147604" class="btn-main">💬 Ask About B2B</a>
+</div>
+
 
 <!-- FLOAT BUTTONS -->
 <div class="contact-buttons">
@@ -206,9 +243,37 @@
 </div>
 
 <footer>
-<p>© HeroMove — Independent Partner Fleet</p>
+<p>© HeroMove CZ — Courier & Logistics Service</p>
 </footer>
 
+
+<script>
+function sendCourierWhatsApp(){
+const form=document.getElementById('courierForm');
+if(!form.checkValidity()){
+alert('Please fill required fields');
+return;
+}
+
+const data=new FormData(form);
+
+let msg=`📦 Courier Delivery Booking
+
+Name: ${data.get('fullName')}
+Phone: ${data.get('phone')}
+City: ${data.get('city')}
+Pickup: ${data.get('pickup')}
+Delivery: ${data.get('destination')}
+Date: ${data.get('pickupDate')}
+Time: ${data.get('pickupTime')}
+Package: ${data.get('packageType')}
+Vehicle: ${data.get('vehicle')}`;
+
+window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
+}
+</script>
+
 <script src="script.js"></script>
+
 </body>
 </html>
