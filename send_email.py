@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-HeroMove CZ - Email Backend
+HeroMove - Email Backend
 Handles form submissions and sends emails via Gmail SMTP
 """
 
@@ -142,11 +142,11 @@ def send_email_endpoint():
             }), 400
         
         # Construct email subject
-        subject = f"New Application from HeroMove CZ - {full_name}"
+        subject = f"New Application from HeroMove - {full_name}"
         
         # Construct email body
         email_body = f"""
-New Application Received from HeroMove CZ
+New Application Received from HeroMove
 
 From: {full_name}
 Email: {from_email}
@@ -185,7 +185,7 @@ def health_check():
     """Health check endpoint"""
     return jsonify({
         'status': 'healthy',
-        'service': 'HeroMove CZ Email Service',
+        'service': 'HeroMove Email Service',
         'version': '1.0.0',
         'timestamp': datetime.now().isoformat()
     }), 200
@@ -195,7 +195,7 @@ def health_check():
 def index():
     """Root endpoint"""
     return jsonify({
-        'service': 'HeroMove CZ Email Backend',
+        'service': 'HeroMove Email Backend',
         'version': '1.0.0',
         'endpoints': {
             'POST /send-email': 'Send email from form submission',
@@ -230,7 +230,7 @@ if __name__ == '__main__':
     
     print(f"""
 ╔════════════════════════════════════════════════════════╗
-║     HeroMove CZ - Email Backend Service                ║
+║     HeroMove - Email Backend Service                ║
 ╚════════════════════════════════════════════════════════╝
 
 📧 Recipient Email: {RECIPIENT_EMAIL}

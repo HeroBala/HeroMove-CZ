@@ -1,4 +1,4 @@
-# HeroMove CZ — Cleaned Setup Guide
+# HeroMove — Cleaned Setup Guide
 
 ## ✅ Workspace Status
 

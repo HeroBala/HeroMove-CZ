@@ -21,37 +21,109 @@ document.querySelectorAll('.card').forEach(card => {
 	});
 });
 
-// Careers FAQ: animated accordion
-document.querySelectorAll('.careers-faq-question').forEach(question => {
-	question.addEventListener('click', () => {
-		const item = question.parentElement; // .careers-faq-item
-		const answer = item.querySelector('.careers-faq-answer');
-
-		// Close other items
-		document.querySelectorAll('.careers-faq-item').forEach(other => {
-			if (other !== item) {
-				other.classList.remove('open');
-				const ans = other.querySelector('.careers-faq-answer');
-				if (ans) {
-					ans.style.maxHeight = null;
-					ans.classList.remove('active');
-				}
-			}
+// Careers FAQ: use event delegation for robust handling
+{
+	const container = document.querySelector('.careers-faq-container');
+	if (container) {
+		// debug hook so we can check in browser console whether FAQ script ran
+		console.debug('FAQ: careers-faq script initialized');
+		// make each question focusable/accessibile
+		container.querySelectorAll('.careers-faq-question').forEach(q => {
+			if (!q.hasAttribute('role')) q.setAttribute('role', 'button');
+			if (!q.hasAttribute('tabindex')) q.setAttribute('tabindex', '0');
 		});
 
-		const isOpen = item.classList.toggle('open');
+		const closeOthers = (except) => {
+			container.querySelectorAll('.careers-faq-item.open').forEach(other => {
+				if (other !== except) {
+					other.classList.remove('open');
+					const a = other.querySelector('.careers-faq-answer');
+					if (a) { a.style.maxHeight = null; a.classList.remove('active'); }
+				}
+			});
+		};
 
-		if (isOpen) {
-			// Expand: set maxHeight to scrollHeight for smooth transition
-			answer.classList.add('active');
-			answer.style.maxHeight = answer.scrollHeight + 'px';
-		} else {
-			// Collapse
-			answer.style.maxHeight = null;
-			answer.classList.remove('active');
+		const toggleItem = (item) => {
+			if (!item) return;
+			const answer = item.querySelector('.careers-faq-answer');
+			if (!answer) return;
+
+			// We use a small reflow technique to make the max-height transition smooth
+			const isOpen = item.classList.toggle('open');
+			if (isOpen) {
+				// ensure other items are closed first
+				closeOthers(item);
+				answer.classList.add('active');
+				// start from 0 to trigger transition reliably
+				answer.style.maxHeight = '0px';
+				// force reflow
+				answer.offsetHeight;
+				answer.style.maxHeight = answer.scrollHeight + 'px';
+				// scroll the opened item into center after transition begins
+				setTimeout(()=> item.scrollIntoView({behavior:'smooth', block:'center'}), 160);
+			} else {
+				// animate closing from current height to 0
+				answer.style.maxHeight = answer.scrollHeight + 'px';
+				answer.offsetHeight; // force reflow
+				answer.style.maxHeight = '0px';
+				// remove active class after transition time
+				setTimeout(() => answer.classList.remove('active'), 420);
+			}
+		};
+
+		// delegation: handle clicks on question or anywhere inside .careers-faq-item
+		container.addEventListener('click', (e) => {
+			const question = e.target.closest('.careers-faq-question');
+			const item = e.target.closest('.careers-faq-item');
+			if (!item || !question) return;
+			// ignore clicks on links/buttons inside
+			if (e.target.closest('a, button')) return;
+			e.preventDefault();
+			toggleItem(item);
+		});
+
+		// keyboard support
+		container.addEventListener('keydown', (e) => {
+			if (e.key !== 'Enter' && e.key !== ' ') return;
+			const question = e.target.closest('.careers-faq-question');
+			const item = e.target.closest('.careers-faq-item');
+			if (!item || !question) return;
+			e.preventDefault();
+			toggleItem(item);
+		});
+
+		// open first item by default for visibility
+		const first = container.querySelector('.careers-faq-item');
+		if (first) {
+			first.classList.add('open');
+			const a = first.querySelector('.careers-faq-answer');
+			if (a) {
+				a.classList.add('active');
+				// ensure correct height after images/fonts load
+				setTimeout(()=> { a.style.maxHeight = a.scrollHeight + 'px'; }, 80);
+			}
 		}
-	});
-});
+
+		// Recalculate open answer heights (useful if images or fonts change layout)
+		const recalcOpenAnswers = () => {
+			container.querySelectorAll('.careers-faq-item.open .careers-faq-answer').forEach(ans => {
+				ans.style.maxHeight = ans.scrollHeight + 'px';
+			});
+		};
+
+		// Recalc on load and when images inside the FAQ finish loading
+		window.addEventListener('load', () => {
+			recalcOpenAnswers();
+			// in case some images load slightly later
+			setTimeout(recalcOpenAnswers, 260);
+		});
+
+		// Also listen for individual image loads inside the container
+		container.querySelectorAll('img').forEach(img => {
+			if (!img.complete) img.addEventListener('load', recalcOpenAnswers);
+		});
+	}
+}
 
 // Advertisement/banner form: tab switching & submission
 (function bannerFormInit(){
