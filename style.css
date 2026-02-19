@@ -1,3 +1,7 @@
+/* ================================= */
+/* BASE */
+/* ================================= */
+
 body{
 margin:0;
 font-family:Arial, sans-serif;
@@ -6,7 +10,10 @@ color:#e5e7eb;
 scroll-behavior:smooth;
 }
 
+/* ================================= */
 /* NAV */
+/* ================================= */
+
 .nav{
 display:flex;
 justify-content:space-between;
@@ -63,96 +70,62 @@ font-size:24px;
 cursor:pointer;
 }
 
-@media (max-width: 768px){
+/* MOBILE NAV FIX */
+@media (max-width:768px){
 .nav-links{
 display:none;
-flex-basis:100%;
 flex-direction:column;
-gap:10px;
-order:3;
+width:100%;
 }
-
 .nav-links.active{
 display:flex;
 }
-
 .nav-toggle{
 display:block;
-order:2;
 }
 }
 
-/* HERO */
-.hero{
-padding:120px 40px;
-background:#020617;
-}
-
-.hero-container{
-display:flex;
-align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:40px;
-}
-
-.hero-text{
-max-width:520px;
-}
-
-.hero-text h1{
-color:#22c55e;
-font-size:48px;
-}
-
-.hero-buttons{
-margin-top:20px;
-}
-
-.btn-main{
-background:#22c55e;
-color:black;
-padding:14px 26px;
-border-radius:10px;
-text-decoration:none;
-margin-right:10px;
-}
-
-.btn-outline{
-border:1px solid #22c55e;
-padding:14px 26px;
-border-radius:10px;
-color:#22c55e;
-text-decoration:none;
-}
-
-.hero-image img{
-width:380px;
-border-radius:16px;
-}
-
-.earnings{
-margin-top:20px;
-font-weight:bold;
-color:#22c55e;
-}
-
+/* ================================= */
 /* SECTIONS */
+/* ================================= */
+
 .section{
 padding:80px 40px;
 text-align:center;
 }
 
-.section-subtitle{
-font-size:16px;
-color:#cbd5e1;
-margin-top:-15px;
-margin-bottom:30px;
-}
-
 .dark{
 background:#0f172a;
 }
+
+/* ================================= */
+/* FLOW */
+/* ================================= */
+
+.flow{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+margin-top:40px;
+}
+
+.flow-card{
+background:#0f172a;
+border:1px solid rgba(255,255,255,0.06);
+padding:28px 22px;
+border-radius:16px;
+text-align:center;
+transition:all .35s ease;
+}
+
+.flow-card:hover{
+transform:translateY(-8px);
+border-color:#22c55e;
+box-shadow:0 12px 30px rgba(34,197,94,0.15);
+}
+/* ============================= */
+/* CARD GRID FIX (RESTORES TILES) */
+/* ============================= */
 
 .cards{
 display:flex;
@@ -172,489 +145,189 @@ text-decoration:none;
 color:#e5e7eb;
 display:block;
 text-align:center;
+border:1px solid #1e293b;
 }
 
 .card:hover{
 transform:translateY(-6px);
+border-color:#22c55e;
+box-shadow:0 8px 20px rgba(34,197,94,0.25);
 }
 
-.card-emphasized{
-background:linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-color:black;
-font-weight:bold;
-font-size:16px;
-border:2px solid #22c55e;
-box-shadow:0 8px 20px rgba(34, 197, 94, 0.3);
-}
+/* ================================= */
+/* HERO */
+/* ================================= */
 
-.card-emphasized:hover{
-box-shadow:0 12px 30px rgba(34, 197, 94, 0.5);
-transform:translateY(-8px) scale(1.05);
-}
-
-.card-travel{
-background:#1e40af;
-color:#e5e7eb;
-border:2px solid #3b82f6;
-font-weight:600;
-}
-
-.card-travel:hover{
-background:#1e3a8a;
-border-color:#60a5fa;
-box-shadow:0 8px 20px rgba(59, 130, 246, 0.4);
-}
-
-.card-student{
-background:#7c3aed;
-color:#e5e7eb;
-border:2px solid #a78bfa;
-font-weight:600;
-}
-
-.card-student:hover{
-background:#6d28d9;
-border-color:#c4b5fd;
-box-shadow:0 8px 20px rgba(124, 58, 237, 0.4);
-}
-
-/* FLOW */
-.flow{
-display:flex;
-gap:20px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.flow-card{
-background:#22c55e;
-color:black;
-padding:18px;
-border-radius:10px;
-font-weight:bold;
-}
-
-/* AWARD */
-.award-section{
-background:linear-gradient(rgba(2,6,23,0.8), rgba(2,6,23,0.9)),
-url("https://images.unsplash.com/photo-1556122071-e404eaedb77f?q=80&w=1400") center/cover;
-padding:140px 20px;
-text-align:center;
-}
-
-/* CONTACT BUTTONS */
-.contact-buttons{
-position:fixed;
-bottom:20px;
-right:20px;
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-.whatsapp-btn,
-.email-btn{
-width:55px;
-height:55px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-color:white;
-text-decoration:none;
-font-size:22px;
-}
-
-.whatsapp-btn{background:#22c55e;}
-.email-btn{background:#0ea5e9;}
-
-/* FAQ ACCORDION */
-.faq-container{
-max-width:800px;
-margin:30px auto;
-text-align:left;
-}
-
-.faq-item{
-border:1px solid #1e293b;
-border-radius:8px;
-margin-bottom:10px;
+.hero-banner{
+position:relative;
+width:100%;
+height:420px;
 overflow:hidden;
 }
 
-.faq-question{
+.banner-img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.banner-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.45);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.banner-overlay h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.banner-btn{
+background:#22c55e;
+color:white;
+padding:14px 26px;
+border-radius:8px;
+text-decoration:none;
+transition:.3s;
+}
+
+.banner-btn:hover{
+background:#16a34a;
+transform:translateY(-2px);
+}
+
+/* ================================= */
+/* CAREERS FAQ — REAL FIX */
+/* ================================= */
+
+/* Override center alignment from .section */
+#careers-faq-container{
+text-align:left;
+}
+
+/* Container */
+.careers-faq-container{
+max-width:900px;
+margin:40px auto;
+}
+
+/* Item card */
+.careers-faq-item{
 background:#111827;
-padding:18px;
-cursor:pointer;
+border:1px solid #1e293b;
+border-radius:12px;
+margin-bottom:14px;
+overflow:hidden;
+transition:.25s ease;
+}
+
+/* Question row */
+.careers-faq-question{
 display:flex;
 justify-content:space-between;
 align-items:center;
-transition:.3s;
+padding:18px 22px;
+cursor:pointer;
+background:#111827;
 }
 
-.faq-question:hover{
+.careers-faq-question:hover{
 background:#1e293b;
 }
 
-.faq-question h3{
+.careers-faq-question h3{
 margin:0;
-font-size:18px;
+font-size:17px;
 color:#e5e7eb;
 }
 
-.faq-toggle{
+/* Toggle icon */
+.careers-faq-toggle{
+font-size:26px;
 color:#22c55e;
-font-size:24px;
-font-weight:bold;
-transition:.3s;
+transition:transform .35s ease;
 }
 
-.faq-answer{
+/* IMPORTANT: Closed state */
+.careers-faq-answer{
 max-height:0;
 overflow:hidden;
+padding:0 22px;
 background:#0f172a;
-transition:max-height 0.3s ease;
+transition:max-height .45s cubic-bezier(.4,0,.2,1), padding .35s ease;
 }
 
-.faq-answer.active{
-max-height:500px;
-padding:20px 18px;
+/* Open state */
+.careers-faq-item.open .careers-faq-answer{
+padding:18px 22px;
 }
 
-.faq-answer p{
+/* Answer text */
+.careers-faq-answer p{
 margin:0;
 color:#cbd5e1;
 line-height:1.6;
 }
 
-.faq-item.open .faq-toggle{
+/* Rotate + icon */
+.careers-faq-item.open .careers-faq-toggle{
 transform:rotate(45deg);
 }
 
-/* SERVICE PAGES */
-.service-hero{
-background:linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-padding:100px 40px;
-text-align:center;
-color:black;
-}
-
-.service-container h1{
-font-size:52px;
-margin:0 0 15px 0;
-}
-
-.service-container p{
-font-size:18px;
-margin:0;
-opacity:0.95;
-}
-
-.service-content{
-max-width:1000px;
-margin:0 auto;
-}
-
-.service-features{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-gap:25px;
-margin:40px 0;
-}
-
-.feature-card{
-background:#111827;
-padding:25px;
-border-radius:12px;
-border-left:4px solid #22c55e;
-transition:.3s;
-}
-
-.feature-card:hover{
-transform:translateY(-5px);
-}
-
-.feature-card h3{
-color:#22c55e;
-margin-top:0;
-font-size:18px;
-}
-
-.feature-card p{
-color:#cbd5e1;
-line-height:1.6;
-margin:0;
-}
-
-.student-services,
-.routes,
-.delivery-types{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-gap:20px;
-margin:30px 0;
-}
-
-.service-box,
-.route-box,
-.type-box,
-.vehicle,
-.benefit,
-.airport{
-background:#111827;
-padding:22px;
-border-radius:10px;
-border:1px solid #1e293b;
-transition:.3s;
-}
-
-.service-box:hover,
-.route-box:hover,
-.type-box:hover,
-.vehicle:hover,
-.benefit:hover,
-.airport:hover{
+/* Glow highlight */
+.careers-faq-item.open{
 border-color:#22c55e;
-transform:translateY(-3px);
+box-shadow:0 8px 24px rgba(34,197,94,.08);
 }
+/* ================================= */
+/* HERO MOVE LOGO ROCKET — FIXED */
+/* ================================= */
 
-.service-box h4,
-.route-box h4,
-.type-box h4,
-.vehicle h4,
-.airport h4{
-color:#22c55e;
-margin-top:0;
-font-size:16px;
-}
-
-.service-box p,
-.route-box p,
-.type-box p,
-.vehicle p,
-.airport p,
-.benefit p{
-color:#cbd5e1;
-margin:10px 0 0 0;
-font-size:14px;
-line-height:1.5;
-}
-
-.steps{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-gap:20px;
-margin:30px 0;
-}
-
-.step{
-background:#111827;
-padding:25px;
-border-radius:10px;
-text-align:center;
-border-top:3px solid #22c55e;
-}
-
-.step-number{
+/* KEEP ORIGINAL LOGO COLOR */
+.logo-text{
+position:relative;
 display:inline-block;
-background:#22c55e;
-color:black;
-width:45px;
-height:45px;
-border-radius:50%;
-line-height:45px;
-font-weight:bold;
-font-size:20px;
-margin-bottom:15px;
+color:#22c55e;          /* restore green color */
+text-decoration:none;
 }
 
-.step h4{
-color:#e5e7eb;
-margin:15px 0 10px 0;
-font-size:16px;
+/* ROCKET STYLE */
+.logo-rocket{
+display:inline-block;
+margin-right:6px;
+transform-origin:center;
+animation:logoRocketFly 6s ease-in-out forwards;
+animation-delay:1.2s;
 }
 
-.step p{
-color:#cbd5e1;
-margin:0;
-font-size:13px;
-line-height:1.5;
+/* SLOW + SMALL MOVEMENT */
+@keyframes logoRocketFly{
+
+0%{
+transform:translateX(0) rotate(0deg);
+opacity:1;
 }
 
-.vehicles{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
-gap:20px;
-margin:30px 0;
+/* slow rotate */
+40%{
+transform:translateX(6px) rotate(20deg);
 }
 
-.benefits{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-gap:20px;
-margin:30px 0;
+/* small forward move */
+75%{
+transform:translateX(16px) rotate(45deg);
 }
 
-.benefit{
-border-left:4px solid #22c55e;
+/* gentle fade instead of sudden vanish */
+100%{
+transform:translateX(20px) rotate(45deg);
+opacity:0.4;
 }
 
-.airports{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-gap:20px;
-margin:30px 0;
-}
-
-.cta-section{
-background:#111827;
-padding:50px 40px;
-text-align:center;
-border-radius:12px;
-margin:60px 0 0 0;
-}
-
-.cta-section h2{
-color:#22c55e;
-margin-top:0;
-font-size:32px;
-}
-
-footer{
-text-align:center;
-padding:30px;
-background:#0f172a;
-color:#64748b;
-margin-top:40px;
-}
-/* ============================= */
-/* SIGNUP FORM PROFESSIONAL FIX */
-/* ============================= */
-
-.signup-container{
-max-width:700px;
-margin:40px auto;
-background:#111827;
-padding:40px;
-border-radius:12px;
-border:1px solid #1e293b;
-}
-
-.signup-header{
-text-align:center;
-margin-bottom:40px;
-border-bottom:2px solid #22c55e;
-padding-bottom:20px;
-}
-
-.signup-header h1{
-color:#22c55e;
-margin:0 0 10px 0;
-font-size:32px;
-}
-
-.signup-header p{
-color:#cbd5e1;
-margin:0;
-}
-
-.signup-form{
-display:block;
-text-align:left;
-}
-
-.form-section{
-border:none;
-padding:20px 0;
-margin-bottom:30px;
-border-bottom:1px solid #1e293b;
-}
-
-.form-section legend{
-color:#22c55e;
-font-weight:bold;
-font-size:16px;
-margin-bottom:15px;
-}
-
-.form-group{
-margin-bottom:18px;
-}
-
-.form-group label{
-display:block;
-color:#e5e7eb;
-margin-bottom:6px;
-font-size:14px;
-}
-
-.form-group input,
-.form-group select{
-width:100%;
-padding:12px 14px;
-border:1px solid #334155;
-border-radius:8px;
-background:#0f172a;
-color:#e5e7eb;
-}
-
-.form-group input:focus,
-.form-group select:focus{
-outline:none;
-border-color:#22c55e;
-box-shadow:0 0 0 3px rgba(34,197,94,.15);
-}
-
-.form-buttons{
-display:flex;
-gap:15px;
-margin-top:25px;
-}
-
-.form-buttons button{
-flex:1;
-padding:14px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.form-buttons .btn-main{
-background:#22c55e;
-color:black;
-border:none;
-}
-
-.form-buttons .btn-outline{
-border:2px solid #22c55e;
-background:transparent;
-color:#22c55e;
-}
-
-.checkbox-group{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-gap:10px;
-}
-
-.checkbox{
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.checkbox-large{
-display:flex;
-gap:10px;
-align-items:flex-start;
-}
-
-@media(max-width:600px){
-.signup-container{
-padding:20px;
-margin:20px 10px;
-}
-.form-buttons{
-flex-direction:column;
-}
 }
