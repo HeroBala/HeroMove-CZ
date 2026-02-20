@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Other Services & Contact - HeroMove CZ</title>
+<title>Services - HeroMove CZ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,113 +18,105 @@
 <span class="hero-word">Hero</span><span class="move-word">Move</span>
 </a>
 </h2>
-
-</div>
 </div>
 
 <div class="nav-links">
-
-  <a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
-
-  <a href="tourist-travel.html">
-    <span class="nav-icon">✈️</span> Tourist Travel
-  </a>
-
-  <a href="business-guide.html">
-    <span class="nav-icon">📋</span> License Guide
-  </a>
-
-  <a href="other-services.html">
-    <span class="nav-icon">💼</span> Services
-  </a>
-
-  <!-- NEW Careers Link -->
-  <a href="careers.html">
-    <span class="nav-icon">🧑‍💼</span> Careers
-  </a>
-
-  <!-- Careers & Courier FAQ with icon added -->
-    <a href="index.html#careers-faq-container">
-    <span class="nav-icon">❓</span> Careers & Courier FAQ
-  </a>
-
-  <a href="signup.html" class="nav-btn">
-    🚀 Join Now
-  </a>
-
+<a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
+<a href="tourist-travel.html"><span class="nav-icon">✈️</span> Tourist Travel</a>
+<a href="business-guide.html"><span class="nav-icon">📋</span> License Guide</a>
+<a href="services.html"><span class="nav-icon">💼</span> Services</a>
+<a href="careers.html"><span class="nav-icon">🧑‍💼</span> Careers</a>
+<a href="index.html#careers-faq-container"><span class="nav-icon">❓</span> Careers & Courier FAQ</a>
+<a href="signup.html" class="nav-btn">🚀 Join Now</a>
 </div>
+
 <div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
 </nav>
-<!-- SERVICE HEADER -->
-<header class="service-hero" style="background:linear-gradient(135deg, #ea580c 0%, #d97706 100%);">
+
+
+<!-- HERO -->
+<header class="service-hero" style="background:linear-gradient(135deg,#ea580c 0%,#d97706 100%);">
 <div class="service-container">
-<h1>💼 Other Services & Support</h1>
-<p>Contact us for all your transportation and business needs</p>
+<h1>💼 HeroMove Services</h1>
+<p>Explore our full range of transport, logistics and business solutions</p>
 </div>
 </header>
 
-<!-- SERVICES OVERVIEW -->
-<section class="section dark">
-<h2>Additional Services We Offer</h2>
 
-<div class="services-overview">
+<!-- SERVICES GRID -->
+<section class="section dark">
+
+<div class="signup-container">
+
+<div class="signup-header">
+<h2>Our Professional Services</h2>
+<p>Everything you need — from transport and logistics to consulting and business support.</p>
+</div>
+
+<div class="services-grid">
+
 <div class="service-card">
-<h3>🎯 Custom Corporate Solutions</h3>
-<p>Fleet management for companies, employee transportation, and corporate events.</p>
+<h3>🎯 Corporate Transport</h3>
+<p>Fleet management, employee transport and corporate event logistics.</p>
 </div>
 
 <div class="service-card">
 <h3>🏪 Retail & Restaurant Delivery</h3>
-<p>Fast, reliable delivery for shops, restaurants, and small businesses.</p>
+<p>Fast last-mile delivery for restaurants and local businesses.</p>
 </div>
 
 <div class="service-card">
 <h3>🚚 B2B Logistics</h3>
-<p>Wholesale delivery, multi-stop routes, and bulk transportation services.</p>
+<p>Bulk transport, scheduled routes and professional logistics solutions.</p>
 </div>
 
 <div class="service-card">
 <h3>👨‍💼 Business Consulting</h3>
-<p>Help with business registration, licensing, and operational guidance.</p>
+<p>Licensing, registration and operational business guidance.</p>
 </div>
 
 <div class="service-card">
 <h3>📦 Special Handling</h3>
-<p>Fragile items, hazardous materials, temperature-controlled transport.</p>
+<p>Fragile goods and specialized transportation solutions.</p>
 </div>
 
 <div class="service-card">
-<h3>🛡️ Insurance & Legal Support</h3>
-<p>Guidance on business insurance and legal requirements for drivers/couriers.</p>
-</div>
+<h3>🛡️ Insurance & Legal Guidance</h3>
+<p>Support for drivers and partners with compliance and insurance.</p>
 </div>
 
+</div>
+
+</div>
 </section>
 
-<!-- CONTACT FORM -->
+
+
+<!-- REQUEST SERVICE FORM (BOOKING STYLE) -->
 <section class="section">
-<div class="contact-container">
 
-<h2>Get in Touch With Us</h2>
-<p class="section-subtitle">Fill out the form below and we'll respond within 24 hours</p>
+<div class="signup-container">
 
-<div class="contact-grid">
+<div class="signup-header">
+<h1>💼 Request a Service</h1>
+<p>Tell us what you need and we’ll contact you within 24 hours.</p>
+</div>
 
-<!-- CONTACT FORM -->
-<div class="form-wrapper">
 <form action="https://formsubmit.co/herobala1997@gmail.com"
 method="POST"
-class="contact-form master-form">
+class="signup-form master-form"
+id="serviceForm">
 
-<!-- FORM SUBMIT CONFIG -->
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="💼 New HeroMove Other-Services Request">
+<input type="hidden" name="_subject" value="💼 New HeroMove Service Request">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="thank-you.html">
-<input type="hidden" name="_autoresponse"
-value="Thank you for contacting HeroMove CZ. We received your request and will reply soon.">
 
-<!-- PERSONAL -->
+
+<!-- CONTACT DETAILS -->
+<fieldset class="form-section">
+<legend>Contact Details</legend>
+
 <div class="form-group">
 <label>Full Name *</label>
 <input type="text" name="fullName" required>
@@ -140,23 +132,30 @@ value="Thank you for contacting HeroMove CZ. We received your request and will r
 <input type="tel" name="phone" required>
 </div>
 
+</fieldset>
+
+
+<!-- SERVICE REQUEST -->
+<fieldset class="form-section">
+<legend>Service Request</legend>
+
 <div class="form-group">
 <label>Service Interest *</label>
 <select name="serviceInterest" required>
-<option value="">Select a service</option>
-<option>Corporate Fleet Management</option>
-<option>Retail & Restaurant Delivery</option>
+<option value="">Select</option>
+<option>Corporate Transport</option>
+<option>Retail Delivery</option>
 <option>B2B Logistics</option>
 <option>Tourist Travel</option>
 <option>Business Consulting</option>
 <option>Bulk Transport</option>
-<option>Other Service</option>
+<option>Other</option>
 </select>
 </div>
 
 <div class="form-group">
 <label>Message *</label>
-<textarea name="message" rows="6" required></textarea>
+<textarea name="message" rows="4" required></textarea>
 </div>
 
 <div class="form-group">
@@ -164,216 +163,25 @@ value="Thank you for contacting HeroMove CZ. We received your request and will r
 <input type="text" name="budget">
 </div>
 
-<div class="form-group">
 <label class="checkbox-large">
-<input type="checkbox" name="termsAccepted" value="Yes" required>
-I agree to be contacted and understand my data will be used for communication only
+<input type="checkbox" required>
+I agree to be contacted regarding my request
 </label>
+
+</fieldset>
+
+
+<div class="form-buttons">
+<button type="submit" class="btn-main">📧 Send Message</button>
 </div>
-
-<button type="submit" class="btn-main" style="width:100%;padding:14px;">
-📧 Send Message
-</button>
-
-<p style="font-size:13px;color:#94a3b8;text-align:center;margin-top:10px;">
-🔒 Your information is private and used only for service communication.
-</p>
 
 </form>
 
-
-<div id="contactSuccess" class="success-message" style="display:none;margin-top:20px;">
-<h3>✅ Message Sent Successfully!</h3>
-<p>We've received your message and will contact you within 24 hours.</p>
-</div>
-</div>
-
-<!-- CONTACT INFO -->
-<div class="contact-info-wrapper">
-<div class="contact-info">
-<h3>📞 Direct Contact</h3>
-<p>
-<strong>WhatsApp:</strong> <a href="https://wa.me/420608147604" style="color:#22c55e;text-decoration:none;">+420 608 147 604</a>
-</p>
-<p>
-<strong>Email:</strong> <a href="mailto:herobala1997@gmail.com" style="color:#22c55e;text-decoration:none;">herobala1997@gmail.com</a>
-</p>
-<p>
-<strong>Response Time:</strong> Within 24 hours (usually faster)
-</p>
-</div>
-
-<div class="contact-info">
-<h3>🕐 Operating Hours</h3>
-<p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-<p>Saturday: 9:00 AM - 2:00 PM</p>
-<p>Sunday: Emergency support only</p>
-<p style="margin-top:15px;color:#fbbf24;"><strong>⚠️ Available 24/7 on WhatsApp</strong></p>
-</div>
-
-<div class="contact-info">
-<h3>📍 Service Areas</h3>
-<p>Prague • Brno • Plzen • Ostrava</p>
-<p>Vienna • Salzburg • Munich</p>
-<p>Throughout Czech Republic & Europe</p>
-</div>
-
-<div class="contact-info">
-<h3>💼 Why Choose HeroMove?</h3>
-<ul style="text-align:left;color:#cbd5e1;padding-left:20px;">
-<li>✓ Professional & experienced team</li>
-<li>✓ Quick response & solutions</li>
-<li>✓ Competitive pricing</li>
-<li>✓ 24/7 support available</li>
-<li>✓ Multilingual assistance</li>
-</ul>
-</div>
-
-</div>
-
 </div>
 
 </section>
 
-<!-- QUICK LINKS -->
-<section class="section dark">
-<h2>Quick Access to Our Services</h2>
 
-<div class="quick-links-grid">
-<a href="signup.html" class="quick-link">
-<div class="quick-icon">🚀</div>
-<h4>Join as Courier</h4>
-<p>Apply for Bolt fleet</p>
-</a>
-
-<a href="airport-pickup.html" class="quick-link">
-<div class="quick-icon">✈️</div>
-<h4>Airport Transfer</h4>
-<p>Book pickup/dropoff</p>
-</a>
-
-<a href="tourist-travel.html" class="quick-link">
-<div class="quick-icon">🗺️</div>
-<h4>Tourist Travel</h4>
-<p>Vienna, Austria tours</p>
-</a>
-
-<a href="student-relocation.html" class="quick-link">
-<div class="quick-icon">🎓</div>
-<h4>Student Relocation</h4>
-<p>Moving services</p>
-</a>
-
-<a href="business-guide.html" class="quick-link">
-<div class="quick-icon">📋</div>
-<h4>Business License</h4>
-<p>Registration guide</p>
-</a>
-
-<a href="courier-logistics.html" class="quick-link">
-<div class="quick-icon">📦</div>
-<h4>Courier Service</h4>
-<p>Delivery solutions</p>
-</a>
-</div>
-
-</section>
-
-<!-- Careers & Courier FAQ SECTION -->
-<section class="section">
-<h2>Questions About Our Services?</h2>
-
-<div class="Careers & Courier FAQ-container" style="max-width:800px;margin:30px auto;">
-<div class="Careers & Courier FAQ-item">
-<div class="Careers & Courier FAQ-question" onclick="toggleCareers & Courier FAQ(this)">
-<h3>What areas do you serve?</h3>
-<span class="Careers & Courier FAQ-toggle">+</span>
-</div>
-<div class="Careers & Courier FAQ-answer">
-<p>We operate throughout Czech Republic (Prague, Brno, Plzen, Ostrava) and cross-border routes to Vienna, Austria, and Germany.</p>
-</div>
-</div>
-
-<div class="Careers & Courier FAQ-item">
-<div class="Careers & Courier FAQ-question" onclick="toggleCareers & Courier FAQ(this)">
-<h3>How do I request a custom service?</h3>
-<span class="Careers & Courier FAQ-toggle">+</span>
-</div>
-<div class="Careers & Courier FAQ-answer">
-<p>Fill out the contact form above or message us on WhatsApp. Describe your needs and we'll provide a custom quote within 24 hours.</p>
-</div>
-</div>
-
-<div class="Careers & Courier FAQ-item">
-<div class="Careers & Courier FAQ-question" onclick="toggleCareers & Courier FAQ(this)">
-<h3>Are you available on weekends?</h3>
-<span class="Careers & Courier FAQ-toggle">+</span>
-</div>
-<div class="Careers & Courier FAQ-answer">
-<p>We're open Saturday 9 AM - 2 PM. Emergency services available 24/7 on WhatsApp. Contact us for weekend bookings.</p>
-</div>
-</div>
-
-<div class="Careers & Courier FAQ-item">
-<div class="Careers & Courier FAQ-question" onclick="toggleCareers & Courier FAQ(this)">
-<h3>What payment methods do you accept?</h3>
-<span class="Careers & Courier FAQ-toggle">+</span>
-</div>
-<div class="Careers & Courier FAQ-answer">
-<p>We accept bank transfer, cash, card payment, and invoice for businesses. Payment plans available for large contracts.</p>
-</div>
-</div>
-
-<div class="Careers & Courier FAQ-item">
-<div class="Careers & Courier FAQ-question" onclick="toggleCareers & Courier FAQ(this)">
-<h3>Do you offer bulk discounts?</h3>
-<span class="Careers & Courier FAQ-toggle">+</span>
-</div>
-<div class="Careers & Courier FAQ-answer">
-<p>Yes! We offer special pricing for regular clients, corporate accounts, and bulk bookings. Contact us to discuss your specific needs.</p>
-</div>
-</div>
-
-<div class="Careers & Courier FAQ-item">
-<div class="Careers & Courier FAQ-question" onclick="toggleCareers & Courier FAQ(this)">
-<h3>Can I book services in advance?</h3>
-<span class="Careers & Courier FAQ-toggle">+</span>
-</div>
-<div class="Careers & Courier FAQ-answer">
-<p>Absolutely! You can book days, weeks, or months in advance. We also accommodate last-minute requests subject to availability.</p>
-</div>
-</div>
-</div>
-
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section dark">
-<h2>What Our Clients Say</h2>
-
-<div class="testimonials">
-<div class="testimonial">
-<p>"Excellent service! Professional drivers, reliable timing, and great communication. Highly recommended!"</p>
-<p><strong>- Corporate Client</strong></p>
-</div>
-
-<div class="testimonial">
-<p>"Best courier service in Prague. Fast delivery, affordable rates, and responsive customer support."</p>
-<p><strong>- Restaurant Owner</strong></p>
-</div>
-
-<div class="testimonial">
-<p>"HeroMove helped me relocate smoothly as a student. Very accommodating and professional team."</p>
-<p><strong>- Student</strong></p>
-</div>
-
-<div class="testimonial">
-<p>"Amazing experience! From booking to service, everything was smooth and professional. Thank you!"</p>
-<p><strong>- Tourist</strong></p>
-</div>
-</div>
-
-</section>
 
 <!-- FLOAT BUTTONS -->
 <div class="contact-buttons">
@@ -385,199 +193,40 @@ I agree to be contacted and understand my data will be used for communication on
 <p>© HeroMove CZ — Independent Partner Fleet</p>
 </footer>
 
+
 <style>
-.services-overview{
+.services-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-gap:20px;
-margin:30px 0;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+margin-top:25px;
 }
 
-.services-overview .service-card{
+.services-grid .service-card{
 background:#111827;
-padding:25px;
-border-radius:10px;
-border-left:4px solid #ea580c;
-}
-
-.services-overview .service-card h3{
-color:#fbbf24;
-margin-top:0;
-font-size:18px;
-}
-
-.services-overview .service-card p{
-color:#cbd5e1;
-margin:0;
-font-size:14px;
-}
-
-.contact-container{
-max-width:1100px;
-margin:0 auto;
-}
-
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-margin:40px 0;
-}
-
-.form-wrapper{
-background:#111827;
-padding:30px;
+padding:24px;
 border-radius:12px;
 border:1px solid #1e293b;
-}
-
-.contact-form{
-display:block;
-}
-
-.contact-form .form-group{
-margin-bottom:20px;
-}
-
-.contact-form label{
-display:block;
-color:#e5e7eb;
-margin-bottom:8px;
-font-weight:500;
-font-size:14px;
-}
-
-.contact-form input,
-.contact-form textarea,
-.contact-form select{
-width:100%;
-padding:12px 15px;
-border:1px solid #334155;
-border-radius:8px;
-background:#0f172a;
-color:#e5e7eb;
-font-size:14px;
-box-sizing:border-box;
-transition:border-color 0.3s;
-font-family:inherit;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus{
-outline:none;
-border-color:#22c55e;
-box-shadow:0 0 0 3px rgba(34, 197, 94, 0.1);
-}
-
-.contact-form textarea{
-resize:vertical;
-}
-
-.contact-info-wrapper{
-display:flex;
-flex-direction:column;
-gap:30px;
-}
-
-.contact-info{
-background:#111827;
-padding:25px;
-border-radius:10px;
-border-left:4px solid #22c55e;
-}
-
-.contact-info h3{
-color:#22c55e;
-margin-top:0;
-font-size:18px;
-}
-
-.contact-info p{
-color:#cbd5e1;
-margin:10px 0;
-font-size:14px;
-line-height:1.6;
-}
-
-.contact-info ul{
-margin:0;
-padding-left:20px;
-}
-
-.contact-info li{
-margin:8px 0;
-}
-
-.quick-links-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-gap:20px;
-margin:30px 0;
-}
-
-.quick-link{
-display:block;
-background:#111827;
-padding:25px;
-border-radius:10px;
-text-decoration:none;
-color:#e5e7eb;
-border:2px solid transparent;
 transition:.3s;
-text-align:center;
 }
 
-.quick-link:hover{
-border-color:#22c55e;
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(34, 197, 94, 0.2);
+.services-grid .service-card:hover{
+transform:translateY(-6px);
+border-color:#f97316;
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
 }
 
-.quick-icon{
-font-size:40px;
-margin-bottom:10px;
+.services-grid h3{
+color:#f97316;
+margin-bottom:8px;
 }
 
-.quick-link h4{
-color:#22c55e;
-margin:10px 0 5px 0;
-font-size:16px;
-}
-
-.quick-link p{
+.services-grid p{
 color:#cbd5e1;
+font-size:14px;
 margin:0;
-font-size:13px;
-}
-
-.testimonials{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-gap:20px;
-margin:30px 0;
-}
-
-@media (max-width:768px){
-.contact-grid{
-grid-template-columns:1fr;
-gap:20px;
-}
-
-.contact-info-wrapper{
-order:-1;
-}
-
-.quick-links-grid{
-grid-template-columns:1fr;
-}
 }
 </style>
-
-<script>
-// Submission is handled by FormSubmit (formsubmit.co). JavaScript POST handler removed.
-// Native form POST will submit to FormSubmit; WhatsApp helper remains if present.
-</script>
 
 <script src="script.js"></script>
 </body>

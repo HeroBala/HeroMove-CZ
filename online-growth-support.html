@@ -11,155 +11,134 @@
 
 <!-- NAVBAR -->
 <nav class="nav">
+
 <div class="nav-brand">
 <h2 class="logo-text">
 <a href="index.html">
 <span class="logo-rocket">🚀</span>
-<span class="hero-word">Hero</span><span class="move-word">Move</span> 
+<span class="hero-word">Hero</span><span class="move-word">Move</span>
 </a>
 </h2>
-
-</div>
 </div>
 
 <div class="nav-links">
 
-  <a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
-
-  <a href="tourist-travel.html">
-    <span class="nav-icon">✈️</span> Tourist Travel
-  </a>
-
-  <a href="business-guide.html">
-    <span class="nav-icon">📋</span> License Guide
-  </a>
-
-  <a href="other-services.html">
-    <span class="nav-icon">💼</span> Services
-  </a>
-
-  <!-- NEW Careers Link -->
-  <a href="careers.html">
-    <span class="nav-icon">🧑‍💼</span> Careers
-  </a>
-
-  <!-- Careers & Courier FAQ with icon added -->
-    <a href="index.html#careers-faq-container">
-    <span class="nav-icon">❓</span> Careers & Courier FAQ
-  </a>
-
-  <a href="signup.html" class="nav-btn">
-    🚀 Join Now
-  </a>
+<a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
+<a href="tourist-travel.html"><span class="nav-icon">✈️</span> Tourist Travel</a>
+<a href="business-guide.html"><span class="nav-icon">📋</span> License Guide</a>
+<a href="other-services.html"><span class="nav-icon">💼</span> Services</a>
+<a href="careers.html"><span class="nav-icon">🧑‍💼</span> Careers</a>
+<a href="index.html#careers-faq-container"><span class="nav-icon">❓</span> Careers & Courier FAQ</a>
+<a href="signup.html" class="nav-btn">🚀 Join Now</a>
 
 </div>
 
 <div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
 </nav>
-<!-- SERVICE HEADER -->
-<header class="service-hero" style="background:linear-gradient(135deg, #059669 0%, #047857 100%);">
-<div class="service-container">
+
+
+<!-- BOOKING STYLE FORM -->
+<section class="section">
+
+<div class="signup-container">
+
+<div class="signup-header">
 <h1>📈 Online Growth Support</h1>
-<p>Scale your business and maximize earnings with expert guidance</p>
+<p>Scale your business and maximize earnings with expert guidance.</p>
 </div>
-</header>
-
-<!-- CONTACT FORM SECTION -->
-<section id="contact" class="section dark">
-<h2>📞 Get Online Growth Support</h2>
-<p class="section-subtitle">Let's discuss how to grow your income and business</p>
-
-<div class="contact-form-wrapper">
 
 <form action="https://formsubmit.co/herobala1997@gmail.com"
-      method="POST"
-      enctype="multipart/form-data"
-      class="service-contact-form master-form"
-      id="serviceForm">
+method="POST"
+enctype="multipart/form-data"
+class="signup-form master-form"
+id="serviceForm">
 
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="📈  New Online Growth Support Request">
+<input type="hidden" name="_subject" value="📈 New Online Growth Support Request">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="thank-you.html">
 
+<!-- CLIENT DETAILS -->
+<fieldset class="form-section">
+<legend>Your Details</legend>
+
 <div class="form-group">
-<label for="clientName">Full Name *</label>
-<input type="text" id="clientName" name="clientName" placeholder="Your name" required>
+<label>Full Name *</label>
+<input type="text" name="clientName" required>
 </div>
 
 <div class="form-group">
-<label for="clientEmail">Email Address *</label>
-<input type="email" id="clientEmail" name="clientEmail" placeholder="your.email@example.com" required>
+<label>Email Address *</label>
+<input type="email" name="clientEmail" required>
 </div>
 
 <div class="form-group">
-<label for="clientPhone">Phone/WhatsApp *</label>
-<input type="tel" id="clientPhone" name="clientPhone" placeholder="+420 608 147 604" required>
+<label>Phone / WhatsApp *</label>
+<input type="tel" name="clientPhone" required>
 </div>
 
+</fieldset>
+
+<!-- GROWTH INFO -->
+<fieldset class="form-section">
+<legend>Growth Information</legend>
+
 <div class="form-group">
-<label for="currentRole">Your Current Role *</label>
-<select id="currentRole" name="currentRole" required>
-<option value="">Select your role</option>
-<option value="Courier Driver">Courier Driver</option>
-<option value="Transport Driver">Transport Driver</option>
-<option value="Bolt Driver">Bolt Driver</option>
-<option value="Freelancer">Freelancer</option>
-<option value="Entrepreneur">Entrepreneur/Business Owner</option>
+<label>Your Current Role *</label>
+<select name="currentRole" required>
+<option value="">Select</option>
+<option>Courier Driver</option>
+<option>Transport Driver</option>
+<option>Bolt Driver</option>
+<option>Freelancer</option>
+<option>Entrepreneur / Business Owner</option>
 </select>
 </div>
 
 <div class="form-group">
-<label for="currentIncome">Current Monthly Income *</label>
-<select id="currentIncome" name="currentIncome" required>
-<option value="">Select range</option>
-<option value="Under 20,000">Under 20,000 Kč</option>
-<option value="20,000 - 30,000">20,000 - 30,000 Kč</option>
-<option value="30,000 - 50,000">30,000 - 50,000 Kč</option>
-<option value="Over 50,000">Over 50,000 Kč</option>
+<label>Current Monthly Income *</label>
+<select name="currentIncome" required>
+<option value="">Select</option>
+<option>Under 20,000 Kč</option>
+<option>20,000 - 30,000 Kč</option>
+<option>30,000 - 50,000 Kč</option>
+<option>Over 50,000 Kč</option>
 </select>
 </div>
 
 <div class="form-group">
-<label for="growthGoal">Your Growth Goal *</label>
-<input type="text" id="growthGoal" name="growthGoal" placeholder="e.g., Increase income to 50,000 Kč/month" required>
+<label>Your Growth Goal *</label>
+<input type="text" name="growthGoal" required>
 </div>
 
 <div class="form-group">
-<label for="growthMessage">What specific challenges are you facing? *</label>
-<textarea id="growthMessage" name="growthMessage" placeholder="Describe your current challenges..." rows="5" required></textarea>
-</div>
-
-<!-- ✅ NEW DOCUMENT UPLOAD FIELD -->
-<div class="form-group">
-<label for="documents">📎 Upload Documents (Optional)</label>
-<input type="file"
-       id="documents"
-       name="attachment"
-       multiple
-       accept=".pdf,.jpg,.png,.doc,.docx,.zip">
+<label>Challenges *</label>
+<textarea name="growthMessage" rows="4" required></textarea>
 </div>
 
 <div class="form-group">
+<label>📎 Upload Documents (Optional)</label>
+<input type="file" name="attachment" multiple accept=".pdf,.jpg,.png,.doc,.docx,.zip">
+</div>
+
 <label class="checkbox-large">
-<input type="checkbox" id="serviceTerms" name="serviceTerms" required>
+<input type="checkbox" name="serviceTerms" required>
 I'm interested in growth strategies and ready to take action
 </label>
+
+</fieldset>
+
+<div class="form-buttons">
+<button type="submit" class="btn-main">📧 Send Request</button>
+<button type="button" class="btn-outline" onclick="sendViaServiceWhatsApp()">💬 Send via WhatsApp</button>
 </div>
-
-<button type="submit" class="btn-main" style="width:100%;padding:14px;background:#059669;">
-📧 Send Request
-</button>
-
-<button type="button" class="btn-outline"
-onclick="sendViaServiceWhatsApp()"
-style="width:100%;padding:14px;margin-top:10px;border-color:#059669;color:#059669;">
-💬 Send via WhatsApp
-</button>
 
 </form>
+
 </div>
+
 </section>
+
 
 <script>
 function sendViaServiceWhatsApp(){
@@ -169,21 +148,20 @@ alert('Please fill in all required fields first');
 return;
 }
 
-const formData = new FormData(form);
+const data = new FormData(form);
 
-let message = `📈 Online Growth Support Request
+let msg=`📈 Online Growth Support Request
 
-Name: ${formData.get('clientName')}
-Email: ${formData.get('clientEmail')}
-Phone: ${formData.get('clientPhone')}
-Role: ${formData.get('currentRole')}
-Income: ${formData.get('currentIncome')}
-Goal: ${formData.get('growthGoal')}
+Name: ${data.get('clientName')}
+Phone: ${data.get('clientPhone')}
+Role: ${data.get('currentRole')}
+Income: ${data.get('currentIncome')}
+Goal: ${data.get('growthGoal')}
 
 Message:
-${formData.get('growthMessage')}`;
+${data.get('growthMessage')}`;
 
-window.open(`https://wa.me/420608147604?text=${encodeURIComponent(message)}`, '_blank');
+window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
 }
 </script>
 

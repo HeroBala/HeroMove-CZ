@@ -11,76 +11,55 @@
 
 <!-- NAVBAR -->
 <nav class="nav">
+
 <div class="nav-brand">
 <h2 class="logo-text">
 <a href="index.html">
 <span class="logo-rocket">🚀</span>
-<span class="hero-word">Hero</span><span class="move-word">Move</span> 
+<span class="hero-word">Hero</span><span class="move-word">Move</span>
+</a>
 </h2>
-
-</div>
 </div>
 
 <div class="nav-links">
 
-  <a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
-
-  <a href="tourist-travel.html">
-    <span class="nav-icon">✈️</span> Tourist Travel
-  </a>
-
-  <a href="business-guide.html">
-    <span class="nav-icon">📋</span> License Guide
-  </a>
-
-  <a href="other-services.html">
-    <span class="nav-icon">💼</span> Services
-  </a>
-
-  <!-- NEW Careers Link -->
-  <a href="careers.html">
-    <span class="nav-icon">🧑‍💼</span> Careers
-  </a>
-
-  <!-- Careers & Courier FAQ with icon added -->
-    <a href="index.html#careers-faq-container">
-    <span class="nav-icon">❓</span> Careers & Courier FAQ
-  </a>
-
-  <a href="signup.html" class="nav-btn">
-    🚀 Join Now
-  </a>
+<a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
+<a href="tourist-travel.html"><span class="nav-icon">✈️</span> Tourist Travel</a>
+<a href="business-guide.html"><span class="nav-icon">📋</span> License Guide</a>
+<a href="other-services.html"><span class="nav-icon">💼</span> Services</a>
+<a href="careers.html"><span class="nav-icon">🧑‍💼</span> Careers</a>
+<a href="index.html#careers-faq-container"><span class="nav-icon">❓</span> Careers & Courier FAQ</a>
+<a href="signup.html" class="nav-btn">🚀 Join Now</a>
 
 </div>
 
-<!-- SERVICE HEADER -->
-<header class="service-hero" style="background:linear-gradient(135deg, #0891b2 0%, #0e7490 100%);">
-<div class="service-container">
+<div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
+</nav>
+
+
+<!-- SUPPORT FORM (BOOKING STYLE DESIGN) -->
+<section class="section">
+
+<div class="signup-container">
+
+<div class="signup-header">
 <h1>🤝 Online & Offline Help</h1>
-<p>Support through multiple channels - online, phone, in-person meetings, and more</p>
+<p>Schedule support via WhatsApp, phone, email, video call or in-person meeting.</p>
 </div>
-</header>
 
-<!-- CONTACT FORM SECTION -->
-<section id="contact" class="section dark">
-<h2>📞 Schedule Support or Get Help</h2>
-<p class="section-subtitle">Choose your preferred support method and we'll get in touch</p>
-
-<div class="contact-form-wrapper">
-
-<!-- ✅ FORM SUBMIT SAFE VERSION -->
 <form action="https://formsubmit.co/herobala1997@gmail.com"
 method="POST"
-class="service-contact-form master-form"
+class="signup-form master-form"
 id="serviceForm">
 
-<!-- FORM SUBMIT SETTINGS -->
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_subject" value="🤝 HeroMove Support Request">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="thank-you.html">
-<input type="hidden" name="_autoresponse"
-value="Thank you for contacting HeroMove CZ. We received your request and will reply soon.">
+
+<!-- CONTACT -->
+<fieldset class="form-section">
+<legend>Contact Details</legend>
 
 <div class="form-group">
 <label>Full Name *</label>
@@ -96,6 +75,12 @@ value="Thank you for contacting HeroMove CZ. We received your request and will r
 <label>Phone / WhatsApp *</label>
 <input type="tel" name="Phone" required>
 </div>
+
+</fieldset>
+
+<!-- SUPPORT DETAILS -->
+<fieldset class="form-section">
+<legend>Support Request</legend>
 
 <div class="form-group">
 <label>Preferred Support Channel *</label>
@@ -138,7 +123,7 @@ value="Thank you for contacting HeroMove CZ. We received your request and will r
 
 <div class="form-group">
 <label>Message *</label>
-<textarea name="Message" rows="5" required></textarea>
+<textarea name="Message" rows="4" required></textarea>
 </div>
 
 <div class="form-group">
@@ -146,31 +131,24 @@ value="Thank you for contacting HeroMove CZ. We received your request and will r
 <input type="text" name="Preferred Time">
 </div>
 
-<div class="form-group">
 <label class="checkbox-large">
 <input type="checkbox" required>
 I agree to be contacted via my preferred channel
 </label>
+
+</fieldset>
+
+<div class="form-buttons">
+<button type="submit" class="btn-main">📧 Send Request</button>
+<button type="button" class="btn-outline" onclick="sendViaServiceWhatsApp()">💬 Send via WhatsApp</button>
 </div>
-
-<button type="submit" class="btn-main" style="width:100%;padding:14px;background:#0891b2;">
-📧 Send Request
-</button>
-
-<button type="button" class="btn-outline"
-onclick="sendViaServiceWhatsApp()"
-style="width:100%;padding:14px;margin-top:10px;border-color:#0891b2;color:#0891b2;">
-💬 Send via WhatsApp
-</button>
-
-<p style="font-size:13px;color:#94a3b8;text-align:center;margin-top:12px;">
-🔒 Your information is confidential and used only for support communication.
-</p>
 
 </form>
 
 </div>
+
 </section>
+
 
 <!-- FLOAT BUTTONS -->
 <div class="contact-buttons">
@@ -181,6 +159,7 @@ style="width:100%;padding:14px;margin-top:10px;border-color:#0891b2;color:#0891b
 <footer>
 <p>© HeroMove CZ — Independent Partner Fleet</p>
 </footer>
+
 
 <script>
 function sendViaServiceWhatsApp(){
@@ -195,7 +174,6 @@ const data=new FormData(form);
 let msg=`🤝 HeroMove Support Request
 
 Name: ${data.get('Full Name')}
-Email: ${data.get('Email')}
 Phone: ${data.get('Phone')}
 Channel: ${data.get('Support Channel')}
 Urgency: ${data.get('Urgency')}
@@ -209,5 +187,6 @@ window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank
 </script>
 
 <script src="script.js"></script>
+
 </body>
 </html>
