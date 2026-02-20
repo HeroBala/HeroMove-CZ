@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join HeroMove Network</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+<div class="nav-brand">
+<h2 class="logo-text">
+<a href="index.html">
+<span class="logo-rocket">🚀</span>
+<span class="hero-word">Hero</span><span class="move-word">Move</span>
+</a>
+</h2>
+</div>
+
+<div class="nav-links">
+<a href="index.html#transport">🚗 Transport</a>
+<a href="tourist-travel.html">✈️ Tourist Travel</a>
+<a href="other-services.html">💼 Services</a>
+<a href="careers.html">🧑‍💼 Careers</a>
+<a href="signup.html" class="nav-btn">🚀 Join Now</a>
+</div>
+
+<div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
+</nav>
+
+<!-- HERO -->
+<header class="service-hero" style="background:linear-gradient(135deg,#16a34a,#065f46);">
+<div class="service-container">
+<h1>🌍 Join the HeroMove Network</h1>
+<p>Connecting people, couriers, and opportunities — all in one place.</p>
+</div>
+</header>
+
+<!-- OPTIONS -->
+<section class="section">
+<div class="service-content">
+
+<h2>Choose How You Want to Join</h2>
+
+<div class="join-grid">
+
+<div class="join-card">
+<h3>👀 Viewer / Community Member</h3>
+<p>Stay updated with events, transport offers, and HeroMove promotions.</p>
+<ul>
+<li>✓ Receive promotional emails</li>
+<li>✓ Travel & event updates</li>
+<li>✓ Special client discounts</li>
+</ul>
+</div>
+
+<div class="join-card">
+<h3>🚗 HeroMove Courier</h3>
+<p>Accept private bookings from clients including airport pickups and tours.</p>
+<ul>
+<li>✓ Airport & city transport requests</li>
+<li>✓ Multi-day tour offers</li>
+<li>✓ Private client bookings</li>
+</ul>
+</div>
+
+<div class="join-card">
+<h3>🍔 Bolt Food Courier (HeroMove Fleet)</h3>
+<p>Work under HeroMove fleet with one of the lowest commission structures.</p>
+<ul>
+<li>✓ Bolt Food fleet access</li>
+<li>✓ Low commission fees</li>
+<li>✓ Support & onboarding help</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- FORM -->
+<section class="section dark">
+<h2 style="text-align:center;">📝 Join Request</h2>
+<p class="section-subtitle">Select your role and fill in the details below</p>
+
+<div class="contact-form-wrapper">
+
+<form action="https://formsubmit.co/herobala1997@gmail.com"
+method="POST"
+class="service-contact-form master-form"
+id="joinForm">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="🌍 New HeroMove Network Join Request">
+<input type="hidden" name="_template" value="table">
+
+<div class="form-group">
+<label>Join As *</label>
+<select name="joinType" required>
+<option value="">Select Role</option>
+<option>Viewer / Community Member</option>
+<option>HeroMove Private Courier</option>
+<option>Bolt Food Courier (HeroMove Fleet)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="fullName" required>
+</div>
+
+<div class="form-group">
+<label>Email *</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="form-group">
+<label>Phone / WhatsApp *</label>
+<input type="tel" name="phone" required>
+</div>
+
+<div class="form-group">
+<label>City *</label>
+<select name="city" required>
+<option>Prague</option>
+<option>Brno</option>
+<option>Ostrava</option>
+<option>Plzen</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Short Message</label>
+<textarea name="message" rows="4"></textarea>
+</div>
+
+<label class="checkbox-large">
+<input type="checkbox" required>
+I agree to be contacted by HeroMove
+</label>
+
+<button type="submit" class="btn-main" style="width:100%;padding:14px;">
+🚀 Join HeroMove Network
+</button>
+
+</form>
+
+</div>
+</section>
+
+<footer>
+<p>© HeroMove CZ — Independent Partner Fleet</p>
+</footer>
+
+<style>
+
+.join-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.join-card{
+background:#111827;
+padding:25px;
+border-radius:12px;
+border-left:4px solid #22c55e;
+}
+
+.join-card h3{
+color:#22c55e;
+margin-top:0;
+}
+
+.join-card p{
+color:#cbd5e1;
+font-size:14px;
+}
+
+.join-card ul{
+color:#94a3b8;
+padding-left:18px;
+font-size:13px;
+}
+
+.contact-form-wrapper{
+max-width:600px;
+margin:40px auto;
+background:#111827;
+padding:30px;
+border-radius:12px;
+border:1px solid #1e293b;
+}
+
+</style>
+
+<script src="script.js"></script>
+</body>
+</html>
