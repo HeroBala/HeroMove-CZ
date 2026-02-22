@@ -29,13 +29,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ===============================
-# INIT RESEND (ONCE)
-# ===============================
+# INIT RESEND
 resend.api_key = RESEND_API_KEY
 
 # ===============================
-# ROOT + HEALTH ROUTES
+# ROOT + HEALTH
 # ===============================
 @app.get("/")
 def root():
@@ -46,7 +44,7 @@ def health():
     return {"status": "ok"}
 
 # ===============================
-# HELPER: FORMAT FIELD LABELS
+# FORMAT LABEL
 # ===============================
 def format_label(key: str):
     label = key.replace("_", " ")
@@ -61,15 +59,13 @@ def format_label(key: str):
     return new_label.strip().title()
 
 # ===============================
-# UNIVERSAL BOOKING API
+# SEND BOOKING
 # ===============================
 @app.post("/send-booking")
 async def send_booking(request: Request):
 
     try:
-        # ⭐ requires python-multipart installed
         form = await request.form()
-
         data = {}
 
         for key, value in form.items():
@@ -79,17 +75,14 @@ async def send_booking(request: Request):
 
         service = data.get("service", "HeroMove Booking")
 
-        # ===============================
-        # BUILD HTML EMAIL
-        # ===============================
         html_message = f"""
         <h2>🚀 New {service} Request</h2>
         <hr>
         """
 
         ignore_fields = [
-            "service", "terms", "_captcha",
-            "_subject", "_template", "_next"
+            "service","terms","_captcha",
+            "_subject","_template","_next"
         ]
 
         for key, value in data.items():
@@ -102,9 +95,6 @@ async def send_booking(request: Request):
             <p><strong>{label}:</strong> {value}</p>
             """
 
-        # ===============================
-        # SEND EMAIL VIA RESEND
-        # ===============================
         resend.Emails.send({
             "from": "HeroMove <onboarding@resend.dev>",
             "to": [EMAIL_USER],
@@ -120,9 +110,7 @@ async def send_booking(request: Request):
         }
 
     except Exception as e:
-
         print("❌ BACKEND ERROR:", e)
-
         return {
             "status": "error",
             "message": "Server failed to process request"
