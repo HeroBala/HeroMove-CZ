@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("🚀 Sending:",Object.fromEntries(formData.entries()));
 
-        const res = await fetch("https://heromove-cz.onrender.com",{
+        const res = await fetch("https://heromove-cz.onrender.com/send-booking",{
           method:"POST",
           body:formData
         });
