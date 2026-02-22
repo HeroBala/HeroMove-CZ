@@ -1,0 +1,9 @@
+{
+  "name": "heromove-cz-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare-docs": "bash ./scripts/prepare_docs.sh",
+    "ci-deploy": "npm --prefix frontend ci && (cd frontend && npm run build || true) && npm run prepare-docs"
+  }
+}

@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install frontend deps
+        run: npm ci --prefix frontend
+
+      - name: Build frontend (try next build + export)
+        run: |
+          if [ -f frontend/package.json ]; then
+            cd frontend
+            # attempt to run build and export if scripts exist; continue on failure
+            if npm run | grep -q "export"; then
+              npm run build || true
+              npm run export || true
+            else
+              echo "No export script found in frontend/package.json; skipping Next export"
+            fi
+          fi
+
+      - name: Prepare docs folder
+        run: bash ./scripts/prepare_docs.sh
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
