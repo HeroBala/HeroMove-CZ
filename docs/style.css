@@ -89,7 +89,7 @@ display:block;
 /* ================================= */
 
 .section{
-padding:90px 20px;
+padding:5px 0px;
 text-align:center;
 }
 
@@ -339,7 +339,16 @@ transform-origin:center;
 animation:rocketJourney 8s cubic-bezier(.4,0,.2,1) infinite;
 animation-delay:1s;
 }
+/* Join btn 🚀 ROCKET */
+.logo-rocket-join{
+display:inline-block;
+margin-right:6px;
+transform-origin:center;
 
+/* smooth infinite loop */
+animation:rocketJourneyShort 8s cubic-bezier(.4,0,.2,1) infinite;
+animation-delay:1s;
+}
 /* TITLE SMALL SHIFT */
 .logo-text{
 animation:titleShift 8s ease-in-out infinite;
@@ -404,7 +413,41 @@ filter:blur(6px);
 }
 
 }
+@keyframes rocketJourneyShort{
 
+0%{
+transform:translateX(0) rotate(0deg);
+opacity:1;
+filter:none;
+}
+
+20%{
+transform:translateX(16px) rotate(45deg);
+}
+
+45%{
+transform:translateX(50px) rotate(45deg); /* shorter than 80px */
+}
+
+65%{
+transform:translateX(75px) rotate(45deg);
+opacity:.7;
+filter:blur(2px);
+}
+
+80%{
+transform:translateX(80px) rotate(45deg); /* shorter than 130px */
+opacity:0;
+filter:blur(6px);
+}
+
+100%{
+transform:translateX(95px) rotate(45deg);
+opacity:0;
+filter:blur(6px);
+}
+
+}
 
 @keyframes titleShift{
 
