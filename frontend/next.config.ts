@@ -1,11 +1,7 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  images: {
-    unoptimized: true,
-  },
+  images: { unoptimized: true },
   basePath: "/HeroMove-CZ",
   assetPrefix: "/HeroMove-CZ/",
+  trailingSlash: true,
 };
-
-module.exports = nextConfig;
