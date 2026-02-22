@@ -1,12 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: "export",
   images: {
     unoptimized: true,
   },
-  basePath: "/HeroMove-CZ",   // repo name
+  basePath: "/HeroMove-CZ",
   assetPrefix: "/HeroMove-CZ/",
 };
 
-export default nextConfig;
+module.exports = nextConfig;
