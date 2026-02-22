@@ -5,50 +5,38 @@ import os
 import resend
 
 # ===============================
-
 # LOAD ENV VARIABLES
-
 # ===============================
-
 load_dotenv()
 
 EMAIL_USER = os.getenv("EMAIL_USER")
 RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 
 # ===============================
-
 # FASTAPI APP
-
 # ===============================
-
 app = FastAPI()
 
 app.add_middleware(
-CORSMiddleware,
-allow_origins=[
-"https://herobala.github.io",
-"https://herobala.github.io/HeroMove-CZ",
-"https://heromove-cz.onrender.com",
-],
-allow_credentials=True,
-allow_methods=["*"],
-allow_headers=["*"],
+    CORSMiddleware,
+    allow_origins=[
+        "https://herobala.github.io",
+        "https://herobala.github.io/HeroMove-CZ",
+        "https://heromove-cz.onrender.com",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # ===============================
-
 # INIT RESEND (ONCE)
-
 # ===============================
-
 resend.api_key = RESEND_API_KEY
 
 # ===============================
-
 # ROOT + HEALTH ROUTES
-
 # ===============================
-
 @app.get("/")
 def root():
     return {"message": "HeroMove backend running 🚀"}
@@ -58,94 +46,84 @@ def health():
     return {"status": "ok"}
 
 # ===============================
-
 # HELPER: FORMAT FIELD LABELS
-
 # ===============================
-
 def format_label(key: str):
-label = key.replace("_", " ")
-new_label = ""
+    label = key.replace("_", " ")
+    new_label = ""
 
-```
-for char in label:
-    if char.isupper():
-        new_label += " " + char
-    else:
-        new_label += char
+    for char in label:
+        if char.isupper():
+            new_label += " " + char
+        else:
+            new_label += char
 
-return new_label.strip().title()
-```
+    return new_label.strip().title()
 
 # ===============================
-
 # UNIVERSAL BOOKING API
-
 # ===============================
-
 @app.post("/send-booking")
 async def send_booking(request: Request):
 
-```
-try:
-    # ⭐ requires python-multipart installed
-    form = await request.form()
+    try:
+        # ⭐ requires python-multipart installed
+        form = await request.form()
 
-    data = {}
+        data = {}
 
-    for key, value in form.items():
-        data[key] = value
+        for key, value in form.items():
+            data[key] = value
 
-    print("📩 RECEIVED DATA:", data)
+        print("📩 RECEIVED DATA:", data)
 
-    service = data.get("service", "HeroMove Booking")
+        service = data.get("service", "HeroMove Booking")
 
-    # ===============================
-    # BUILD HTML EMAIL
-    # ===============================
-    html_message = f"""
-    <h2>🚀 New {service} Request</h2>
-    <hr>
-    """
-
-    ignore_fields = [
-        "service","terms","_captcha",
-        "_subject","_template","_next"
-    ]
-
-    for key, value in data.items():
-        if key in ignore_fields:
-            continue
-
-        label = format_label(key)
-
-        html_message += f"""
-        <p><strong>{label}:</strong> {value}</p>
+        # ===============================
+        # BUILD HTML EMAIL
+        # ===============================
+        html_message = f"""
+        <h2>🚀 New {service} Request</h2>
+        <hr>
         """
 
-    # ===============================
-    # SEND EMAIL VIA RESEND
-    # ===============================
-    resend.Emails.send({
-        "from": "HeroMove <onboarding@resend.dev>",
-        "to": [EMAIL_USER],
-        "subject": f"🚀 New {service} Request",
-        "html": html_message,
-    })
+        ignore_fields = [
+            "service", "terms", "_captcha",
+            "_subject", "_template", "_next"
+        ]
 
-    print("✅ Email sent via Resend")
+        for key, value in data.items():
+            if key in ignore_fields:
+                continue
 
-    return {
-        "status": "success",
-        "message": f"{service} sent successfully"
-    }
+            label = format_label(key)
 
-except Exception as e:
+            html_message += f"""
+            <p><strong>{label}:</strong> {value}</p>
+            """
 
-    print("❌ BACKEND ERROR:", e)
+        # ===============================
+        # SEND EMAIL VIA RESEND
+        # ===============================
+        resend.Emails.send({
+            "from": "HeroMove <onboarding@resend.dev>",
+            "to": [EMAIL_USER],
+            "subject": f"🚀 New {service} Request",
+            "html": html_message,
+        })
 
-    return {
-        "status": "error",
-        "message": "Server failed to process request"
-    }
-```
+        print("✅ Email sent via Resend")
+
+        return {
+            "status": "success",
+            "message": f"{service} sent successfully"
+        }
+
+    except Exception as e:
+
+        print("❌ BACKEND ERROR:", e)
+
+        return {
+            "status": "error",
+            "message": "Server failed to process request"
+        }
