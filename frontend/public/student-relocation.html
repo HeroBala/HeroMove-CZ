@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Courier Delivery Booking | HeroMove CZ</title>
+<title>Student Relocation Booking | HeroMove CZ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -60,27 +60,25 @@
 <div class="signup-container">
 
 <div class="signup-header">
-<h1>📦 Courier Delivery Booking</h1>
-<p>Fast and reliable delivery for packages, documents, and goods.</p>
+<h1>🎓 Student Relocation Booking</h1>
+<p>Affordable and flexible moving services for students across Czechia.</p>
 </div>
 
-<form action="https://formsubmit.co/herobala1997@gmail.com"
-method="POST"
-class="signup-form master-form"
-id="courierForm">
-
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="New Courier Delivery Booking">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="thank-you.html">
+<form class="heroForm" enctype="multipart/form-data">
+    <input type="hidden" name="service" value="Student Relocation Booking">
 
 <!-- CONTACT -->
 <fieldset class="form-section">
-<legend>Sender Details</legend>
+<legend>Student Details</legend>
 
 <div class="form-group">
 <label>Full Name *</label>
 <input type="text" name="fullName" required>
+</div>
+
+<div class="form-group">
+<label>Email *</label>
+<input type="email" name="email" required>
 </div>
 
 <div class="form-group">
@@ -102,9 +100,9 @@ id="courierForm">
 
 </fieldset>
 
-<!-- DELIVERY DETAILS -->
+<!-- MOVE DETAILS -->
 <fieldset class="form-section">
-<legend>Delivery Details</legend>
+<legend>Move Details</legend>
 
 <div class="form-group">
 <label>Pickup Address *</label>
@@ -112,45 +110,49 @@ id="courierForm">
 </div>
 
 <div class="form-group">
-<label>Delivery Address *</label>
+<label>Destination Address *</label>
 <input type="text" name="destination" required>
 </div>
 
 <div class="form-group">
-<label>Pickup Date *</label>
-<input type="date" name="pickupDate" required>
+<label>Move Date *</label>
+<input type="date" name="moveDate" required>
 </div>
 
 <div class="form-group">
-<label>Pickup Time *</label>
-<input type="time" name="pickupTime" required>
+<label>Preferred Time</label>
+<input type="time" name="moveTime">
 </div>
 
+</fieldset>
+
+<!-- ITEMS -->
+<fieldset class="form-section">
+<legend>Items & Services</legend>
+
 <div class="form-group">
-<label>Package Type *</label>
-<select name="packageType" required>
+<label>Move Size *</label>
+<select name="moveSize" required>
 <option value="">Select</option>
-<option>📄 Documents / Small Item</option>
-<option>📦 Standard Package</option>
-<option>🏪 Retail / Food Delivery</option>
-<option>💼 Business Logistics</option>
+<option>Small (Suitcases / Boxes)</option>
+<option>Medium (Dorm Room)</option>
+<option>Large (Apartment Move)</option>
 </select>
 </div>
 
-<div class="form-group">
-<label>Vehicle Needed *</label>
-<select name="vehicle" required>
-<option value="">Select</option>
-<option>🚴 Bike Courier</option>
-<option>🛴 Scooter</option>
-<option>🚗 Car Delivery</option>
-<option>🚐 Van Service</option>
-</select>
-</div>
+<label class="checkbox-large">
+<input type="checkbox" name="helpCarry">
+Need Help Carrying Items
+</label>
+
+<label class="checkbox-large">
+<input type="checkbox" name="packing">
+Need Packing Assistance
+</label>
 
 <div class="form-group">
-<label>Notes</label>
-<textarea name="notes" rows="3" placeholder="Fragile item, contact person, delivery instructions..."></textarea>
+<label>Additional Notes</label>
+<textarea name="notes" rows="3" placeholder="Floor number, elevator, heavy items etc."></textarea>
 </div>
 
 </fieldset>
@@ -161,14 +163,14 @@ id="courierForm">
 
 <label class="checkbox-large">
 <input type="checkbox" name="terms" required>
-I confirm the delivery details are correct
+I confirm the relocation details are correct
 </label>
 
 </fieldset>
 
 <div class="form-buttons">
-<button type="submit" class="btn-main">📧 Book Courier Delivery</button>
-<button type="button" class="btn-outline" onclick="sendCourierWhatsApp()">💬 Send via WhatsApp</button>
+<button type="submit" class="btn-main">📧 Book Student Relocation</button>
+<button type="button" class="btn-outline" onclick="sendRelocationWhatsApp()">💬 Send via WhatsApp</button>
 </div>
 
 </form>
@@ -178,52 +180,39 @@ I confirm the delivery details are correct
 </section>
 
 
-<!-- SERVICE DETAILS (your original content kept) -->
+<!-- SERVICE INFO -->
 <section class="section">
 <div class="service-content">
-
-<h2>Professional Delivery Solutions</h2>
+<h2>🎓 Why Choose HeroMove for Student Relocation?</h2>
 
 <div class="service-features">
 
 <div class="feature-card">
-<h3>⚡ Same-Day Delivery</h3>
-<p>Express options available for urgent shipments.</p>
+<h3>💼 Hassle-Free Moving</h3>
+<p>Perfect for dorm changes, apartment moves, and semester relocations.</p>
 </div>
 
 <div class="feature-card">
-<h3>📊 Track Everything</h3>
-<p>Real-time tracking and delivery notifications.</p>
+<h3>🤝 Student-Friendly Pricing</h3>
+<p>Affordable pricing designed for students and young professionals.</p>
 </div>
 
 <div class="feature-card">
-<h3>🛡️ Safe Handling</h3>
-<p>Insured deliveries with secure handling.</p>
+<h3>📦 Flexible Services</h3>
+<p>From small luggage transport to full apartment relocation.</p>
 </div>
 
 <div class="feature-card">
-<h3>💰 Competitive Rates</h3>
-<p>Affordable pricing for individuals and businesses.</p>
+<h3>🌟 Multilingual Drivers</h3>
+<p>Friendly support for international students new to Czechia.</p>
 </div>
 
 </div>
 
-<h2 style="margin-top:60px;">Delivery Methods & Vehicles</h2>
-
-<div class="vehicles">
-<div class="vehicle">
-<h4>🚴 Bike Courier</h4>
-</div>
-<div class="vehicle">
-<h4>🛴 Scooter</h4>
-</div>
-<div class="vehicle">
-<h4>🚗 Car Delivery</h4>
-</div>
-<div class="vehicle">
-<h4>🚐 Van Service</h4>
-</div>
-</div>
+<h2 style="margin-top:50px;">Cities We Serve</h2>
+<p style="text-align:center;margin-bottom:30px;">
+Prague • Brno • Plzen • Ostrava • and other Czech cities
+</p>
 
 </div>
 </section>
@@ -231,8 +220,8 @@ I confirm the delivery details are correct
 
 <!-- CTA -->
 <div class="cta-section">
-<h2>Need Regular Deliveries?</h2>
-<a href="https://wa.me/420608147604" class="btn-main">💬 Ask About B2B</a>
+<h2>Need Help Planning Your Move?</h2>
+<a href="https://wa.me/420608147604" class="btn-main">💬 Chat on WhatsApp</a>
 </div>
 
 
@@ -243,13 +232,13 @@ I confirm the delivery details are correct
 </div>
 
 <footer>
-<p>© HeroMove CZ — Courier & Logistics Service</p>
+<p>© HeroMove CZ — Student Relocation Service</p>
 </footer>
 
 
 <script>
-function sendCourierWhatsApp(){
-const form=document.getElementById('courierForm');
+function sendRelocationWhatsApp(){
+const form=document.getElementById('relocationForm');
 if(!form.checkValidity()){
 alert('Please fill required fields');
 return;
@@ -257,17 +246,15 @@ return;
 
 const data=new FormData(form);
 
-let msg=`📦 Courier Delivery Booking
+let msg=`🎓 Student Relocation Booking
 
 Name: ${data.get('fullName')}
 Phone: ${data.get('phone')}
 City: ${data.get('city')}
 Pickup: ${data.get('pickup')}
-Delivery: ${data.get('destination')}
-Date: ${data.get('pickupDate')}
-Time: ${data.get('pickupTime')}
-Package: ${data.get('packageType')}
-Vehicle: ${data.get('vehicle')}`;
+Destination: ${data.get('destination')}
+Date: ${data.get('moveDate')}
+Move Size: ${data.get('moveSize')}`;
 
 window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
 }

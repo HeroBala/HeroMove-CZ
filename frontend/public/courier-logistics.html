@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>City Transport Booking | HeroMove CZ</title>
+<title>Courier Delivery Booking | HeroMove CZ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -60,23 +60,16 @@
 <div class="signup-container">
 
 <div class="signup-header">
-<h1>🚗 City Transport Booking</h1>
-<p>Fast and reliable city rides across Czechia.</p>
+<h1>📦 Courier Delivery Booking</h1>
+<p>Fast and reliable delivery for packages, documents, and goods.</p>
 </div>
 
-<form action="https://formsubmit.co/herobala1997@gmail.com"
-method="POST"
-class="signup-form master-form"
-id="cityTransportForm">
+<form class="heroForm">
+    <input type="hidden"name="service" value="Courier Delivery Booking">
 
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="New City Transport Booking">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="thank-you.html">
-
-<!-- PASSENGER -->
+<!-- CONTACT -->
 <fieldset class="form-section">
-<legend>Passenger Details</legend>
+<legend>Sender Details</legend>
 
 <div class="form-group">
 <label>Full Name *</label>
@@ -102,17 +95,17 @@ id="cityTransportForm">
 
 </fieldset>
 
-<!-- RIDE DETAILS -->
+<!-- DELIVERY DETAILS -->
 <fieldset class="form-section">
-<legend>Ride Details</legend>
+<legend>Delivery Details</legend>
 
 <div class="form-group">
-<label>Pickup Location *</label>
+<label>Pickup Address *</label>
 <input type="text" name="pickup" required>
 </div>
 
 <div class="form-group">
-<label>Destination *</label>
+<label>Delivery Address *</label>
 <input type="text" name="destination" required>
 </div>
 
@@ -127,23 +120,30 @@ id="cityTransportForm">
 </div>
 
 <div class="form-group">
-<label>Passengers *</label>
-<input type="number" name="passengers" min="1" required>
+<label>Package Type *</label>
+<select name="packageType" required>
+<option value="">Select</option>
+<option>📄 Documents / Small Item</option>
+<option>📦 Standard Package</option>
+<option>🏪 Retail / Food Delivery</option>
+<option>💼 Business Logistics</option>
+</select>
 </div>
 
 <div class="form-group">
-<label>Vehicle Type *</label>
+<label>Vehicle Needed *</label>
 <select name="vehicle" required>
 <option value="">Select</option>
-<option>🚗 Economy</option>
-<option>🚙 Comfort</option>
-<option>🚐 XL</option>
+<option>🚴 Bike Courier</option>
+<option>🛴 Scooter</option>
+<option>🚗 Car Delivery</option>
+<option>🚐 Van Service</option>
 </select>
 </div>
 
 <div class="form-group">
 <label>Notes</label>
-<textarea name="notes" rows="3" placeholder="Child seat, multiple stops, etc."></textarea>
+<textarea name="notes" rows="3" placeholder="Fragile item, contact person, delivery instructions..."></textarea>
 </div>
 
 </fieldset>
@@ -154,14 +154,14 @@ id="cityTransportForm">
 
 <label class="checkbox-large">
 <input type="checkbox" name="terms" required>
-I confirm the ride details are correct
+I confirm the delivery details are correct
 </label>
 
 </fieldset>
 
 <div class="form-buttons">
-<button type="submit" class="btn-main">📧 Book City Ride</button>
-<button type="button" class="btn-outline" onclick="sendCityWhatsApp()">💬 Send via WhatsApp</button>
+<button type="submit" class="btn-main">📧 Book Courier Delivery</button>
+<button type="button" class="btn-outline" onclick="sendCourierWhatsApp()">💬 Send via WhatsApp</button>
 </div>
 
 </form>
@@ -171,55 +171,51 @@ I confirm the ride details are correct
 </section>
 
 
-<!-- SERVICE DETAILS -->
+<!-- SERVICE DETAILS (your original content kept) -->
 <section class="section">
 <div class="service-content">
 
-<h2>Premium City Transportation</h2>
+<h2>Professional Delivery Solutions</h2>
 
 <div class="service-features">
 
 <div class="feature-card">
-<h3>🚀 Fast & Efficient</h3>
-<p>Optimized routes and quick pickups across the city.</p>
+<h3>⚡ Same-Day Delivery</h3>
+<p>Express options available for urgent shipments.</p>
 </div>
 
 <div class="feature-card">
-<h3>💵 Affordable Rates</h3>
-<p>No surge pricing. Transparent fares before booking.</p>
+<h3>📊 Track Everything</h3>
+<p>Real-time tracking and delivery notifications.</p>
 </div>
 
 <div class="feature-card">
-<h3>🎯 Professional Drivers</h3>
-<p>Experienced drivers with clean, comfortable vehicles.</p>
+<h3>🛡️ Safe Handling</h3>
+<p>Insured deliveries with secure handling.</p>
 </div>
 
 <div class="feature-card">
-<h3>👥 Group Transport</h3>
-<p>Larger vehicles available for group travel and events.</p>
+<h3>💰 Competitive Rates</h3>
+<p>Affordable pricing for individuals and businesses.</p>
 </div>
 
 </div>
 
-<h2 style="margin-top:60px;">Available Vehicle Types</h2>
+<h2 style="margin-top:60px;">Delivery Methods & Vehicles</h2>
 
 <div class="vehicles">
-
 <div class="vehicle">
-<h4>🚗 Economy</h4>
-<p>Budget-friendly rides for everyday travel.</p>
+<h4>🚴 Bike Courier</h4>
 </div>
-
 <div class="vehicle">
-<h4>🚙 Comfort</h4>
-<p>Premium interior for business or longer rides.</p>
+<h4>🛴 Scooter</h4>
 </div>
-
 <div class="vehicle">
-<h4>🚐 XL</h4>
-<p>Perfect for families and small groups.</p>
+<h4>🚗 Car Delivery</h4>
 </div>
-
+<div class="vehicle">
+<h4>🚐 Van Service</h4>
+</div>
 </div>
 
 </div>
@@ -228,8 +224,8 @@ I confirm the ride details are correct
 
 <!-- CTA -->
 <div class="cta-section">
-<h2>Need a Ride Around the City?</h2>
-<a href="https://wa.me/420608147604" class="btn-main">💬 Chat on WhatsApp</a>
+<h2>Need Regular Deliveries?</h2>
+<a href="https://wa.me/420608147604" class="btn-main">💬 Ask About B2B</a>
 </div>
 
 
@@ -240,13 +236,13 @@ I confirm the ride details are correct
 </div>
 
 <footer>
-<p>© HeroMove CZ — City Transport Service</p>
+<p>© HeroMove CZ — Courier & Logistics Service</p>
 </footer>
 
 
 <script>
-function sendCityWhatsApp(){
-const form=document.getElementById('cityTransportForm');
+function sendCourierWhatsApp(){
+const form=document.getElementById('courierForm');
 if(!form.checkValidity()){
 alert('Please fill required fields');
 return;
@@ -254,22 +250,49 @@ return;
 
 const data=new FormData(form);
 
-let msg=`🚗 City Transport Booking
+let msg=`📦 Courier Delivery Booking
 
 Name: ${data.get('fullName')}
 Phone: ${data.get('phone')}
 City: ${data.get('city')}
 Pickup: ${data.get('pickup')}
-Destination: ${data.get('destination')}
+Delivery: ${data.get('destination')}
 Date: ${data.get('pickupDate')}
 Time: ${data.get('pickupTime')}
-Vehicle: ${data.get('vehicle')}
-Passengers: ${data.get('passengers')}`;
+Package: ${data.get('packageType')}
+Vehicle: ${data.get('vehicle')}`;
 
 window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
 }
 </script>
+<script>
+document.querySelectorAll(".heroForm").forEach(form => {
 
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData(form);
+
+      const res = await fetch("http://127.0.0.1:8000/send-booking", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await res.json();
+
+      alert(result.message);
+      form.reset();
+
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed to send booking.");
+    }
+
+  });
+
+});
+</script>
 <script src="script.js"></script>
 
 </body>

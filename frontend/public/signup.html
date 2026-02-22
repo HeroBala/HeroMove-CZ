@@ -93,17 +93,8 @@
 </div>
 </section>
 <!-- ✅ UPDATED COURIER SIGNUP FORM -->
-<form action="https://formsubmit.co/herobala1997@gmail.com"
-method="POST"
-enctype="multipart/form-data"
-class="signup-form master-form"
-id="signupForm">
-
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="New Courier Signup">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="thank-you.html">
-
+<form enctype="multipart/form-data" class="signup-form master-form" id="signupForm">
+<input type="hidden" name="service" value="Fleet Signup">
 <!-- PERSONAL INFORMATION -->
 <fieldset class="form-section">
 <legend>Courier Information</legend>
@@ -208,6 +199,6 @@ City: ${data.get('city')}`;
 window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
 }
 </script>
-
+<script src="script.js"></script>
 </body>
 </html>

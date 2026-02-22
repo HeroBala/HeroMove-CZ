@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Relocation Booking | HeroMove CZ</title>
+<title>City Transport Booking | HeroMove CZ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -60,32 +60,19 @@
 <div class="signup-container">
 
 <div class="signup-header">
-<h1>🎓 Student Relocation Booking</h1>
-<p>Affordable and flexible moving services for students across Czechia.</p>
+<h1>🚗 City Transport Booking</h1>
+<p>Fast and reliable city rides across Czechia.</p>
 </div>
+<form class="heroForm" enctype="multipart/form-data">
+<input type="hidden" name="service" value="City Transport Booking">
 
-<form action="https://formsubmit.co/herobala1997@gmail.com"
-method="POST"
-class="signup-form master-form"
-id="relocationForm">
-
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="New Student Relocation Booking">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="thank-you.html">
-
-<!-- CONTACT -->
+<!-- PASSENGER -->
 <fieldset class="form-section">
-<legend>Student Details</legend>
+<legend>Passenger Details</legend>
 
 <div class="form-group">
 <label>Full Name *</label>
 <input type="text" name="fullName" required>
-</div>
-
-<div class="form-group">
-<label>Email *</label>
-<input type="email" name="email" required>
 </div>
 
 <div class="form-group">
@@ -107,59 +94,48 @@ id="relocationForm">
 
 </fieldset>
 
-<!-- MOVE DETAILS -->
+<!-- RIDE DETAILS -->
 <fieldset class="form-section">
-<legend>Move Details</legend>
+<legend>Ride Details</legend>
 
 <div class="form-group">
-<label>Pickup Address *</label>
+<label>Pickup Location *</label>
 <input type="text" name="pickup" required>
 </div>
 
 <div class="form-group">
-<label>Destination Address *</label>
+<label>Destination *</label>
 <input type="text" name="destination" required>
 </div>
 
 <div class="form-group">
-<label>Move Date *</label>
-<input type="date" name="moveDate" required>
+<label>Pickup Date *</label>
+<input type="date" name="pickupDate" required>
 </div>
 
 <div class="form-group">
-<label>Preferred Time</label>
-<input type="time" name="moveTime">
+<label>Pickup Time *</label>
+<input type="time" name="pickupTime" required>
 </div>
 
-</fieldset>
-
-<!-- ITEMS -->
-<fieldset class="form-section">
-<legend>Items & Services</legend>
+<div class="form-group">
+<label>Passengers *</label>
+<input type="number" name="passengers" min="1" required>
+</div>
 
 <div class="form-group">
-<label>Move Size *</label>
-<select name="moveSize" required>
+<label>Vehicle Type *</label>
+<select name="vehicle" required>
 <option value="">Select</option>
-<option>Small (Suitcases / Boxes)</option>
-<option>Medium (Dorm Room)</option>
-<option>Large (Apartment Move)</option>
+<option>🚗 Economy</option>
+<option>🚙 Comfort</option>
+<option>🚐 XL</option>
 </select>
 </div>
 
-<label class="checkbox-large">
-<input type="checkbox" name="helpCarry">
-Need Help Carrying Items
-</label>
-
-<label class="checkbox-large">
-<input type="checkbox" name="packing">
-Need Packing Assistance
-</label>
-
 <div class="form-group">
-<label>Additional Notes</label>
-<textarea name="notes" rows="3" placeholder="Floor number, elevator, heavy items etc."></textarea>
+<label>Notes</label>
+<textarea name="notes" rows="3" placeholder="Child seat, multiple stops, etc."></textarea>
 </div>
 
 </fieldset>
@@ -170,14 +146,14 @@ Need Packing Assistance
 
 <label class="checkbox-large">
 <input type="checkbox" name="terms" required>
-I confirm the relocation details are correct
+I confirm the ride details are correct
 </label>
 
 </fieldset>
 
 <div class="form-buttons">
-<button type="submit" class="btn-main">📧 Book Student Relocation</button>
-<button type="button" class="btn-outline" onclick="sendRelocationWhatsApp()">💬 Send via WhatsApp</button>
+<button type="submit" class="btn-main">📧 Book City Ride</button>
+<button type="button" class="btn-outline" onclick="sendCityWhatsApp()">💬 Send via WhatsApp</button>
 </div>
 
 </form>
@@ -187,39 +163,56 @@ I confirm the relocation details are correct
 </section>
 
 
-<!-- SERVICE INFO -->
+<!-- SERVICE DETAILS -->
 <section class="section">
 <div class="service-content">
-<h2>🎓 Why Choose HeroMove for Student Relocation?</h2>
+
+<h2>Premium City Transportation</h2>
 
 <div class="service-features">
 
 <div class="feature-card">
-<h3>💼 Hassle-Free Moving</h3>
-<p>Perfect for dorm changes, apartment moves, and semester relocations.</p>
+<h3>🚀 Fast & Efficient</h3>
+<p>Optimized routes and quick pickups across the city.</p>
 </div>
 
 <div class="feature-card">
-<h3>🤝 Student-Friendly Pricing</h3>
-<p>Affordable pricing designed for students and young professionals.</p>
+<h3>💵 Affordable Rates</h3>
+<p>No surge pricing. Transparent fares before booking.</p>
 </div>
 
 <div class="feature-card">
-<h3>📦 Flexible Services</h3>
-<p>From small luggage transport to full apartment relocation.</p>
+<h3>🎯 Professional Drivers</h3>
+<p>Experienced drivers with clean, comfortable vehicles.</p>
 </div>
 
 <div class="feature-card">
-<h3>🌟 Multilingual Drivers</h3>
-<p>Friendly support for international students new to Czechia.</p>
+<h3>👥 Group Transport</h3>
+<p>Larger vehicles available for group travel and events.</p>
 </div>
 
 </div>
 
-<h2 style="margin-top:50px;">Cities We Serve</h2>
-<p style="text-align:center;margin-bottom:30px;">
-Prague • Brno • Plzen • Ostrava • and other Czech cities
-</p>
+<h2 style="margin-top:60px;">Available Vehicle Types</h2>
+
+<div class="vehicles">
+
+<div class="vehicle">
+<h4>🚗 Economy</h4>
+<p>Budget-friendly rides for everyday travel.</p>
+</div>
+
+<div class="vehicle">
+<h4>🚙 Comfort</h4>
+<p>Premium interior for business or longer rides.</p>
+</div>
+
+<div class="vehicle">
+<h4>🚐 XL</h4>
+<p>Perfect for families and small groups.</p>
+</div>
+
+</div>
 
 </div>
 </section>
@@ -227,7 +220,7 @@ Prague • Brno • Plzen • Ostrava • and other Czech cities
 
 <!-- CTA -->
 <div class="cta-section">
-<h2>Need Help Planning Your Move?</h2>
+<h2>Need a Ride Around the City?</h2>
 <a href="https://wa.me/420608147604" class="btn-main">💬 Chat on WhatsApp</a>
 </div>
 
@@ -239,13 +232,13 @@ Prague • Brno • Plzen • Ostrava • and other Czech cities
 </div>
 
 <footer>
-<p>© HeroMove CZ — Student Relocation Service</p>
+<p>© HeroMove CZ — City Transport Service</p>
 </footer>
 
 
 <script>
-function sendRelocationWhatsApp(){
-const form=document.getElementById('relocationForm');
+function sendCityWhatsApp(){
+const form=document.getElementById('cityTransportForm');
 if(!form.checkValidity()){
 alert('Please fill required fields');
 return;
@@ -253,15 +246,17 @@ return;
 
 const data=new FormData(form);
 
-let msg=`🎓 Student Relocation Booking
+let msg=`🚗 City Transport Booking
 
 Name: ${data.get('fullName')}
 Phone: ${data.get('phone')}
 City: ${data.get('city')}
 Pickup: ${data.get('pickup')}
 Destination: ${data.get('destination')}
-Date: ${data.get('moveDate')}
-Move Size: ${data.get('moveSize')}`;
+Date: ${data.get('pickupDate')}
+Time: ${data.get('pickupTime')}
+Vehicle: ${data.get('vehicle')}
+Passengers: ${data.get('passengers')}`;
 
 window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
 }

@@ -52,16 +52,9 @@
 <p>Fill the basic details and attach your CV. We’ll contact you soon.</p>
 </div>
 
-<form action="https://formsubmit.co/herobala1997@gmail.com"
-method="POST"
-enctype="multipart/form-data"
-class="signup-form master-form"
-id="applyForm">
+<form id="applyForm" class="heroForm" enctype="multipart/form-data">
 
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="🧑‍💼 New HeroMove Job Application">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="thank-you.html">
+<input type="hidden" name="service" value="Job Application">
 
 <!-- BASIC INFO -->
 <fieldset class="form-section">
@@ -84,14 +77,13 @@ id="applyForm">
 
 </fieldset>
 
-
 <!-- JOB INFO -->
 <fieldset class="form-section">
 <legend>Job Application</legend>
 
 <div class="form-group">
 <label>Job Post Title *</label>
-<input type="text" name="jobTitle" placeholder="Application Developer / Customer Support..." required>
+<input type="text" name="jobTitle" required>
 </div>
 
 <div class="form-group">
@@ -105,12 +97,11 @@ id="applyForm">
 </div>
 
 <div class="form-group">
-<label>LinkedIn / Portfolio (Optional)</label>
+<label>LinkedIn / Portfolio</label>
 <input type="text" name="portfolio">
 </div>
 
 </fieldset>
-
 
 <!-- DOCUMENTS -->
 <fieldset class="form-section">
@@ -127,12 +118,11 @@ id="applyForm">
 </div>
 
 <label class="checkbox-large">
-<input type="checkbox" required>
+<input type="checkbox" name="terms" required>
 I confirm my information is correct
 </label>
 
 </fieldset>
-
 
 <div class="form-buttons">
 <button type="submit" class="btn-main">📧 Submit Application</button>
