@@ -1,15 +1,15 @@
 /* ======================================================
-🚀 HERO MOVE — MASTER SCRIPT ENGINE (PRODUCTION STABLE)
-Fixes Render sleep + Timeout + Email API handling
+🚀 HERO MOVE — ULTRA-STABLE MASTER SCRIPT (FINAL VERSION)
+Production safe: Render + FastAPI + Resend
 ====================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
 /* =====================================
-🔥 WAKE RENDER BACKEND (IMPORTANT)
+🔥 WAKE RENDER BACKEND (SAFE)
 ===================================== */
-fetch("https://heromove-cz.onrender.com/")
-.catch(()=>console.debug("Backend sleeping — waking up..."));
+fetch("https://heromove-cz.onrender.com/health")
+.catch(()=>console.debug("Backend waking up..."));
 
 /* =====================================
 MOBILE MENU
@@ -45,48 +45,48 @@ const faqContainer = document.querySelector('.careers-faq-container');
 
 if (faqContainer) {
 
-```
 faqContainer.querySelectorAll('.careers-faq-question').forEach(q => {
-  q.setAttribute('role','button');
-  q.setAttribute('tabindex','0');
+q.setAttribute('role','button');
+q.setAttribute('tabindex','0');
 });
 
 const toggleItem = (item) => {
 
-  const answer = item.querySelector('.careers-faq-answer');
-  if(!answer) return;
+const answer = item.querySelector('.careers-faq-answer');
+if(!answer) return;
 
-  const isOpen = item.classList.toggle('open');
+const isOpen = item.classList.toggle('open');
 
-  if(isOpen){
-    faqContainer.querySelectorAll('.careers-faq-item.open').forEach(other=>{
-      if(other!==item){
-        other.classList.remove('open');
-        const a = other.querySelector('.careers-faq-answer');
-        if(a){
-          a.style.maxHeight=null;
-          a.classList.remove('active');
-        }
-      }
-    });
+if(isOpen){
+faqContainer.querySelectorAll('.careers-faq-item.open').forEach(other=>{
+if(other!==item){
+other.classList.remove('open');
+const a = other.querySelector('.careers-faq-answer');
+if(a){
+a.style.maxHeight=null;
+a.classList.remove('active');
+}
+}
+});
 
-    answer.classList.add('active');
-    answer.style.maxHeight = answer.scrollHeight+"px";
+```
+answer.classList.add('active');
+answer.style.maxHeight = answer.scrollHeight+"px";
+```
 
-  }else{
-    answer.style.maxHeight="0px";
-    setTimeout(()=>answer.classList.remove('active'),420);
-  }
+}else{
+answer.style.maxHeight="0px";
+setTimeout(()=>answer.classList.remove('active'),420);
+}
 };
 
 faqContainer.addEventListener('click',(e)=>{
-  const item = e.target.closest('.careers-faq-item');
-  const question = e.target.closest('.careers-faq-question');
-  if(!item || !question) return;
-  e.preventDefault();
-  toggleItem(item);
+const item = e.target.closest('.careers-faq-item');
+const question = e.target.closest('.careers-faq-question');
+if(!item || !question) return;
+e.preventDefault();
+toggleItem(item);
 });
-```
 
 }
 
@@ -100,7 +100,7 @@ setTimeout(()=> rocket.classList.add("fly"),800);
 
 /* =====================================
 🚀 UNIVERSAL HERO FORM ENGINE
-(FULL PRODUCTION VERSION)
+(ULTRA STABLE)
 ===================================== */
 
 const forms = document.querySelectorAll("form.heroForm");
@@ -111,87 +111,95 @@ console.debug("🚀 No heroForm found on this page");
 
 forms.forEach(form => {
 
-```
 if(form.dataset.bound==="true") return;
 form.dataset.bound="true";
 
 form.addEventListener("submit", async (e)=>{
 
-  e.preventDefault();
+e.preventDefault();
 
-  const submitBtn = form.querySelector('button[type="submit"]');
+const submitBtn = form.querySelector('button[type="submit"]');
 
-  if(submitBtn && submitBtn.dataset.loading==="true") return;
+if(submitBtn && submitBtn.dataset.loading==="true") return;
 
-  try{
+try{
 
-    const formData = new FormData(form);
+```
+const formData = new FormData(form);
 
-    if(submitBtn){
-      submitBtn.dataset.loading="true";
-      submitBtn.dataset.original = submitBtn.innerHTML;
-      submitBtn.innerHTML="⏳ Sending...";
-      submitBtn.disabled=true;
-    }
+if(submitBtn){
+  submitBtn.dataset.loading="true";
+  submitBtn.dataset.original = submitBtn.innerHTML;
+  submitBtn.innerHTML="⏳ Sending...";
+  submitBtn.disabled=true;
+}
 
-    console.log("🚀 Sending:",Object.fromEntries(formData.entries()));
+console.log("🚀 Sending:",Object.fromEntries(formData.entries()));
 
-    /* =====================================
-       🔥 FETCH WITH TIMEOUT (NO FREEZE)
-    ===================================== */
+/* =====================================
+   🔥 FETCH WITH TIMEOUT
+===================================== */
 
-    const controller = new AbortController();
-    const timeout = setTimeout(()=>controller.abort(),15000);
+const controller = new AbortController();
+const timeout = setTimeout(()=>controller.abort(),15000);
 
-    const res = await fetch(
-      "https://heromove-cz.onrender.com/send-booking",
-      {
-        method:"POST",
-        body:formData,
-        signal: controller.signal
-      }
-    );
-
-    clearTimeout(timeout);
-
-    if(!res.ok){
-      throw new Error("Server returned error");
-    }
-
-    const result = await res.json();
-
-    showHeroToast(
-      result.message || "✅ Request sent successfully",
-      true
-    );
-
-    form.reset();
-
-  }catch(err){
-
-    console.error("FORM ERROR:",err);
-
-    if(err.name === "AbortError"){
-      showHeroToast("⚠️ Server waking up… please try again",false);
-    }else{
-      showHeroToast("❌ Failed to send request",false);
-    }
-
-  }finally{
-
-    if(submitBtn){
-      submitBtn.innerHTML = submitBtn.dataset.original || "Submit";
-      submitBtn.dataset.loading="false";
-      submitBtn.disabled=false;
-    }
+const res = await fetch(
+  "https://heromove-cz.onrender.com/send-booking",
+  {
+    method:"POST",
+    body:formData,
+    headers:{
+      "Accept":"application/json"
+    },
+    signal: controller.signal
   }
+);
 
-});
+clearTimeout(timeout);
+
+if(!res.ok){
+  throw new Error("Server returned error");
+}
+
+const result = await res.json();
+
+showHeroToast(
+  result.message || "✅ Request sent successfully",
+  true
+);
+
+form.reset();
 ```
 
+}catch(err){
+
+```
+console.error("FORM ERROR:",err);
+
+if(err.name === "AbortError"){
+  showHeroToast("⚠️ Server waking up… please try again",false);
+}else{
+  showHeroToast("❌ Failed to send request",false);
+}
+```
+
+}finally{
+
+```
+if(submitBtn){
+  submitBtn.innerHTML = submitBtn.dataset.original || "Submit";
+  submitBtn.dataset.loading="false";
+  submitBtn.disabled=false;
+}
+```
+
+}
+
 });
 
-}); // ✅ SINGLE DOM READY
+});
+
+}); // DOM READY END
 
 /* =====================================
 🚀 HERO TOAST SYSTEM
