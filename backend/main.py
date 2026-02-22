@@ -51,11 +51,11 @@ resend.api_key = RESEND_API_KEY
 
 @app.get("/")
 def root():
-return {"message": "HeroMove backend running 🚀"}
+    return {"message": "HeroMove backend running 🚀"}
 
 @app.get("/health")
 def health():
-return {"status": "ok"}
+    return {"status": "ok"}
 
 # ===============================
 
