@@ -1,24 +1,16 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-
-import smtplib
-import os
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email import encoders
-
 from dotenv import load_dotenv
-
+import os
+import resend
 
 # ===============================
 # LOAD ENV VARIABLES
 # ===============================
 load_dotenv()
 
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASS = os.getenv("EMAIL_PASS")
-
+EMAIL_USER = os.getenv("EMAIL_USER")  # where email will be sent
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 
 # ===============================
 # FASTAPI APP
@@ -36,10 +28,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+# ===============================
+# ROOT TEST ROUTE
+# ===============================
 @app.get("/")
 def root():
-    return {"message": "HeroMove backend running"}
+    return {"message": "HeroMove backend running 🚀"}
 
 
 # ===============================
@@ -64,21 +58,15 @@ def format_label(key: str):
 @app.post("/send-booking")
 async def send_booking(request: Request):
 
+    # ⭐ IMPORTANT: needs python-multipart installed
     form = await request.form()
 
     data = {}
-    file_attachment = None
 
     # ===============================
-    # EXTRACT FORM DATA + FILE
+    # EXTRACT FORM DATA
     # ===============================
     for key, value in form.items():
-
-        # ⭐ detect file safely
-        if hasattr(value, "filename"):
-            file_attachment = value
-            continue
-
         data[key] = value
 
     print("RECEIVED DATA:", data)
@@ -107,43 +95,20 @@ async def send_booking(request: Request):
         """
 
     # ===============================
-    # CREATE EMAIL
-    # ===============================
-    msg = MIMEMultipart()
-    msg["Subject"] = f"🚀 New {service} Request"
-    msg["From"] = EMAIL_USER
-    msg["To"] = EMAIL_USER
-
-    msg.attach(MIMEText(html_message, "html", "utf-8"))
-
-    # ===============================
-    # ATTACH FILE IF EXISTS
-    # ===============================
-    if file_attachment and getattr(file_attachment, "filename", None):
-
-        file_bytes = await file_attachment.read()
-
-        part = MIMEBase("application", "octet-stream")
-        part.set_payload(file_bytes)
-
-        encoders.encode_base64(part)
-
-        part.add_header(
-            "Content-Disposition",
-            f'attachment; filename="{file_attachment.filename}"'
-        )
-
-        msg.attach(part)
-
-    # ===============================
-    # SEND EMAIL
+    # SEND EMAIL VIA RESEND API
     # ===============================
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(EMAIL_USER, EMAIL_PASS)
-            server.send_message(msg)
 
-        print("✅ Email with attachment sent")
+        resend.api_key = RESEND_API_KEY
+
+        resend.Emails.send({
+            "from": "HeroMove <onboarding@resend.dev>",
+            "to": [EMAIL_USER],
+            "subject": f"🚀 New {service} Request",
+            "html": html_message,
+        })
+
+        print("✅ Email sent via Resend")
 
         return {
             "status": "success",
@@ -151,6 +116,7 @@ async def send_booking(request: Request):
         }
 
     except Exception as e:
+
         print("❌ EMAIL ERROR:", e)
 
         return {
