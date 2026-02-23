@@ -65,7 +65,7 @@
 </div>
 
 <form id="StudentArrivalSupport" class="heroForm" data-endpoint="/send-booking" enctype="multipart/form-data">
-    <input type="hidden" name="service" value="Student Relocation Booking">
+    <input type="hidden" name="service" value="Student Arrival Support">
 
 <!-- CONTACT -->
 <fieldset class="form-section">
@@ -169,7 +169,7 @@ I confirm the relocation details are correct
 </fieldset>
 
 <div class="form-buttons">
-<button type="submit" class="btn-main">📧 Book Student Relocation</button>
+<button type="submit" class="btn-main">📧 Student Arrival Booking</button>
 <button type="button" class="btn-outline" onclick="sendRelocationWhatsApp()">💬 Send via WhatsApp</button>
 </div>
 
@@ -238,7 +238,7 @@ Prague • Brno • Plzen • Ostrava • and other Czech cities
 
 <script>
 function sendRelocationWhatsApp(){
-const form=document.getElementById('relocationForm');
+const form=document.getElementById('StudentArrivalSupport');
 if(!form.checkValidity()){
 alert('Please fill required fields');
 return;
