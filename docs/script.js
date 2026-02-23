@@ -1,5 +1,5 @@
 /* ======================================================
-🚀 HERO MOVE — ULTRA-STABLE MASTER SCRIPT (FINAL VERSION)
+🚀 HERO MOVE — PRO MULTI-FORM MASTER SCRIPT (FINAL)
 Production safe: Render + FastAPI + Resend
 ====================================================== */
 
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================
-  🚀 UNIVERSAL HERO FORM ENGINE
+  🚀 HERO MOVE — PRO MULTI FORM ENGINE
   ===================================== */
   const forms = document.querySelectorAll("form.heroForm");
 
@@ -113,12 +113,15 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       const submitBtn = form.querySelector('button[type="submit"]');
-
       if (submitBtn && submitBtn.dataset.loading === "true") return;
 
       try {
 
         const formData = new FormData(form);
+
+        // ⭐ PRO: dynamic endpoint per form
+        const endpoint = form.dataset.endpoint || "/send-booking";
+        const url = "https://heromove-cz.onrender.com" + endpoint;
 
         if (submitBtn) {
           submitBtn.dataset.loading = "true";
@@ -127,20 +130,18 @@ document.addEventListener("DOMContentLoaded", () => {
           submitBtn.disabled = true;
         }
 
-        console.log("🚀 Sending:", Object.fromEntries(formData.entries()));
+        console.log("🚀 Sending to:", url);
+        console.log("📦 Data:", Object.fromEntries(formData.entries()));
 
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 15000);
+        const timeout = setTimeout(() => controller.abort(), 45000);
 
-        const res = await fetch(
-          "https://heromove-cz.onrender.com/send-booking",
-          {
-            method: "POST",
-            body: formData,
-            headers: { "Accept": "application/json" },
-            signal: controller.signal
-          }
-        );
+        const res = await fetch(url, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" },
+          signal: controller.signal
+        });
 
         clearTimeout(timeout);
 
@@ -178,11 +179,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-}); // DOM READY END
+}); // ✅ DOM READY END
 
 
 /* =====================================
-🚀 HERO TOAST SYSTEM
+🚀 HERO TOAST SYSTEM (GLOBAL)
 ===================================== */
 function showHeroToast(message, success = true) {
 
