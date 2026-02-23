@@ -60,7 +60,7 @@
 <div class="signup-container">
 
 <div class="signup-header">
-<h1>📦 Courier Delivery Booking</h1>
+<h1>🌍 International Courier & Student Document Support</h1>
 <p>Fast and reliable delivery for packages, documents, and goods.</p>
 </div>
 
@@ -130,14 +130,28 @@
 </select>
 </div>
 
-<div class="form-group">
-<label>Vehicle Needed *</label>
-<select name="vehicle" required>
+<label>Delivery Method *</label>
+<select name="deliveryMethod" required>
 <option value="">Select</option>
-<option>🚴 Bike Courier</option>
-<option>🛴 Scooter</option>
-<option>🚗 Car Delivery</option>
+
+<optgroup label="🌍 International Courier">
+<option>📦 DHL International Express</option>
+<option>📮 FedEx Priority</option>
+<option>✈️ UPS Worldwide</option>
+<option>🌐 International Document Shipping</option>
+</optgroup>
+
+<optgroup label="🇨🇿 Local Delivery">
+<option>🚗 Local Car Delivery</option>
 <option>🚐 Van Service</option>
+</optgroup>
+
+<optgroup label="🎓 Student Support">
+<option>🧾 University Document Help</option>
+<option>📄 Visa / Immigration Documents</option>
+<option>💬 Free Consultation Needed</option>
+</optgroup>
+
 </select>
 </div>
 
@@ -260,7 +274,8 @@ Delivery: ${data.get('destination')}
 Date: ${data.get('pickupDate')}
 Time: ${data.get('pickupTime')}
 Package: ${data.get('packageType')}
-Vehicle: ${data.get('vehicle')}`;
+deliveryMethod: ${data.get('deliveryMethod')}
+Notes: ${data.get('notes')}`;
 
 window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
 }
