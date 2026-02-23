@@ -114,13 +114,19 @@ async def send_booking(request: Request):
         # ===============================
         service = data.get("service", "HeroMove Request")
 
-        if "job" in service.lower():
-            subject_prefix = "🧑‍💼 Job Application"
-        elif "airport" in service.lower():
-            subject_prefix = "✈️ Airport Booking"
-        else:
-            subject_prefix = "🚀 HeroMove Request"
+        service_lower = service.lower()
 
+        if "student" in service_lower:
+            subject_prefix = "🎓 Student Arrival Support"
+
+        elif "job" in service_lower:
+            subject_prefix = "🧑‍💼 Job Application"
+
+        elif "airport" in service_lower:
+            subject_prefix = "✈️ Airport Booking"
+
+        else:
+            subject_prefix = f"🚀 {service}"
         # ===============================
         # BUILD HTML EMAIL
         # ===============================
