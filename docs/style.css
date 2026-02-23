@@ -510,7 +510,7 @@ letter-spacing:.2px;
 
 .section-title{
 font-size:28px;
-margin:70px 0 25px 0;
+margin:70px 0 15px 0;
 text-align:center;
 color:#e5e7eb;
 }
@@ -707,6 +707,11 @@ transform:scale(.95);
 	margin:0;
 	color:#cbd5e1;
 	font-size:16px;
+}
+/* ===== EVENTS HERO BUTTON SPACING FIX ===== */
+.service-hero .btn-main{
+display:inline-block;
+margin-top:22px;   /* creates space above button */
 }
 
 /* ============================= */
@@ -1032,4 +1037,317 @@ footer::before {
     margin: 8px auto;
     width: fit-content;
   }
+}
+/* ================================= */
+/* CENTER WHY STUDENTS SECTION */
+/* ================================= */
+
+.arrival-journey .grid{
+max-width:1100px;
+margin:40px auto;      /* center horizontally */
+justify-content:center;
+}
+
+.arrival-journey .feature-card{
+margin:0 auto;
+}
+/* ================================= */
+/* HERO MOVE — EVENTS PAGE SYSTEM */
+/* (PRO REWRITE — SAFE VERSION) */
+/* ================================= */
+
+
+/* =============================== */
+/* EVENTS SECTION WRAPPER */
+/* =============================== */
+
+.events-section{
+max-width:1200px;
+margin:0 auto;
+padding:70px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+
+/* =============================== */
+/* EVENTS HERO */
+/* =============================== */
+
+.events-hero{
+text-align:center;
+padding:110px 20px 80px;
+max-width:900px;
+margin:0 auto;
+}
+
+.events-hero h1{
+max-width:800px;
+margin:15px auto;
+font-size:40px;
+line-height:1.2;
+}
+
+
+/* =============================== */
+/* EVENTS GRID (SAFE — NO GLOBAL BREAK) */
+/* =============================== */
+
+.events-section .grid{
+justify-content:center;
+align-items:stretch;
+}
+
+
+/* =============================== */
+/* PREMIUM EVENT CARD */
+/* =============================== */
+
+.event-card{
+background:#111827;
+border:1px solid #1e293b;
+border-radius:14px;
+overflow:hidden;
+transition:.35s ease;
+max-width:340px;
+width:100%;
+margin:0 auto;
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+/* SAME IMAGE SIZE FOR ALL CARDS */
+.event-card img{
+width:100%;
+height:210px;
+object-fit:cover;
+display:block;
+transition:.35s ease;
+border-bottom:1px solid #1e293b;
+}
+
+.event-card-content{
+padding:22px;
+text-align:left;
+display:flex;
+flex-direction:column;
+flex-grow:1;
+}
+
+.event-card-content .btn-main{
+margin-top:auto;     /* push button to bottom */
+}
+
+/* HOVER */
+.event-card:hover{
+transform:translateY(-8px);
+border-color:#22c55e;
+box-shadow:0 18px 40px rgba(34,197,94,.18);
+}
+
+.event-card:hover img{
+transform:scale(1.05);
+}
+
+
+/* =============================== */
+/* EVENT TAG BADGE */
+/* =============================== */
+
+.event-tag{
+display:inline-block;
+background:#22c55e;
+color:#031014;
+font-size:12px;
+font-weight:700;
+padding:4px 10px;
+border-radius:999px;
+margin-bottom:10px;
+}
+
+
+/* =============================== */
+/* EVENTS CTA */
+/* =============================== */
+
+.events-cta{
+text-align:center;
+margin-top:40px;
+}
+
+
+/* ================================= */
+/* EVENTS FEATURES (BOTTOM SECTION) */
+/* ================================= */
+
+.events-features{
+max-width:1100px;
+margin:40px auto;
+padding:0 20px;
+}
+
+.events-features .grid{
+justify-content:center;
+align-items:stretch;
+}
+
+.events-features .feature-card{
+margin:0 auto;
+max-width:320px;
+width:100%;
+}
+/* ================================= */
+/* HERO MOVE — EVENTS ALIGNMENT FIX  */
+/* ================================= */
+
+/* center dark event section */
+.section.dark{
+max-width:1200px;
+margin:0 auto;
+padding:70px 20px;
+}
+
+/* center the events grid itself */
+.section.dark .container{
+max-width:1100px;
+margin:0 auto;
+}
+
+/* make cards center perfectly */
+.section.dark .grid{
+justify-content:center;
+}
+/* ===== EVENTS GRID HEIGHT FIX ===== */
+
+.grid-3{
+align-items:stretch;   /* forces equal column height */
+}
+
+.card-ui{
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+.card-ui .btn-main{
+margin-top:auto;   /* pushes button to bottom */
+}
+/* ===================================================== */
+/* HERO MOVE EVENTS PAGE — SAFE PATCH (NO CSS REMOVED)   */
+/* ===================================================== */
+
+/* Fix hero button spacing */
+.service-hero .btn-main{
+display:inline-block;
+margin-top:22px;
+}
+
+/* Center dark section correctly */
+.section.dark{
+max-width:1200px;
+margin:0 auto;
+padding:70px 20px;
+}
+
+.section.dark .container{
+max-width:1100px;
+margin:0 auto;
+}
+
+/* Prevent grid fighting */
+.section.dark .grid{
+justify-content:center;
+}
+
+/* Equal height event cards WITHOUT changing original styles */
+.grid-3{
+align-items:stretch;
+}
+
+.card-ui{
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+/* Push buttons to bottom for alignment */
+.card-ui .btn-main{
+margin-top:auto;
+}
+/* ===================================================== */
+/* HERO MOVE EVENTS — FINAL OVERRIDE (SAFE / NON-DESTRUCTIVE) */
+/* ===================================================== */
+
+/* stabilize dark section width */
+body .section.dark{
+max-width:1200px !important;
+margin:0 auto !important;
+padding:20px 20px !important;
+}
+
+/* stabilize container */
+body .section.dark .container{
+max-width:1100px !important;
+margin:0 auto !important;
+}
+
+/* fix grid behaviour */
+body .section.dark .grid{
+display:grid !important;
+align-items:stretch !important;
+justify-content:center !important;
+}
+
+/* force equal card height */
+body .section.dark .card-ui{
+display:flex !important;
+flex-direction:column !important;
+height:100% !important;
+}
+
+/* lock buttons to bottom */
+body .section.dark .card-ui .btn-main{
+margin-top:auto !important;
+}
+
+/* fix image spacing */
+body .section.dark .card-ui img{
+display:block;
+margin-bottom:14px;
+}
+
+/* prevent random extra spacing from older rules */
+body .grid{
+margin-top:40px !important;
+}
+.card-content{
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+.card-content .btn-main{
+margin-top:auto;
+}
+/* ================================= */
+/* HERO MOVE — EVENT IMAGE SIZE FIX  */
+/* (SAFE — DOES NOT REMOVE ANYTHING) */
+/* ================================= */
+
+/* force ALL event images same height */
+.card-ui img{
+width:100%;
+height:200px;        /* ⭐ uniform image height */
+object-fit:cover;    /* crops nicely without stretching */
+border-radius:10px;
+display:block;
+}
+
+/* optional: slightly larger on desktop for premium look */
+@media(min-width:1024px){
+.card-ui img{
+height:220px;
+}
 }

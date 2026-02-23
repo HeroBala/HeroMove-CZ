@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airport Pickup Booking | HeroMove CZ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+<div class="nav-brand">
+<h2 class="logo-text">
+<a href="index.html">
+<span class="logo-rocket">🚀</span>
+<span class="hero-word">Hero</span><span class="move-word">Move</span> CZ
+</a>
+</h2>
+</div>
+</nav>
+
+
+<section class="section">
+<div class="signup-container">
+
+<div class="signup-header">
+<h1>✈️ Airport Pickup Booking</h1>
+<p>Book your airport transfer quickly and safely with HeroMove CZ.</p>
+</div>
+<!-- ✅ FORM START -->
+<form class="heroForm" enctype="multipart/form-data">
+
+<input type="hidden" name="service" value="Airport Booking">
+
+<!-- PASSENGER DETAILS -->
+<fieldset class="form-section">
+<legend>Passenger Details</legend>
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="fullName" required>
+</div>
+
+<div class="form-group">
+<label>Email *</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="form-group">
+<label>Phone *</label>
+<input type="tel" name="phone" required>
+</div>
+
+</fieldset>
+
+<!-- FLIGHT INFO -->
+<fieldset class="form-section">
+<legend>Flight Information</legend>
+
+<div class="form-group">
+<label>Airport *</label>
+<select name="airport" required>
+<option value="">Select</option>
+<option>Prague Airport (PRG)</option>
+<option>Brno Airport (BRQ)</option>
+<option>Vienna Airport (VIE)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Flight Number *</label>
+<input type="text" name="flightNumber" required>
+</div>
+
+<div class="form-group">
+<label>Arrival Date *</label>
+<input type="date" name="arrivalDate" required>
+</div>
+
+<div class="form-group">
+<label>Arrival Time *</label>
+<input type="time" name="arrivalTime" required>
+</div>
+
+</fieldset>
+
+<!-- TRIP DETAILS -->
+<fieldset class="form-section">
+<legend>Trip Details</legend>
+
+<div class="form-group">
+<label>Destination *</label>
+<input type="text" name="destination" required>
+</div>
+
+<div class="form-group">
+<label>Passengers *</label>
+<input type="number" name="passengers" min="1" required>
+</div>
+
+<div class="form-group">
+<label>Luggage</label>
+<input type="number" name="luggage" min="0">
+</div>
+
+<div class="form-group">
+<label>Notes</label>
+<textarea name="notes"></textarea>
+</div>
+
+</fieldset>
+
+<button type="submit" class="btn-main">📧 Book Airport Pickup</button>
+
+</form>
+<!-- ✅ FORM END -->
+
+</div>
+</section>
+
+
+<footer>
+<p>© HeroMove CZ</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

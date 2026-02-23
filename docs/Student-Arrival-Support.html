@@ -3,264 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Relocation Booking | HeroMove CZ</title>
-<link rel="stylesheet" href="style.css">
+<title>Student Arrival Support | HeroMoveCZ</title>
+<link rel="stylesheet" href="central.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAV ================= -->
 <nav class="nav">
 <div class="nav-brand">
-<h2 class="logo-text">
-<a href="index.html">
-<span class="logo-rocket">🚀</span>
-<span class="hero-word">Hero</span><span class="move-word">Move</span>
-</a>
-</h2>
+<h2 class="logo-text">HeroMoveCZ</h2>
 </div>
 
 <div class="nav-links">
-
-<a href="index.html#transport"><span class="nav-icon">🚗</span> Transport</a>
-
-<a href="tourist-travel.html">
-<span class="nav-icon">✈️</span> Tourist Travel
-</a>
-
-<a href="business-guide.html">
-<span class="nav-icon">📋</span> Business Guide
-</a>
-
-<a href="other-services.html">
-<span class="nav-icon">💼</span> Services
-</a>
-
-<a href="careers.html">
-<span class="nav-icon">🧑‍💼</span> Careers
-</a>
-
-<a href="index.html#careers-faq-container">
-<span class="nav-icon">❓</span> Careers & Courier FAQ
-</a>
-
-<a href="signup.html" class="nav-btn">
-🚀 Join Now
-</a>
-
+<a href="index.html">Home</a>
+<a href="events.html">Events</a>
+<a href="travel.html">Travel</a>
+<a href="careers.html">Careers</a>
+<a href="#booking" class="nav-btn">Book Pickup</a>
 </div>
-
-<div class="nav-toggle" onclick="toggleMobileMenu()">☰</div>
 </nav>
 
 
-<!-- BOOKING FORM -->
-<section class="section">
+<!-- ================= HERO ================= -->
+<section class="hero-banner">
 
-<div class="signup-container">
+<img src="images/student-arrival.jpg" class="banner-img">
 
-<div class="signup-header">
-<h1>🎓 Student Relocation Booking</h1>
-<p>Affordable and flexible moving services for students across Czechia.</p>
+<div class="banner-overlay">
+
+<div class="badge-text">
+✈️ Student Arrival Service
+<span>Vienna Airport • Brno • Prague • Czech Cities</span>
 </div>
 
-<form id="StudentArrivalSupport" class="heroForm" data-endpoint="/send-booking" enctype="multipart/form-data">
-    <input type="hidden" name="service" value="Student Arrival Support">
+<h1>Stress-Free Airport Pickup in Czech Republic</h1>
 
-<!-- CONTACT -->
-<fieldset class="form-section">
-<legend>Student Details</legend>
-
-<div class="form-group">
-<label>Full Name *</label>
-<input type="text" name="fullName" required>
-</div>
-
-<div class="form-group">
-<label>Email *</label>
-<input type="email" name="email" required>
-</div>
-
-<div class="form-group">
-<label>Phone / WhatsApp *</label>
-<input type="tel" name="phone" required>
-</div>
-
-<div class="form-group">
-<label>City *</label>
-<select name="city" required>
-<option value="">Select</option>
-<option>Prague</option>
-<option>Brno</option>
-<option>Plzen</option>
-<option>Ostrava</option>
-<option>Other</option>
-</select>
-</div>
-
-</fieldset>
-
-<!-- MOVE DETAILS -->
-<fieldset class="form-section">
-<legend>Move Details</legend>
-
-<div class="form-group">
-<label>Pickup Address *</label>
-<input type="text" name="pickup" required>
-</div>
-
-<div class="form-group">
-<label>Destination Address *</label>
-<input type="text" name="destination" required>
-</div>
-
-<div class="form-group">
-<label>Move Date *</label>
-<input type="date" name="moveDate" required>
-</div>
-
-<div class="form-group">
-<label>Preferred Time</label>
-<input type="time" name="moveTime">
-</div>
-
-</fieldset>
-
-<!-- ITEMS -->
-<fieldset class="form-section">
-<legend>Items & Services</legend>
-
-<div class="form-group">
-<label>Move Size *</label>
-<select name="moveSize" required>
-<option value="">Select</option>
-<option>Small (Suitcases / Boxes)</option>
-<option>Medium (Dorm Room)</option>
-<option>Large (Apartment Move)</option>
-</select>
-</div>
-
-<label class="checkbox-large">
-<input type="checkbox" name="helpCarry">
-Need Help Carrying Items
-</label>
-
-<label class="checkbox-large">
-<input type="checkbox" name="packing">
-Need Packing Assistance
-</label>
-
-<div class="form-group">
-<label>Additional Notes</label>
-<textarea name="notes" rows="3" placeholder="Floor number, elevator, heavy items etc."></textarea>
-</div>
-
-</fieldset>
-
-<!-- TERMS -->
-<fieldset class="form-section">
-<legend>Confirmation</legend>
-
-<label class="checkbox-large">
-<input type="checkbox" name="terms" required>
-I confirm the relocation details are correct
-</label>
-
-</fieldset>
-
-<div class="form-buttons">
-<button type="submit" class="btn-main">📧 Student Arrival Booking</button>
-<button type="button" class="btn-outline" onclick="sendRelocationWhatsApp()">💬 Send via WhatsApp</button>
-</div>
-
-</form>
-
-</div>
-
-</section>
-
-
-<!-- SERVICE INFO -->
-<section class="section">
-<div class="service-content">
-<h2>🎓 Why Choose HeroMove for Student Relocation?</h2>
-
-<div class="service-features">
-
-<div class="feature-card">
-<h3>💼 Hassle-Free Moving</h3>
-<p>Perfect for dorm changes, apartment moves, and semester relocations.</p>
-</div>
-
-<div class="feature-card">
-<h3>🤝 Student-Friendly Pricing</h3>
-<p>Affordable pricing designed for students and young professionals.</p>
-</div>
-
-<div class="feature-card">
-<h3>📦 Flexible Services</h3>
-<p>From small luggage transport to full apartment relocation.</p>
-</div>
-
-<div class="feature-card">
-<h3>🌟 Multilingual Drivers</h3>
-<p>Friendly support for international students new to Czechia.</p>
-</div>
-
-</div>
-
-<h2 style="margin-top:50px;">Cities We Serve</h2>
-<p style="text-align:center;margin-bottom:30px;">
-Prague • Brno • Plzen • Ostrava • and other Czech cities
-</p>
+<a href="#booking" class="btn-main">🧾 Book Your Pickup</a>
 
 </div>
 </section>
 
 
-<!-- CTA -->
-<div class="cta-section">
-<h2>Need Help Planning Your Move?</h2>
-<a href="https://wa.me/420608147604" class="btn-main">💬 Chat on WhatsApp</a>
+
+<!-- ================= WHY STUDENTS CHOOSE ================= -->
+<section class="section">
+
+<h2 class="section-title">Why Students Choose HeroMove</h2>
+
+<div class="container">
+<div class="grid grid-4">
+
+<div class="feature-card">
+✈️ Airport Meet & Greet
+<p>Driver waits at Vienna or Prague airport with your name sign.</p>
 </div>
 
-
-<!-- FLOAT BUTTONS -->
-<div class="contact-buttons">
-<a href="https://wa.me/420608147604" class="whatsapp-btn">💬</a>
-<a href="mailto:herobala1997@gmail.com" class="email-btn">✉️</a>
+<div class="feature-card">
+🎓 Student Friendly Support
+<p>Perfect for Erasmus, university arrivals and first-time travellers.</p>
 </div>
 
+<div class="feature-card">
+🧳 Extra Luggage Space
+<p>No stress about suitcases — relocation ready vehicles.</p>
+</div>
+
+<div class="feature-card">
+🌍 English Speaking Drivers
+<p>Friendly drivers who understand international students.</p>
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+
+<!-- ================= ARRIVAL JOURNEY ================= -->
+<section class="section arrival-journey">
+
+<h2 class="section-title">Your Arrival Journey</h2>
+
+<div class="container">
+<div class="grid grid-3">
+
+<div class="card-ui">
+<h3>1️⃣ Book Online</h3>
+<p>Submit your flight details and destination city.</p>
+<a href="Student-Arrival-Support-Form.html" class="btn-main">Book Now</a>
+</div>
+
+<div class="card-ui">
+<h3>2️⃣ Meet Your Driver</h3>
+<p>We track your flight and wait at arrivals with your name sign.</p>
+<a href="Student-Arrival-Support-Form.html" class="btn-main">Arrival Help</a>
+</div>
+
+<div class="card-ui">
+<h3>3️⃣ Relax & Arrive</h3>
+<p>Comfortable transfer to dorm, hotel or apartment safely.</p>
+<a href="Student-Arrival-Support-Form.html" class="btn-main">Start Journey</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- ================= ROUTES SECTION ================= -->
+<section class="section dark">
+
+<h2 class="section-title">Popular Student Arrival Routes</h2>
+
+<div class="container">
+<div class="grid grid-3">
+
+<div class="route-box">
+<h3>✈️ Vienna Airport → Brno</h3>
+<p>Most popular Erasmus transfer with luggage support.</p>
+</div>
+
+<div class="route-box">
+<h3>✈️ Prague Airport → City Center</h3>
+<p>Direct drop-off to dormitories and student housing.</p>
+</div>
+
+<div class="route-box">
+<h3>🚐 Vienna → Prague</h3>
+<p>Long-distance relocation ride for new international students.</p>
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+<section id="booking" class="cta-section">
+
+<h2>Ready for a Smooth Arrival?</h2>
+
+<p>Book your airport pickup now and start your Czech Republic journey stress-free.</p>
+
+<a href="booking.html" class="btn-main">🚀 Book Student Arrival Service</a>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
 <footer>
-<p>© HeroMove CZ — Student Relocation Service</p>
+
+<div class="footer-content">
+<p>© HeroMove CZ — Student Arrival Support</p>
+
+<a href="index.html">Home</a>
+<a href="events.html">Events</a>
+<a href="travel.html">Travel</a>
+</div>
+
 </footer>
-
-
-<script>
-function sendRelocationWhatsApp(){
-const form=document.getElementById('StudentArrivalSupport');
-if(!form.checkValidity()){
-alert('Please fill required fields');
-return;
-}
-
-const data=new FormData(form);
-
-let msg=`🎓 Student Relocation Booking
-
-Name: ${data.get('fullName')}
-Phone: ${data.get('phone')}
-City: ${data.get('city')}
-Pickup: ${data.get('pickup')}
-Destination: ${data.get('destination')}
-Date: ${data.get('moveDate')}
-Move Size: ${data.get('moveSize')}`;
-
-window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
-}
-</script>
-
-<script src="script.js"></script>
 
 </body>
 </html>

@@ -2,128 +2,184 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Airport Pickup — HeroMove CZ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Airport Pickup Booking | HeroMove CZ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAV ================= -->
 <nav class="nav">
-<div class="nav-brand">
-<h2 class="logo-text">
-<a href="index.html">
-<span class="logo-rocket">🚀</span>
-<span class="hero-word">Hero</span><span class="move-word">Move</span> CZ
-</a>
-</h2>
-</div>
+  <div class="nav-brand">
+    <h2 class="logo-text">
+      <span class="logo-rocket">🚀</span>HeroMoveCZ
+    </h2>
+  </div>
+
+  <div class="nav-toggle">☰</div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="airport-pickup.html" class="nav-btn">Airport Pickup</a>
+  </div>
 </nav>
 
+<!-- ================= HERO ================= -->
+<section class="hero-banner">
 
-<section class="section">
-<div class="signup-container">
+<img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1600&auto=format&fit=crop"
+class="banner-img">
 
-<div class="signup-header">
-<h1>✈️ Airport Pickup Booking</h1>
-<p>Book your airport transfer quickly and safely with HeroMove CZ.</p>
-</div>
-<!-- ✅ FORM START -->
-<form class="heroForm" enctype="multipart/form-data">
+<div class="banner-overlay">
 
-<input type="hidden" name="service" value="Airport Booking">
-
-<!-- PASSENGER DETAILS -->
-<fieldset class="form-section">
-<legend>Passenger Details</legend>
-
-<div class="form-group">
-<label>Full Name *</label>
-<input type="text" name="fullName" required>
+<div class="badge-text">
+✈️ Private Airport Transfer
+<span>Vienna Airport • Prague Airport • Brno Transfers</span>
 </div>
 
-<div class="form-group">
-<label>Email *</label>
-<input type="email" name="email" required>
-</div>
-
-<div class="form-group">
-<label>Phone *</label>
-<input type="tel" name="phone" required>
-</div>
-
-</fieldset>
-
-<!-- FLIGHT INFO -->
-<fieldset class="form-section">
-<legend>Flight Information</legend>
-
-<div class="form-group">
-<label>Airport *</label>
-<select name="airport" required>
-<option value="">Select</option>
-<option>Prague Airport (PRG)</option>
-<option>Brno Airport (BRQ)</option>
-<option>Vienna Airport (VIE)</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Flight Number *</label>
-<input type="text" name="flightNumber" required>
-</div>
-
-<div class="form-group">
-<label>Arrival Date *</label>
-<input type="date" name="arrivalDate" required>
-</div>
-
-<div class="form-group">
-<label>Arrival Time *</label>
-<input type="time" name="arrivalTime" required>
-</div>
-
-</fieldset>
-
-<!-- TRIP DETAILS -->
-<fieldset class="form-section">
-<legend>Trip Details</legend>
-
-<div class="form-group">
-<label>Destination *</label>
-<input type="text" name="destination" required>
-</div>
-
-<div class="form-group">
-<label>Passengers *</label>
-<input type="number" name="passengers" min="1" required>
-</div>
-
-<div class="form-group">
-<label>Luggage</label>
-<input type="number" name="luggage" min="0">
-</div>
-
-<div class="form-group">
-<label>Notes</label>
-<textarea name="notes"></textarea>
-</div>
-
-</fieldset>
-
-<button type="submit" class="btn-main">📧 Book Airport Pickup</button>
-
-</form>
-<!-- ✅ FORM END -->
+<h1>Private Airport Pickup in Czech Republic</h1>
+<a href="#booking" class="banner-btn">🧳 Book Airport Pickup</a>
 
 </div>
 </section>
 
+<!-- ================= WHY AIRPORT PICKUP ================= -->
+<section class="section arrival-journey">
 
+<h2 class="section-title">Stress-Free Airport Pickup Service</h2>
+
+<div class="container grid grid-4">
+
+<div class="feature-card">
+<h3>🪪 Meet & Greet at Arrival</h3>
+<p>Your driver waits at the airport holding your name sign.</p>
+</div>
+
+<div class="feature-card">
+<h3>🧳 Extra Luggage Friendly</h3>
+<p>Ideal for students moving with suitcases and boxes.</p>
+</div>
+
+<div class="feature-card">
+<h3>🌍 English Speaking Drivers</h3>
+<p>Clear communication after landing in a new country.</p>
+</div>
+
+<div class="feature-card">
+<h3>🚗 Direct Door-to-Door Transfer</h3>
+<p>From airport directly to dormitory or apartment.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ================= AIRPORT ROUTES ================= -->
+<section class="section dark">
+<div class="container">
+
+<h2 class="section-title">Airport Pickup Routes</h2>
+
+<div class="grid grid-3">
+
+<div class="card-ui">
+<h3>🇦🇹 Vienna Airport → Brno</h3>
+<p>Most popular international student route with comfortable long-distance transfer.</p>
+<a href="#booking" class="btn-main">Book Vienna Pickup</a>
+</div>
+
+<div class="card-ui">
+<h3>🇨🇿 Prague Airport → Brno</h3>
+<p>Reliable private transfer for students studying in South Moravia.</p>
+<a href="#booking" class="btn-main">Book Prague → Brno</a>
+</div>
+
+<div class="card-ui">
+<h3>🇨🇿 Prague Airport → Prague City</h3>
+<p>Safe pickup from airport to university dorms and city accommodation.</p>
+<a href="#booking" class="btn-main">Book Prague Transfer</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= HOW AIRPORT PICKUP WORKS ================= -->
+<section class="section">
+<div class="container">
+
+<h2 class="section-title">How Airport Pickup Works</h2>
+
+<div class="flow">
+
+<div class="flow-card">
+<h3>📩 Send Flight Details</h3>
+<p>Provide your flight number and destination city.</p>
+</div>
+
+<div class="flow-card">
+<h3>🛬 Driver Tracks Arrival</h3>
+<p>We monitor delays so you don’t stress.</p>
+</div>
+
+<div class="flow-card">
+<h3>🤝 Meet at Airport</h3>
+<p>Driver welcomes you at arrival hall.</p>
+</div>
+
+<div class="flow-card">
+<h3>🏡 Safe Drop-Off</h3>
+<p>Direct transfer to your accommodation.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ================= STUDENT AIRPORT BENEFITS ================= -->
+<section class="section dark">
+<div class="container">
+
+<h2 class="section-title">Designed for International Students</h2>
+
+<div class="grid grid-3">
+
+<div class="card-ui">
+<h3>🎓 First-Time Arrival Support</h3>
+<p>No confusion with public transport after long flights.</p>
+</div>
+
+<div class="card-ui">
+<h3>🌙 Late Night Pickup Available</h3>
+<p>Airport transfers available even for early morning arrivals.</p>
+</div>
+
+<div class="card-ui">
+<h3>💼 Private & Comfortable</h3>
+<p>Travel safely with experienced local drivers.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-section" id="booking">
+<h2>Book Your Airport Pickup Today</h2>
+<p>Private student transfers from Vienna Airport, Prague Airport and Brno.</p>
+<a href="airport-pickup-form.html" class="btn-main">🚀 Reserve Airport Transfer</a>
+</section>
+
+<!-- ================= FOOTER ================= -->
 <footer>
-<p>© HeroMove CZ</p>
+<div class="footer-content">
+<p>© HeroMove CZ — Airport Pickup Service</p>
+<a href="index.html">Home</a>
+<a href="airport-pickup.html">Airport Pickup</a>
+</div>
 </footer>
-<script src="script.js"></script>
+
 </body>
 </html>
