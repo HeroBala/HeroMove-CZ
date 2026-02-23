@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
 import resend
+import base64
 
 # ===============================
 # LOAD ENV VARIABLES
@@ -59,24 +60,72 @@ def format_label(key: str):
     return new_label.strip().title()
 
 # ===============================
-# SEND BOOKING
+# SEND BOOKING / APPLICATION
+# PRO+ VERSION
 # ===============================
 @app.post("/send-booking")
 async def send_booking(request: Request):
 
     try:
         form = await request.form()
+
         data = {}
+        attachments = []
+
+        # ⭐ PRO+: max file size protection (5MB)
+        MAX_FILE_SIZE = 5 * 1024 * 1024
 
         for key, value in form.items():
-            data[key] = value
+
+            # ===============================
+            # FILE HANDLING
+            # ===============================
+            if hasattr(value, "filename") and value.filename:
+
+                print("📎 FILE RECEIVED:", value.filename)
+
+                file_bytes = await value.read()
+
+                # 🚨 FILE SIZE CHECK
+                if len(file_bytes) > MAX_FILE_SIZE:
+                    print("❌ File too large:", value.filename)
+                    return {
+                        "status": "error",
+                        "message": "File too large (max 5MB)"
+                    }
+
+                encoded = base64.b64encode(file_bytes).decode()
+
+                attachments.append({
+                    "filename": value.filename,
+                    "content": f"data:{value.content_type};base64,{encoded}"
+                })
+
+                # show filename in email body
+                data[key] = value.filename
+
+            else:
+                data[key] = value
 
         print("📩 RECEIVED DATA:", data)
 
-        service = data.get("service", "HeroMove Booking")
+        # ===============================
+        # SMART SUBJECT LINE
+        # ===============================
+        service = data.get("service", "HeroMove Request")
 
+        if "job" in service.lower():
+            subject_prefix = "🧑‍💼 Job Application"
+        elif "airport" in service.lower():
+            subject_prefix = "✈️ Airport Booking"
+        else:
+            subject_prefix = "🚀 HeroMove Request"
+
+        # ===============================
+        # BUILD HTML EMAIL
+        # ===============================
         html_message = f"""
-        <h2>🚀 New {service} Request</h2>
+        <h2>{subject_prefix}</h2>
         <hr>
         """
 
@@ -95,11 +144,15 @@ async def send_booking(request: Request):
             <p><strong>{label}:</strong> {value}</p>
             """
 
+        # ===============================
+        # SEND EMAIL
+        # ===============================
         resend.Emails.send({
             "from": "HeroMove <onboarding@resend.dev>",
             "to": [EMAIL_USER],
-            "subject": f"🚀 New {service} Request",
+            "subject": f"{subject_prefix}",
             "html": html_message,
+            "attachments": attachments
         })
 
         print("✅ Email sent via Resend")
