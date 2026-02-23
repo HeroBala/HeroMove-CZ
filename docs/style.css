@@ -948,3 +948,88 @@ transform:rotate(45deg);
 #careers-faq-container:target .careers-faq-item{
 box-shadow:0 8px 24px rgba(34,197,94,.08);
 }
+
+
+/* ===== HERO MOVE PREMIUM FOOTER ===== */
+
+footer {
+  background: linear-gradient(180deg, #071a2c 0%, #041220 100%);
+  padding: 48px 20px 34px;
+  text-align: center;
+  border-top: 1px solid rgba(0,255,180,0.12);
+  position: relative;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* subtle glow divider */
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,255,180,0.6),
+    transparent
+  );
+}
+
+/* container */
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* copyright text */
+.footer-content p {
+  color: #c9d4df;
+  font-size: 14px;
+  margin-bottom: 16px;
+  letter-spacing: 0.4px;
+}
+
+/* links */
+.footer-content a {
+  color: #9b5cff;                 /* hero purple */
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+/* glow hover effect */
+.footer-content a:hover {
+  color: #00ffb4;                 /* hero green accent */
+  background: rgba(0,255,180,0.08);
+  box-shadow: 0 0 12px rgba(0,255,180,0.18);
+  transform: translateY(-2px);
+}
+
+/* active press feel */
+.footer-content a:active {
+  transform: translateY(0);
+  box-shadow: 0 0 6px rgba(0,255,180,0.2);
+}
+
+/* mobile layout */
+@media (max-width: 640px) {
+
+  footer {
+    padding: 36px 16px 28px;
+  }
+
+  .footer-content a {
+    display: block;
+    margin: 8px auto;
+    width: fit-content;
+  }
+}
