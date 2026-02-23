@@ -64,8 +64,8 @@
 <p>Fast and reliable delivery for packages, documents, and goods.</p>
 </div>
 
-<form class="heroForm">
-    <input type="hidden"name="service" value="Courier Delivery Booking">
+<form id="courierForm" class="heroForm" data-endpoint="/send-booking" enctype="multipart/form-data">
+    <input type="hidden" name="service" value="Courier Delivery ">
 
 <!-- CONTACT -->
 <fieldset class="form-section">
@@ -264,34 +264,6 @@ Vehicle: ${data.get('vehicle')}`;
 
 window.open(`https://wa.me/420608147604?text=${encodeURIComponent(msg)}`,'_blank');
 }
-</script>
-<script>
-document.querySelectorAll(".heroForm").forEach(form => {
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    try {
-      const formData = new FormData(form);
-
-      const res = await fetch("http://127.0.0.1:8000/send-booking", {
-        method: "POST",
-        body: formData
-      });
-
-      const result = await res.json();
-
-      alert(result.message);
-      form.reset();
-
-    } catch (err) {
-      console.error(err);
-      alert("❌ Failed to send booking.");
-    }
-
-  });
-
-});
 </script>
 <script src="script.js"></script>
 
