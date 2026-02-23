@@ -124,35 +124,6 @@
 <footer>
 <p>© HeroMove CZ</p>
 </footer>
-
-
-<!-- ✅ UNIVERSAL SUBMIT SCRIPT -->
-<script>
-const form = document.getElementById("bookingForm");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  try {
-    const formData = new FormData(form);
-
-    console.log("FORM DATA:", Object.fromEntries(formData.entries()));
-
-    const res = await fetch("http://127.0.0.1:8000/send-booking", {
-      method: "POST",
-      body: formData
-    });
-
-    const result = await res.json();
-
-    alert(result.message);
-    form.reset();
-
-  } catch (err) {
-    console.error(err);
-    alert("❌ Failed to send booking.");
-  }
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>
