@@ -165,21 +165,65 @@ async def send_booking(request: Request):
 
         if user_email:
 
-            user_html = f"""
-            <div style="font-family:Arial;padding:25px;">
-                <h2>🚀 HeroMove CZ Application Received</h2>
-                <p>Hello,</p>
+            user_html = fuser_html = f"""
+                <div style="background:#0b1220;padding:40px 20px;font-family:Arial,Helvetica,sans-serif;">
+                <div style="max-width:600px;margin:auto;background:#111827;border-radius:14px;padding:30px;color:#e5e7eb;">
 
-                <p>Thank you for submitting your application.</p>
+                    <!-- HEADER -->
+                    <div style="text-align:center;margin-bottom:20px;">
+                    <h1 style="margin:0;color:#22c55e;font-weight:700;">🚀 HeroMove CZ</h1>
+                    <p style="margin:5px 0 0;color:#9ca3af;">Courier • Transport • Support Services</p>
+                    </div>
 
-                <p><strong>Application Type:</strong> {subject_prefix}</p>
+                    <!-- TITLE -->
+                    <h2 style="color:#ffffff;margin-top:10px;">
+                    ✅ Application Received
+                    </h2>
 
-                <p>Our onboarding team will contact you shortly.</p>
+                    <p style="color:#d1d5db;">
+                    Hello,
+                    </p>
 
-                <hr>
-                <p>HeroMove CZ Team</p>
-            </div>
-            """
+                    <p style="color:#d1d5db;">
+                    Thank you for submitting your application to <strong>HeroMove CZ</strong>.
+                    Our onboarding team has successfully received your request.
+                    </p>
+
+                    <!-- SERVICE BOX -->
+                    <div style="
+                    background:#020617;
+                    border:1px solid #1f2937;
+                    padding:16px;
+                    border-radius:10px;
+                    margin:20px 0;
+                    ">
+                    <strong style="color:#22c55e;">Application Type:</strong>
+                    <span style="color:#e5e7eb;"> {subject_prefix}</span>
+                    </div>
+
+                    <p style="color:#d1d5db;">
+                    📞 Our onboarding specialist will contact you shortly with the next steps.
+                    </p>
+
+                    <p style="color:#d1d5db;">
+                    If you have any questions, simply reply to this email.
+                    </p>
+
+                    <hr style="border:none;border-top:1px solid #1f2937;margin:25px 0;">
+
+                    <!-- FOOTER -->
+                    <div style="text-align:center;">
+                    <p style="margin:0;color:#9ca3af;">
+                        HeroMove CZ Team
+                    </p>
+                    <p style="margin:6px 0 0;color:#6b7280;font-size:13px;">
+                        Reliable courier & transport solutions across Czech Republic
+                    </p>
+                    </div>
+
+                </div>
+                </div>
+                """
 
             resend.Emails.send({
                 "from": "HeroMove <onboarding@resend.dev>",
