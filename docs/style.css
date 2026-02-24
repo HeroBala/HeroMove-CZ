@@ -510,7 +510,7 @@ letter-spacing:.2px;
 
 .section-title{
 font-size:28px;
-margin:70px 0 15px 0;
+margin:40px 0 15px 0;
 text-align:center;
 color:#e5e7eb;
 }
@@ -1206,7 +1206,7 @@ width:100%;
 .section.dark{
 max-width:1200px;
 margin:0 auto;
-padding:70px 20px;
+padding:50px 20px;
 }
 
 /* center the events grid itself */
@@ -1241,7 +1241,7 @@ margin-top:auto;   /* pushes button to bottom */
 /* Fix hero button spacing */
 .service-hero .btn-main{
 display:inline-block;
-margin-top:22px;
+margin-top:12px;
 }
 
 /* Center dark section correctly */
@@ -1284,7 +1284,7 @@ margin-top:auto;
 body .section.dark{
 max-width:1200px !important;
 margin:0 auto !important;
-padding:20px 20px !important;
+padding:0px 20px !important;
 }
 
 /* stabilize container */
