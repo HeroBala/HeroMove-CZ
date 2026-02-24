@@ -33,6 +33,7 @@ app.add_middleware(
 # INIT RESEND
 resend.api_key = RESEND_API_KEY
 
+
 # ===============================
 # ROOT + HEALTH
 # ===============================
@@ -43,6 +44,7 @@ def root():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
 
 # ===============================
 # FORMAT LABEL
@@ -56,6 +58,7 @@ def format_label(key: str):
         else:
             new_label += char
     return new_label.strip().title()
+
 
 # ===============================
 # SEND BOOKING / APPLICATION
@@ -96,7 +99,6 @@ async def send_booking(request: Request):
                 })
 
                 data[key] = value.filename
-
             else:
                 data[key] = value
 
@@ -120,70 +122,40 @@ async def send_booking(request: Request):
             subject_prefix = f"🚀 {service}"
 
         # ===============================
-        # BUILD ADMIN EMAIL HTML
+        # ENTERPRISE ADMIN EMAIL
         # ===============================
-       # ===============================
-# BUILD ENTERPRISE ADMIN EMAIL
-# ===============================
+        platform = str(data.get("platform", "")).lower()
 
-platform = str(data.get("platform","")).lower()
+        badge_color = "#22c55e"
+        badge_label = "HeroMove Application"
 
-badge_color = "#22c55e"
-badge_label = "HeroMove Application"
+        if "bolt" in platform:
+            badge_color = "#7c3aed"
+            badge_label = "Bolt Fleet Application"
+        elif "wolt" in platform:
+            badge_color = "#06b6d4"
+            badge_label = "Wolt Fleet Application"
+        elif "foodora" in platform:
+            badge_color = "#ef4444"
+            badge_label = "Foodora Fleet Application"
 
-if "bolt" in platform:
-    badge_color = "#7c3aed"
-    badge_label = "Bolt Fleet Application"
-elif "wolt" in platform:
-    badge_color = "#06b6d4"
-    badge_label = "Wolt Fleet Application"
-elif "foodora" in platform:
-    badge_color = "#ef4444"
-    badge_label = "Foodora Fleet Application"
-
-html_message = f"""
-        <div style="background:#020617;padding:40px 20px;font-family:Arial,Helvetica,sans-serif;">
+        html_message = f"""
+        <div style="background:#020617;padding:40px 20px;font-family:Arial;">
         <div style="max-width:720px;margin:auto;background:#0b1220;border-radius:16px;padding:30px;color:#e5e7eb;">
 
-            <!-- HEADER -->
-            <div style="text-align:center;margin-bottom:25px;">
-            <h1 style="margin:0;color:#22c55e;">🚀 HeroMove CZ</h1>
-            <p style="margin:6px 0;color:#94a3b8;">New Fleet Application Received</p>
-            </div>
+        <h1 style="color:#22c55e;text-align:center;">🚀 HeroMove CZ</h1>
+        <p style="text-align:center;color:#94a3b8;">New Fleet Application Received</p>
 
-            <!-- PLATFORM BADGE -->
-            <div style="text-align:center;margin-bottom:20px;">
-            <span style="
-                background:{badge_color};
-                padding:8px 16px;
-                border-radius:999px;
-                font-weight:700;
-                color:white;
-                font-size:14px;
-            ">
-                {badge_label}
-            </span>
-            </div>
+        <div style="text-align:center;margin:15px 0;">
+        <span style="background:{badge_color};padding:8px 16px;border-radius:999px;color:#fff;font-weight:700;">
+        {badge_label}
+        </span>
+        </div>
 
-            <!-- APPLICANT CARD -->
-            <div style="
-            background:#020617;
-            border:1px solid #1f2937;
-            border-radius:12px;
-            padding:18px;
-            margin-bottom:25px;
-            ">
-            <p style="margin:0;color:#9ca3af;font-size:13px;">Applicant</p>
-            <h2 style="margin:6px 0 0;color:#ffffff;">
-                {data.get("fullName","New Applicant")}
-            </h2>
-            <p style="margin:6px 0 0;color:#9ca3af;">
-                {data.get("email","")} • {data.get("phone","")}
-            </p>
-            </div>
+        <h2 style="margin-top:20px;">{data.get("fullName","New Applicant")}</h2>
+        <p style="color:#9ca3af;">{data.get("email","")} • {data.get("phone","")}</p>
 
-            <!-- DATA TABLE -->
-            <table style="width:100%;border-collapse:collapse;">
+        <table style="width:100%;border-collapse:collapse;">
         """
 
         ignore_fields = [
@@ -198,10 +170,17 @@ html_message = f"""
             label = format_label(key)
 
             html_message += f"""
-            <p><strong>{label}:</strong> {value}</p>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid #1f2937;color:#9ca3af;">
+                {label}
+              </td>
+              <td style="padding:10px;border-bottom:1px solid #1f2937;color:#fff;font-weight:600;">
+                {value}
+              </td>
+            </tr>
             """
 
-        html_message += "</div>"
+        html_message += "</table></div></div>"
 
         # ===============================
         # SEND ADMIN EMAIL
@@ -223,65 +202,30 @@ html_message = f"""
 
         if user_email:
 
-            user_html = fuser_html = f"""
-                <div style="background:#0b1220;padding:40px 20px;font-family:Arial,Helvetica,sans-serif;">
-                <div style="max-width:600px;margin:auto;background:#111827;border-radius:14px;padding:30px;color:#e5e7eb;">
+            user_html = f"""
+            <div style="background:#0b1220;padding:40px 20px;font-family:Arial;">
+            <div style="max-width:600px;margin:auto;background:#111827;border-radius:14px;padding:30px;color:#e5e7eb;">
 
-                    <!-- HEADER -->
-                    <div style="text-align:center;margin-bottom:20px;">
-                    <h1 style="margin:0;color:#22c55e;font-weight:700;">🚀 HeroMove CZ</h1>
-                    <p style="margin:5px 0 0;color:#9ca3af;">Courier • Transport • Support Services</p>
-                    </div>
+            <h1 style="color:#22c55e;text-align:center;">🚀 HeroMove CZ</h1>
+            <h2>✅ Application Received</h2>
 
-                    <!-- TITLE -->
-                    <h2 style="color:#ffffff;margin-top:10px;">
-                    ✅ Application Received
-                    </h2>
+            <p>Hello,</p>
 
-                    <p style="color:#d1d5db;">
-                    Hello,
-                    </p>
+            <p>Thank you for submitting your application to <strong>HeroMove CZ</strong>.</p>
 
-                    <p style="color:#d1d5db;">
-                    Thank you for submitting your application to <strong>HeroMove CZ</strong>.
-                    Our onboarding team has successfully received your request.
-                    </p>
+            <div style="background:#020617;border:1px solid #1f2937;padding:14px;border-radius:10px;">
+            Application Type: <strong>{subject_prefix}</strong>
+            </div>
 
-                    <!-- SERVICE BOX -->
-                    <div style="
-                    background:#020617;
-                    border:1px solid #1f2937;
-                    padding:16px;
-                    border-radius:10px;
-                    margin:20px 0;
-                    ">
-                    <strong style="color:#22c55e;">Application Type:</strong>
-                    <span style="color:#e5e7eb;"> {subject_prefix}</span>
-                    </div>
+            <p>Our onboarding specialist will contact you shortly.</p>
 
-                    <p style="color:#d1d5db;">
-                    📞 Our onboarding specialist will contact you shortly with the next steps.
-                    </p>
+            <hr style="border:none;border-top:1px solid #1f2937;margin:20px 0;">
 
-                    <p style="color:#d1d5db;">
-                    If you have any questions, simply reply to this email.
-                    </p>
+            <p style="color:#9ca3af;">HeroMove CZ Team</p>
 
-                    <hr style="border:none;border-top:1px solid #1f2937;margin:25px 0;">
-
-                    <!-- FOOTER -->
-                    <div style="text-align:center;">
-                    <p style="margin:0;color:#9ca3af;">
-                        HeroMove CZ Team
-                    </p>
-                    <p style="margin:6px 0 0;color:#6b7280;font-size:13px;">
-                        Reliable courier & transport solutions across Czech Republic
-                    </p>
-                    </div>
-
-                </div>
-                </div>
-                """
+            </div>
+            </div>
+            """
 
             resend.Emails.send({
                 "from": "HeroMove <onboarding@resend.dev>",
