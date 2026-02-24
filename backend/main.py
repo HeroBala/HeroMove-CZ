@@ -122,11 +122,33 @@ async def send_booking(request: Request):
         # ===============================
         # BUILD ADMIN EMAIL HTML
         # ===============================
-        html_message = f"""
-        <div style="font-family:Arial;padding:20px;">
-        <h2>{subject_prefix}</h2>
-        <hr>
-        """
+       html_message = f"""
+            <div style="background:#0b1220;padding:40px 20px;font-family:Arial,Helvetica,sans-serif;">
+            <div style="max-width:720px;margin:auto;background:#111827;border-radius:14px;padding:30px;color:#e5e7eb;">
+
+                <!-- HEADER -->
+                <div style="text-align:center;margin-bottom:25px;">
+                <h1 style="margin:0;color:#22c55e;">🚀 HeroMove CZ</h1>
+                <p style="margin:5px 0;color:#9ca3af;">New Application Received</p>
+                </div>
+
+                <!-- APPLICATION TYPE -->
+                <div style="
+                background:#020617;
+                border:1px solid #1f2937;
+                padding:18px;
+                border-radius:10px;
+                margin-bottom:25px;
+                text-align:center;
+                ">
+                <strong style="color:#22c55e;font-size:16px;">
+                    {subject_prefix}
+                </strong>
+                </div>
+
+                <!-- DATA TABLE -->
+                <table style="width:100%;border-collapse:collapse;">
+            """
 
         ignore_fields = [
             "service","terms","_captcha",
