@@ -122,33 +122,69 @@ async def send_booking(request: Request):
         # ===============================
         # BUILD ADMIN EMAIL HTML
         # ===============================
-       html_message = f"""
-            <div style="background:#0b1220;padding:40px 20px;font-family:Arial,Helvetica,sans-serif;">
-            <div style="max-width:720px;margin:auto;background:#111827;border-radius:14px;padding:30px;color:#e5e7eb;">
+       # ===============================
+# BUILD ENTERPRISE ADMIN EMAIL
+# ===============================
 
-                <!-- HEADER -->
-                <div style="text-align:center;margin-bottom:25px;">
-                <h1 style="margin:0;color:#22c55e;">🚀 HeroMove CZ</h1>
-                <p style="margin:5px 0;color:#9ca3af;">New Application Received</p>
-                </div>
+platform = str(data.get("platform","")).lower()
 
-                <!-- APPLICATION TYPE -->
-                <div style="
-                background:#020617;
-                border:1px solid #1f2937;
-                padding:18px;
-                border-radius:10px;
-                margin-bottom:25px;
-                text-align:center;
-                ">
-                <strong style="color:#22c55e;font-size:16px;">
-                    {subject_prefix}
-                </strong>
-                </div>
+badge_color = "#22c55e"
+badge_label = "HeroMove Application"
 
-                <!-- DATA TABLE -->
-                <table style="width:100%;border-collapse:collapse;">
-            """
+if "bolt" in platform:
+    badge_color = "#7c3aed"
+    badge_label = "Bolt Fleet Application"
+elif "wolt" in platform:
+    badge_color = "#06b6d4"
+    badge_label = "Wolt Fleet Application"
+elif "foodora" in platform:
+    badge_color = "#ef4444"
+    badge_label = "Foodora Fleet Application"
+
+html_message = f"""
+        <div style="background:#020617;padding:40px 20px;font-family:Arial,Helvetica,sans-serif;">
+        <div style="max-width:720px;margin:auto;background:#0b1220;border-radius:16px;padding:30px;color:#e5e7eb;">
+
+            <!-- HEADER -->
+            <div style="text-align:center;margin-bottom:25px;">
+            <h1 style="margin:0;color:#22c55e;">🚀 HeroMove CZ</h1>
+            <p style="margin:6px 0;color:#94a3b8;">New Fleet Application Received</p>
+            </div>
+
+            <!-- PLATFORM BADGE -->
+            <div style="text-align:center;margin-bottom:20px;">
+            <span style="
+                background:{badge_color};
+                padding:8px 16px;
+                border-radius:999px;
+                font-weight:700;
+                color:white;
+                font-size:14px;
+            ">
+                {badge_label}
+            </span>
+            </div>
+
+            <!-- APPLICANT CARD -->
+            <div style="
+            background:#020617;
+            border:1px solid #1f2937;
+            border-radius:12px;
+            padding:18px;
+            margin-bottom:25px;
+            ">
+            <p style="margin:0;color:#9ca3af;font-size:13px;">Applicant</p>
+            <h2 style="margin:6px 0 0;color:#ffffff;">
+                {data.get("fullName","New Applicant")}
+            </h2>
+            <p style="margin:6px 0 0;color:#9ca3af;">
+                {data.get("email","")} • {data.get("phone","")}
+            </p>
+            </div>
+
+            <!-- DATA TABLE -->
+            <table style="width:100%;border-collapse:collapse;">
+        """
 
         ignore_fields = [
             "service","terms","_captcha",
