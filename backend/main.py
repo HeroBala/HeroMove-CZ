@@ -125,6 +125,9 @@ async def send_booking(request: Request):
         elif "airport" in service_lower:
             subject_prefix = "✈️ Airport Booking"
 
+        elif "fleet" in service_lower or "courier" in service_lower:
+            subject_prefix = "🚚 Fleet Courier Application"
+
         else:
             subject_prefix = f"🚀 {service}"
         # ===============================
@@ -174,3 +177,4 @@ async def send_booking(request: Request):
             "status": "error",
             "message": "Server failed to process request"
         }
+        
