@@ -50,18 +50,15 @@ def health():
 def format_label(key: str):
     label = key.replace("_", " ")
     new_label = ""
-
     for char in label:
         if char.isupper():
             new_label += " " + char
         else:
             new_label += char
-
     return new_label.strip().title()
 
 # ===============================
 # SEND BOOKING / APPLICATION
-# PRO+ VERSION
 # ===============================
 @app.post("/send-booking")
 async def send_booking(request: Request):
@@ -72,23 +69,20 @@ async def send_booking(request: Request):
         data = {}
         attachments = []
 
-        # ⭐ PRO+: max file size protection (5MB)
         MAX_FILE_SIZE = 5 * 1024 * 1024
 
+        # ===============================
+        # READ FORM DATA
+        # ===============================
         for key, value in form.items():
 
-            # ===============================
-            # FILE HANDLING
-            # ===============================
             if hasattr(value, "filename") and value.filename:
 
                 print("📎 FILE RECEIVED:", value.filename)
 
                 file_bytes = await value.read()
 
-                # 🚨 FILE SIZE CHECK
                 if len(file_bytes) > MAX_FILE_SIZE:
-                    print("❌ File too large:", value.filename)
                     return {
                         "status": "error",
                         "message": "File too large (max 5MB)"
@@ -101,7 +95,6 @@ async def send_booking(request: Request):
                     "content": f"data:{value.content_type};base64,{encoded}"
                 })
 
-                # show filename in email body
                 data[key] = value.filename
 
             else:
@@ -110,30 +103,27 @@ async def send_booking(request: Request):
         print("📩 RECEIVED DATA:", data)
 
         # ===============================
-        # SMART SUBJECT LINE
+        # SUBJECT DETECTION
         # ===============================
         service = data.get("service", "HeroMove Request")
-
         service_lower = service.lower()
 
         if "student" in service_lower:
             subject_prefix = "🎓 Student Arrival Support"
-
         elif "job" in service_lower:
             subject_prefix = "🧑‍💼 Job Application"
-
         elif "airport" in service_lower:
             subject_prefix = "✈️ Airport Booking"
-
         elif "fleet" in service_lower or "courier" in service_lower:
             subject_prefix = "🚚 Fleet Courier Application"
-
         else:
             subject_prefix = f"🚀 {service}"
+
         # ===============================
-        # BUILD HTML EMAIL
+        # BUILD ADMIN EMAIL HTML
         # ===============================
         html_message = f"""
+        <div style="font-family:Arial;padding:20px;">
         <h2>{subject_prefix}</h2>
         <hr>
         """
@@ -153,18 +143,52 @@ async def send_booking(request: Request):
             <p><strong>{label}:</strong> {value}</p>
             """
 
+        html_message += "</div>"
+
         # ===============================
-        # SEND EMAIL
+        # SEND ADMIN EMAIL
         # ===============================
         resend.Emails.send({
             "from": "HeroMove <onboarding@resend.dev>",
-            "to": [EMAIL_USER],
-            "subject": f"{subject_prefix}",
+            "to": [EMAIL_USER] if EMAIL_USER else [],
+            "subject": subject_prefix,
             "html": html_message,
             "attachments": attachments
         })
 
-        print("✅ Email sent via Resend")
+        print("✅ Admin email sent")
+
+        # ===============================
+        # AUTO REPLY TO USER
+        # ===============================
+        user_email = data.get("email")
+
+        if user_email:
+
+            user_html = f"""
+            <div style="font-family:Arial;padding:25px;">
+                <h2>🚀 HeroMove CZ Application Received</h2>
+                <p>Hello,</p>
+
+                <p>Thank you for submitting your application.</p>
+
+                <p><strong>Application Type:</strong> {subject_prefix}</p>
+
+                <p>Our onboarding team will contact you shortly.</p>
+
+                <hr>
+                <p>HeroMove CZ Team</p>
+            </div>
+            """
+
+            resend.Emails.send({
+                "from": "HeroMove <onboarding@resend.dev>",
+                "to": [user_email],
+                "subject": f"✅ We received your {subject_prefix}",
+                "html": user_html
+            })
+
+            print("📨 User auto-reply sent")
 
         return {
             "status": "success",
@@ -177,4 +201,3 @@ async def send_booking(request: Request):
             "status": "error",
             "message": "Server failed to process request"
         }
-        
