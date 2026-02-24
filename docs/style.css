@@ -1202,20 +1202,25 @@ width:100%;
 /* HERO MOVE — EVENTS ALIGNMENT FIX  */
 /* ================================= */
 
-/* center dark event section */
+/* ================================= */
+/* HERO MOVE — DARK SECTION FIX */
+/* ================================= */
+
+/* keep dark sections full width */
 .section.dark{
+width:100%;
+padding:80px 20px;   /* vertical breathing space */
+margin:80px 0;       /* top/bottom spacing only */
+}
+
+/* center inner content */
+.section.dark > *{
 max-width:1200px;
-margin:0 auto;
-padding:50px 20px;
+margin-left:auto;
+margin-right:auto;
 }
 
-/* center the events grid itself */
-.section.dark .container{
-max-width:1100px;
-margin:0 auto;
-}
-
-/* make cards center perfectly */
+/* center grids */
 .section.dark .grid{
 justify-content:center;
 }
