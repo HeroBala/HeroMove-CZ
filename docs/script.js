@@ -179,23 +179,39 @@ document.addEventListener("DOMContentLoaded", () => {
   🚀 PLATFORM + VEHICLE SMART TOGGLES
   ===================================== */
 
-  document.addEventListener("change", (e) => {
+if(e.target.id === "platformSelect"){
 
-    if(e.target.id === "platformSelect"){
+  const platform = e.target.value;
 
-      const platform = e.target.value;
+  document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="none");
+  document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="none");
 
-      document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="none");
-      document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="none");
+  if(platform==="bolt"){
+    document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="block");
+  }
 
-      if(platform==="bolt"){
-        document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="block");
-      }
+  if(platform==="wolt"){
+    document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="block");
+  }
 
-      if(platform==="wolt"){
-        document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="block");
-      }
+  // 🔥 Dynamic Service Title
+  const serviceInput = document.getElementById("serviceType");
+
+  if(serviceInput){
+    if(platform === "bolt"){
+      serviceInput.value = "Bolt Fleet Application";
     }
+    else if(platform === "wolt"){
+      serviceInput.value = "Wolt Fleet Application";
+    }
+    else if(platform === "foodora"){
+      serviceInput.value = "Foodora Fleet Application";
+    }
+    else{
+      serviceInput.value = "Fleet Courier Application";
+    }
+  }
+}
 
     if(e.target.id === "vehicleType"){
 
