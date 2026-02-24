@@ -1,15 +1,17 @@
 /* ======================================================
-🚀 HERO MOVE — PRO MULTI-FORM MASTER SCRIPT (FINAL FIXED)
-Production safe: Render + FastAPI + Resend
+🚀 HERO MOVE — PRO MULTI-FORM MASTER SCRIPT (PRODUCTION)
+Render + FastAPI + Resend — Stable Version
 ====================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =====================================
-  🔥 WAKE RENDER BACKEND
+  🔥 WAKE RENDER BACKEND EARLY
   ===================================== */
-  fetch("https://heromove-cz.onrender.com/health")
-    .catch(() => console.debug("Backend waking up..."));
+  window.addEventListener("load", () => {
+    fetch("https://heromove-cz.onrender.com/health")
+      .catch(() => console.debug("Backend waking up..."));
+  });
 
   /* =====================================
   MOBILE MENU
@@ -93,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (rocket) setTimeout(() => rocket.classList.add("fly"), 800);
 
   /* =====================================
-  🚀 HERO MOVE — STEP FORM ENGINE
+  🚀 STEP FORM ENGINE
   ===================================== */
 
   const steps = document.querySelectorAll(".step-page");
@@ -124,9 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if(submitBtn){
         const lastStep = index === steps.length-1;
-
         submitBtn.style.display = lastStep ? "inline-block" : "none";
-
         if(nextBtn){
           nextBtn.style.display = lastStep ? "none" : "inline-block";
         }
@@ -154,17 +154,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.nextStep = function(){
       if(!validateCurrentStep()) return;
-
       currentStep++;
       if(currentStep >= steps.length) currentStep = steps.length-1;
-
       showStep(currentStep);
     }
 
     window.prevStep = function(){
       currentStep--;
       if(currentStep < 0) currentStep = 0;
-
       showStep(currentStep);
     }
 
@@ -172,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================
-  🚀 PLATFORM + VEHICLE SMART TOGGLES (FIXED)
+  🚀 PLATFORM + VEHICLE TOGGLES
   ===================================== */
 
   document.addEventListener("change", (e) => {
@@ -211,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if(e.target.id === "vehicleType"){
-
       const show =
         e.target.value === "Scooter" ||
         e.target.value === "Car";
@@ -249,25 +245,48 @@ document.addEventListener("DOMContentLoaded", () => {
         if (submitBtn) {
           submitBtn.dataset.loading = "true";
           submitBtn.dataset.original = submitBtn.innerHTML;
-          submitBtn.innerHTML = "⏳ Sending...";
+          submitBtn.innerHTML = "🚀 Connecting securely...";
           submitBtn.disabled = true;
         }
 
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 45000);
+        /* ============================
+        🚀 AUTO RETRY REQUEST ENGINE
+        ============================ */
+        async function sendRequest(retry = false){
 
-        const res = await fetch(url, {
-          method: "POST",
-          body: formData,
-          headers: { "Accept": "application/json" },
-          signal: controller.signal
-        });
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 45000);
 
-        clearTimeout(timeout);
+          try{
 
-        if (!res.ok) throw new Error("Server returned error");
+            const res = await fetch(url, {
+              method: "POST",
+              body: formData,
+              headers: { "Accept": "application/json" },
+              signal: controller.signal
+            });
 
-        const result = await res.json();
+            clearTimeout(timeout);
+
+            if(!res.ok) throw new Error("Server error");
+
+            return await res.json();
+
+          }catch(err){
+
+            clearTimeout(timeout);
+
+            if(!retry){
+              console.log("⏳ Backend waking — retrying automatically...");
+              await new Promise(r => setTimeout(r, 5000));
+              return await sendRequest(true);
+            }
+
+            throw err;
+          }
+        }
+
+        const result = await sendRequest();
 
         showHeroToast(
           result.message || "✅ Request sent successfully",
@@ -281,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("FORM ERROR:", err);
 
         if (err.name === "AbortError") {
-          showHeroToast("⚠️ Server waking up… please try again", false);
+          showHeroToast("⚠️ Server waking up… please wait", false);
         } else {
           showHeroToast("❌ Failed to send request", false);
         }
