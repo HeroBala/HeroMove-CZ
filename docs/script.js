@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (rocket) setTimeout(() => rocket.classList.add("fly"), 800);
 
   /* =====================================
-  🚀 HERO MOVE — STEP FORM ENGINE (FIXED)
+  🚀 HERO MOVE — STEP FORM ENGINE
   ===================================== */
 
   const steps = document.querySelectorAll(".step-page");
@@ -106,38 +106,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showStep(index){
 
-  const intro = document.getElementById("fleetIntro");
+      const intro = document.getElementById("fleetIntro");
 
-  // 👇 Hide intro after first step
-  if(intro){
-    intro.style.display = index === 0 ? "block" : "none";
-  }
+      if(intro){
+        intro.style.display = index === 0 ? "block" : "none";
+      }
 
-  steps.forEach((s,i)=>{
-    s.style.display = i === index ? "block" : "none";
-  });
+      steps.forEach((s,i)=>{
+        s.style.display = i === index ? "block" : "none";
+      });
 
-  indicators.forEach((d,i)=>{
-    d.classList.toggle("active", i === index);
-  });
+      indicators.forEach((d,i)=>{
+        d.classList.toggle("active", i === index);
+      });
 
-  const nextBtn = document.querySelector(".btn-main:not(.submit-btn)");
+      const nextBtn = document.querySelector(".btn-main:not(.submit-btn)");
 
-  if(submitBtn){
-    const lastStep = index === steps.length-1;
+      if(submitBtn){
+        const lastStep = index === steps.length-1;
 
-    submitBtn.style.display = lastStep ? "inline-block" : "none";
+        submitBtn.style.display = lastStep ? "inline-block" : "none";
 
-    // 👇 Hide NEXT when submit is visible
-    if(nextBtn){
-      nextBtn.style.display = lastStep ? "none" : "inline-block";
+        if(nextBtn){
+          nextBtn.style.display = lastStep ? "none" : "inline-block";
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-    /* 🔥 FIXED VALIDATION — ONLY CURRENT STEP */
     function validateCurrentStep(){
 
       const currentFieldset = steps[currentStep];
@@ -156,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.nextStep = function(){
-
       if(!validateCurrentStep()) return;
 
       currentStep++;
@@ -176,42 +172,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================
-  🚀 PLATFORM + VEHICLE SMART TOGGLES
+  🚀 PLATFORM + VEHICLE SMART TOGGLES (FIXED)
   ===================================== */
 
-if(e.target.id === "platformSelect"){
+  document.addEventListener("change", (e) => {
 
-  const platform = e.target.value;
+    if(e.target.id === "platformSelect"){
 
-  document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="none");
-  document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="none");
+      const platform = e.target.value;
 
-  if(platform==="bolt"){
-    document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="block");
-  }
+      document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="none");
+      document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="none");
 
-  if(platform==="wolt"){
-    document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="block");
-  }
+      if(platform==="bolt"){
+        document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="block");
+      }
 
-  // 🔥 Dynamic Service Title
-  const serviceInput = document.getElementById("serviceType");
+      if(platform==="wolt"){
+        document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="block");
+      }
 
-  if(serviceInput){
-    if(platform === "bolt"){
-      serviceInput.value = "Bolt Fleet Application";
+      const serviceInput = document.getElementById("serviceType");
+
+      if(serviceInput){
+        if(platform === "bolt"){
+          serviceInput.value = "Bolt Fleet Application";
+        }
+        else if(platform === "wolt"){
+          serviceInput.value = "Wolt Fleet Application";
+        }
+        else if(platform === "foodora"){
+          serviceInput.value = "Foodora Fleet Application";
+        }
+        else{
+          serviceInput.value = "Fleet Courier Application";
+        }
+      }
     }
-    else if(platform === "wolt"){
-      serviceInput.value = "Wolt Fleet Application";
-    }
-    else if(platform === "foodora"){
-      serviceInput.value = "Foodora Fleet Application";
-    }
-    else{
-      serviceInput.value = "Fleet Courier Application";
-    }
-  }
-}
 
     if(e.target.id === "vehicleType"){
 
