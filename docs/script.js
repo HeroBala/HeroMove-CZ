@@ -1,5 +1,5 @@
 /* ======================================================
-🚀 HERO MOVE — PRO MULTI-FORM MASTER SCRIPT (FINAL)
+🚀 HERO MOVE — PRO MULTI-FORM MASTER SCRIPT (FINAL FIXED)
 Production safe: Render + FastAPI + Resend
 ====================================================== */
 
@@ -90,9 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   HERO ROCKET AUTO ANIMATION
   ===================================== */
   const rocket = document.querySelector(".hero-rocket");
-  if (rocket) {
-    setTimeout(() => rocket.classList.add("fly"), 800);
-  }
+  if (rocket) setTimeout(() => rocket.classList.add("fly"), 800);
 
   /* =====================================
   🚀 HERO MOVE — STEP FORM ENGINE (FIXED)
@@ -119,16 +117,31 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.style.display =
           index === steps.length-1 ? "inline-block" : "none";
       }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* 🔥 FIXED VALIDATION — ONLY CURRENT STEP */
+    function validateCurrentStep(){
+
+      const currentFieldset = steps[currentStep];
+      if(!currentFieldset) return true;
+
+      const inputs = currentFieldset.querySelectorAll("input, select, textarea");
+
+      for(const input of inputs){
+        if(!input.checkValidity()){
+          input.reportValidity();
+          return false;
+        }
+      }
+
+      return true;
     }
 
     window.nextStep = function(){
 
-      const activeForm = document.querySelector("form.heroForm");
-
-      if(activeForm && !activeForm.checkValidity()){
-        activeForm.reportValidity();
-        return;
-      }
+      if(!validateCurrentStep()) return;
 
       currentStep++;
       if(currentStep >= steps.length) currentStep = steps.length-1;
@@ -175,9 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.target.value === "Car";
 
       const box = document.querySelector(".vehicle-license");
-      if(box){
-        box.style.display = show ? "block" : "none";
-      }
+      if(box) box.style.display = show ? "block" : "none";
     }
 
   });
@@ -187,10 +198,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================== */
 
   const forms = document.querySelectorAll("form.heroForm");
-
-  if (!forms.length) {
-    console.debug("🚀 No heroForm found on this page");
-  }
 
   forms.forEach(form => {
 
@@ -207,7 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
 
         const formData = new FormData(form);
-
         const endpoint = form.dataset.endpoint || "/send-booking";
         const url = "https://heromove-cz.onrender.com" + endpoint;
 
@@ -217,9 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
           submitBtn.innerHTML = "⏳ Sending...";
           submitBtn.disabled = true;
         }
-
-        console.log("🚀 Sending to:", url);
-        console.log("📦 Data:", Object.fromEntries(formData.entries()));
 
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 45000);
