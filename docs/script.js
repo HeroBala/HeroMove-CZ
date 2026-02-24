@@ -105,21 +105,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.querySelector(".submit-btn");
 
     function showStep(index){
-      steps.forEach((s,i)=>{
-        s.style.display = i === index ? "block" : "none";
-      });
 
-      indicators.forEach((d,i)=>{
-        d.classList.toggle("active", i === index);
-      });
+  const intro = document.getElementById("fleetIntro");
 
-      if(submitBtn){
-        submitBtn.style.display =
-          index === steps.length-1 ? "inline-block" : "none";
-      }
+  // 👇 Hide intro after first step
+  if(intro){
+    intro.style.display = index === 0 ? "block" : "none";
+  }
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  steps.forEach((s,i)=>{
+    s.style.display = i === index ? "block" : "none";
+  });
+
+  indicators.forEach((d,i)=>{
+    d.classList.toggle("active", i === index);
+  });
+
+  const nextBtn = document.querySelector(".btn-main:not(.submit-btn)");
+
+  if(submitBtn){
+    const lastStep = index === steps.length-1;
+
+    submitBtn.style.display = lastStep ? "inline-block" : "none";
+
+    // 👇 Hide NEXT when submit is visible
+    if(nextBtn){
+      nextBtn.style.display = lastStep ? "none" : "inline-block";
     }
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
     /* 🔥 FIXED VALIDATION — ONLY CURRENT STEP */
     function validateCurrentStep(){
