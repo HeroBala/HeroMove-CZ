@@ -95,8 +95,97 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================
+  🚀 HERO MOVE — STEP FORM ENGINE (FIXED)
+  ===================================== */
+
+  const steps = document.querySelectorAll(".step-page");
+
+  if (steps.length) {
+
+    let currentStep = 0;
+    const indicators = document.querySelectorAll(".step");
+    const submitBtn = document.querySelector(".submit-btn");
+
+    function showStep(index){
+      steps.forEach((s,i)=>{
+        s.style.display = i === index ? "block" : "none";
+      });
+
+      indicators.forEach((d,i)=>{
+        d.classList.toggle("active", i === index);
+      });
+
+      if(submitBtn){
+        submitBtn.style.display =
+          index === steps.length-1 ? "inline-block" : "none";
+      }
+    }
+
+    window.nextStep = function(){
+
+      const activeForm = document.querySelector("form.heroForm");
+
+      if(activeForm && !activeForm.checkValidity()){
+        activeForm.reportValidity();
+        return;
+      }
+
+      currentStep++;
+      if(currentStep >= steps.length) currentStep = steps.length-1;
+
+      showStep(currentStep);
+    }
+
+    window.prevStep = function(){
+      currentStep--;
+      if(currentStep < 0) currentStep = 0;
+
+      showStep(currentStep);
+    }
+
+    showStep(currentStep);
+  }
+
+  /* =====================================
+  🚀 PLATFORM + VEHICLE SMART TOGGLES
+  ===================================== */
+
+  document.addEventListener("change", (e) => {
+
+    if(e.target.id === "platformSelect"){
+
+      const platform = e.target.value;
+
+      document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="none");
+      document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="none");
+
+      if(platform==="bolt"){
+        document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="block");
+      }
+
+      if(platform==="wolt"){
+        document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="block");
+      }
+    }
+
+    if(e.target.id === "vehicleType"){
+
+      const show =
+        e.target.value === "Scooter" ||
+        e.target.value === "Car";
+
+      const box = document.querySelector(".vehicle-license");
+      if(box){
+        box.style.display = show ? "block" : "none";
+      }
+    }
+
+  });
+
+  /* =====================================
   🚀 HERO MOVE — PRO MULTI FORM ENGINE
   ===================================== */
+
   const forms = document.querySelectorAll("form.heroForm");
 
   if (!forms.length) {
@@ -119,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const formData = new FormData(form);
 
-        // ⭐ PRO: dynamic endpoint per form
         const endpoint = form.dataset.endpoint || "/send-booking";
         const url = "https://heromove-cz.onrender.com" + endpoint;
 
@@ -145,9 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         clearTimeout(timeout);
 
-        if (!res.ok) {
-          throw new Error("Server returned error");
-        }
+        if (!res.ok) throw new Error("Server returned error");
 
         const result = await res.json();
 
@@ -185,6 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =====================================
 🚀 HERO TOAST SYSTEM (GLOBAL)
 ===================================== */
+
 function showHeroToast(message, success = true) {
 
   const toast = document.createElement("div");
@@ -215,87 +302,3 @@ function showHeroToast(message, success = true) {
     setTimeout(() => toast.remove(), 400);
   }, 3000);
 }
-/* =====================================
-🚀 HERO MOVE — STEP FORM ENGINE (SAFE ADDON)
-===================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const steps = document.querySelectorAll(".step-page");
-  if(!steps.length) return;
-
-  let currentStep = 0;
-  const indicators = document.querySelectorAll(".step");
-  const submitBtn = document.querySelector(".submit-btn");
-
-  function showStep(index){
-    steps.forEach((s,i)=>{
-      s.style.display = i === index ? "block" : "none";
-    });
-
-    indicators.forEach((d,i)=>{
-      d.classList.toggle("active", i === index);
-    });
-
-    if(submitBtn){
-      submitBtn.style.display =
-        index === steps.length-1 ? "inline-block" : "none";
-    }
-  }
-
-  window.nextStep = function(){
-
-    const activeForm = document.querySelector("form.heroForm");
-    if(activeForm && !activeForm.checkValidity()){
-      activeForm.reportValidity();
-      return;
-    }
-
-    currentStep++;
-    if(currentStep >= steps.length) currentStep = steps.length-1;
-    showStep(currentStep);
-  }
-
-  window.prevStep = function(){
-    currentStep--;
-    if(currentStep < 0) currentStep = 0;
-    showStep(currentStep);
-  }
-
-  showStep(currentStep);
-});
-/* =====================================
-🚀 PLATFORM + VEHICLE SMART TOGGLES
-===================================== */
-
-document.addEventListener("change", (e) => {
-
-  if(e.target.id === "platformSelect"){
-
-    const platform = e.target.value;
-
-    document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="none");
-    document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="none");
-
-    if(platform==="bolt"){
-      document.querySelectorAll(".platform-bolt").forEach(el=>el.style.display="block");
-    }
-
-    if(platform==="wolt"){
-      document.querySelectorAll(".platform-wolt").forEach(el=>el.style.display="block");
-    }
-  }
-
-  if(e.target.id === "vehicleType"){
-
-    const show =
-      e.target.value === "Scooter" ||
-      e.target.value === "Car";
-
-    const box = document.querySelector(".vehicle-license");
-    if(box){
-      box.style.display = show ? "block" : "none";
-    }
-  }
-
-});
