@@ -1447,3 +1447,26 @@ animation:ambientFloat 20s ease-in-out infinite alternate;
 0%{ transform:translate(-50%,0); }
 100%{ transform:translate(-50%,40px); }
 }
+/* ================================= */
+/* 🚀 MOBILE FIX — STOP LOGO GLITCH */
+/* ================================= */
+
+@media (max-width:768px){
+
+.logo-rocket,
+.logo-rocket-join,
+.logo-text,
+.move-word,
+.earn-move{
+animation:none !important;
+filter:none !important;
+transform:none !important;
+}
+
+}
+@media(max-width:768px){
+.banner-overlay h1{
+font-size:34px;
+line-height:1.15;
+}
+}
