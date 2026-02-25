@@ -1494,3 +1494,97 @@ line-height:1.15;
 padding-top:110px;
 }
 }
+/* ===================================================== */
+/* 🍏 HERO MOVE — iPHONE PRO LAYOUT SYSTEM (SAFE PATCH)  */
+/* ===================================================== */
+
+@media (max-width:768px){
+
+/* ✅ Respect iPhone safe areas (notch + dynamic island) */
+body{
+padding-top:calc(70px + env(safe-area-inset-top));
+padding-left:env(safe-area-inset-left);
+padding-right:env(safe-area-inset-right);
+-webkit-text-size-adjust:100%;
+}
+
+/* ✅ NAVBAR — cleaner mobile spacing */
+.nav{
+padding:14px 18px;
+}
+
+/* ✅ HERO — premium Apple spacing */
+.hero-banner{
+height:78vh;
+min-height:520px;
+}
+
+.banner-overlay{
+padding:20px;
+}
+
+/* ⭐ HERO TEXT — Apple style scaling */
+.banner-overlay h1{
+font-size:34px;
+line-height:1.15;
+letter-spacing:.2px;
+max-width:90%;
+margin:0 auto 14px;
+}
+
+/* subtitle text */
+.banner-overlay p{
+font-size:15px;
+max-width:92%;
+margin:8px auto;
+color:#cbd5e1;
+}
+
+/* CTA button spacing */
+.banner-btn{
+margin-top:14px;
+}
+
+/* ✅ SECTION breathing like Stripe */
+.section{
+padding:50px 0;
+}
+
+/* ✅ CARDS — centered premium layout */
+.flow,
+.grid,
+.cards{
+gap:18px;
+padding-left:16px;
+padding-right:16px;
+}
+
+/* prevent tall stretched cards */
+.flow-card,
+.card-ui{
+height:auto;
+min-height:auto;
+}
+
+/* ✅ FAQ cards smoother mobile look */
+.careers-faq-item{
+border-radius:16px;
+}
+
+/* ✅ Titles scale nicely on iPhone */
+.section-title{
+font-size:22px;
+padding:0 12px;
+}
+
+/* ✅ prevent weird text overflow */
+h1,h2,h3{
+word-break:break-word;
+}
+
+/* ✅ smoother scroll feel */
+html{
+scroll-padding-top:90px;
+}
+
+}
