@@ -12,6 +12,26 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("https://heromove-cz.onrender.com/health")
       .catch(() => console.debug("Backend waking up..."));
   });
+  /* =====================================
+  ⭐ PREMIUM NAVBAR SCROLL EFFECT
+  ===================================== */
+
+  const nav = document.querySelector(".nav");
+
+  window.addEventListener("scroll", () => {
+
+  if(window.scrollY > 40){
+  nav.style.background = "rgba(2,6,23,0.75)";
+  nav.style.backdropFilter = "blur(14px)";
+  nav.style.boxShadow = "0 8px 25px rgba(0,0,0,.35)";
+  }
+  else{
+  nav.style.background = "#020617";
+  nav.style.backdropFilter = "none";
+  nav.style.boxShadow = "none";
+  }
+
+  });
 
   /* =====================================
   MOBILE MENU
@@ -93,6 +113,25 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================== */
   const rocket = document.querySelector(".hero-rocket");
   if (rocket) setTimeout(() => rocket.classList.add("fly"), 800);
+
+    /* =====================================
+  ⭐ HERO PARALLAX DEPTH
+  ===================================== */
+
+  const hero = document.querySelector(".hero-banner");
+
+  if(hero){
+
+  hero.addEventListener("mousemove",(e)=>{
+
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+  hero.style.transform = `translate(${x}px, ${y}px)`;
+
+  });
+
+  }
 
   /* =====================================
   🚀 STEP FORM ENGINE
@@ -353,3 +392,36 @@ function showHeroToast(message, success = true) {
     setTimeout(() => toast.remove(), 400);
   }, 3000);
 }
+
+/* =====================================
+⭐ HERO MOVE — ELITE SCROLL REVEAL ENGINE (FIXED)
+===================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const revealTargets = document.querySelectorAll(
+    ".section, .flow-card, .card, .feature-card, .event-card, .award-section"
+  );
+
+  const observer = new IntersectionObserver((entries, obs) => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+        entry.target.classList.add("active");
+        obs.unobserve(entry.target); // animate once only
+      }
+
+    });
+
+  },{
+    threshold:0.12,
+    rootMargin:"0px 0px -60px 0px"
+  });
+
+  revealTargets.forEach(el => {
+    el.classList.add("reveal"); // ⭐ THIS WAS MISSING
+    observer.observe(el);
+  });
+
+});
