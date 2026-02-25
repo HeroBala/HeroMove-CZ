@@ -157,12 +157,14 @@ box-shadow:0 8px 20px rgba(34,197,94,0.25);
 /* ================================= */
 /* HERO PRO — CINEMATIC */
 /* ================================= */
-
 .hero-banner{
 position:relative;
 width:100%;
-height:520px;
+min-height:100vh;        /* ⭐ full screen height */
 overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 .hero-banner h1 {
 text-shadow: 0 8px 25px rgba(0,0,0,0.55);
@@ -214,14 +216,31 @@ animation:heroZoom 18s ease-in-out infinite alternate;
 .banner-overlay{
 position:absolute;
 inset:0;
-background:
-radial-gradient(circle at 50% 30%, rgba(34,197,94,0.18), transparent 60%),
-rgba(0,0,0,0.55);
+padding-top:90px;       /* space under navbar */
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+background:
+radial-gradient(circle at 50% 30%, rgba(34,197,94,0.18), transparent 60%),
+rgba(0,0,0,0.55);
+}
+@media(max-width:768px){
+
+.hero-banner{
+min-height:92vh;  /* ⭐ prevents Safari jump */
+}
+
+.banner-overlay{
+padding-top:110px;
+}
+
+.banner-overlay h1{
+font-size:34px;
+line-height:1.15;
+}
+
 }
 
 .banner-overlay h1{
@@ -1468,5 +1487,10 @@ transform:none !important;
 .banner-overlay h1{
 font-size:34px;
 line-height:1.15;
+}
+}
+@media(max-width:768px){
+.banner-overlay{
+padding-top:110px;
 }
 }
