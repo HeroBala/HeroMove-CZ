@@ -210,10 +210,6 @@ display:block;
 animation:heroZoom 18s ease-in-out infinite alternate;
 }
 
-@keyframes heroZoom{
-0%{ transform:scale(1); }
-100%{ transform:scale(1.08); }
-}
 
 .banner-overlay{
 position:absolute;

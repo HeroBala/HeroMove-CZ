@@ -114,25 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const rocket = document.querySelector(".hero-rocket");
   if (rocket) setTimeout(() => rocket.classList.add("fly"), 800);
 
-    /* =====================================
-  ⭐ HERO PARALLAX DEPTH
-  ===================================== */
-
-  const hero = document.querySelector(".hero-banner");
-
-  if(hero){
-
-  hero.addEventListener("mousemove",(e)=>{
-
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
-
-  hero.style.transform = `translate(${x}px, ${y}px)`;
-
-  });
-
-  }
-
   /* =====================================
   🚀 STEP FORM ENGINE
   ===================================== */
